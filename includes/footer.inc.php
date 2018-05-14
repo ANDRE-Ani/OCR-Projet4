@@ -1,3 +1,3 @@
 <div class="footer">
-<p>Footer - Copyright</p>
+<p>Copyright 2018 - Jean Forteroche - Ecrivain</p>
 </div>

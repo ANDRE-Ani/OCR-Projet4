@@ -1,3 +1,3 @@
 <div class="header">
- <h1>Blog d'écrivain</h1>
+ <h1>Le blog de l'écrivain Jean Forteroche</h1>
 </div>
