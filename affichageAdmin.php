@@ -22,11 +22,11 @@
       <?php include('includes/header-admin.inc.php'); ?>
 
       <div id="admin">
-        
+
       <div class="envoie">
 
         <h2>Envoyer un nouvel article</h2>
-        <form name="article" method="post" action="saisie.php">
+        <form name="article" method="post" action="affichageAdmin.php">
             Titre : <input type="text" name="titre"/> <br/>
             Auteur : <input type="text" name="auteur"/> <br/>
             <textarea name="contenu"><br /> </textarea>
@@ -37,7 +37,7 @@
     </div>
         <!-- Récupère les variables du formulaire -->
         <?php
-        if(isset($_POST['valider'])){
+         if(isset($_POST['valider'])){
             $titre=$_POST['titre'];
             $auteur=$_POST['auteur'];
             $contenu=$_POST['contenu'];
@@ -46,36 +46,7 @@
         ?>
 
 
-        <!-- Se connecte à la BDD -->
-        <?php
-          try
-          {
-            $bdd = new PDO('mysql:host=localhost;dbname=boutique_ecrivain;charset=utf8', 'boutique_bdd', 'cybergoth1978');
-          }
-          catch (Exception $e)
-          {
-            die('Erreur : ' . $e->getMessage());
-          }
-          ?>
-
-          <!-- Envoie requête dans la BDD -->
-          <?php
-          try {
-              $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
-
-              $req->execute(array(
-                'titre' => $titre,
-                'auteur' => $auteur,
-                'contenu' => $contenu
-              ));
-
-              echo 'L article a bien été ajouté !';
-            }
-            catch (Exception $e)
-            {
-              die('Erreur : ' . $e->getMessage());
-            }
-            ?>
+        
 
 <?php include('includes/footer.inc.php'); ?>
 

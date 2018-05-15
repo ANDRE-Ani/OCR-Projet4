@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <title>Se connecter</title>
+  <title>Le blog de Jean Forteroche</title>
   <meta name="description" content="Le blog de Jean Forteroche" />
   <meta name="author" content="Patrice ANDREANI">
   <meta name="keywords" content="écrivain, jean forteroche">
@@ -32,40 +32,56 @@
 
 <body>
 
-<?php include('includes/header-admin.inc.php'); ?>
+<?php include('includes/header.inc.php'); ?>
 
-<div class="connecter">
-<div class="formulaireAdmin">
-<!-- Formulaire de connexion à l'administration -->
-<p>Veuillez entrer vos identifiants pour vous connecter à l'administartion du blog :</p>
+<div id="contenu">
+   <div class="leftcolumn">
+     <div class="aside">
 
-        <form action="connecter.php" method="post">
-            <p>
-              <input type="text" name="pseudo" />
-            <input type="password" name="pass" />
-            <input type="submit" value="Valider" />
-            </p>
-        </form>
+       <?php
+
+               while ($donnees = $req->fetch())
+
+               {
+               ?>
+
+       <h2><?php echo htmlspecialchars($donnees['titre']); ?></h2>
+       <p>Auteur : <?php echo nl2br(htmlspecialchars($donnees['auteur'])); ?></p>
+       <p><?php echo nl2br(htmlspecialchars($donnees['contenu'])); ?></p>
+       <p>Publié le : <?php echo htmlspecialchars($donnees['date']); ?></p>
+
+     <?php
+
+     } // Fin de la boucle des billets
+     $req->closeCursor();
+     ?>
+    <br>
+     </div>
+
+   </div>
+
+
+   <div class="rightcolumn">
+     <div class="about">
+       <h2>A propos</h2>
+       <p>A propos de l'auteur</p>
+     </div>
+
+     <div class="reseaux">
+       <h3>Suivez-moi</h3>
+       <p>Réseaux sociaux</p>
+     </div>
+
+     <div class="admin">
+       <h3>Publier</h3>
+       <p><a href="connecter.php">Administration</a></p>
+     </div>
+
+   </div>
 </div>
-</div>
-
-<?php
-    // Vérification mot de passe pour administration
-    $pseudo = 'ecrivain';
-    $pass = 'motdepasse';
-    if ((!isset($_POST['pass']) OR $_POST['pass'] != $pass) && (!isset($_POST['pseudo']) OR $_POST['pseudo'] != $pseudo))
-    {
-?>
-
-<?php
-    }
-    else {
-        header( 'Location: https://p4ocr.andre-ani.fr/Test-MVC/admin.php' );
-        exit();
-    }
-?>
 
    <?php include('includes/footer.inc.php'); ?>
 
 </body>
+
 </html>
