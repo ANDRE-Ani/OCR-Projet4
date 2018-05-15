@@ -50,19 +50,17 @@
 </div>
 
 <?php
-    // Vérification mot de passe pour administration
-    $pseudo = 'ecrivain';
-    $pass = 'motdepasse';
-    if ((!isset($_POST['pass']) OR $_POST['pass'] != $pass) && (!isset($_POST['pseudo']) OR $_POST['pseudo'] != $pseudo))
-    {
-?>
+$pseudo=$_POST['pseudo'];
+$pass=$_POST['pass'];
 
-<?php
-    }
-    else {
-        header( 'Location: https://p4ocr.andre-ani.fr/Test-MVC/admin.php' );
-        exit();
-    }
+  if (($pseudo == 'ecrivain') && ($pass == 'motdepasse'))
+    {
+        echo"<meta http-equiv='refresh' content='0 ; URL=https://p4ocr.andre-ani.fr/admin.php'>";
+      }
+      else
+        {
+          echo "Erreur d'identifiant";
+        }
 ?>
 
    <?php include('includes/footer.inc.php'); ?>

@@ -22,16 +22,19 @@
       <?php include('includes/header-admin.inc.php'); ?>
 
       <div id="admin">
-
+        Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
       <div class="envoie">
-
-        <h2>Envoyer un nouvel article</h2>
+        <h2>Publier un nouvel article</h2>
         <form name="article" method="post" action="affichageAdmin.php">
             Titre : <input type="text" name="titre"/> <br/>
             Auteur : <input type="text" name="auteur"/> <br/>
             <textarea name="contenu"><br /> </textarea>
             <input type="submit" name="valider" value="OK"/>
         </form>
+      </div>
+
+      <div class="com">
+        <h2>Vérifier les commentaires</h2>
       </div>
 
     </div>
@@ -41,12 +44,12 @@
             $titre=$_POST['titre'];
             $auteur=$_POST['auteur'];
             $contenu=$_POST['contenu'];
-            '<br/>Article envoyé';
+            echo 'Article envoyé';
         }
+        else {
+        echo "Problème";
+      }
         ?>
-
-
-        
 
 <?php include('includes/footer.inc.php'); ?>
 

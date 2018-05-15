@@ -2,7 +2,7 @@
 
 require('modele.php');
 
-$env = lireBdd();
+$req = lireBdd();
 
 require('affichageAdmin.php');
 
