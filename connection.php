@@ -39,7 +39,7 @@
 <!-- Formulaire de connexion à l'administration -->
 <p>Veuillez entrer vos identifiants pour vous connecter à l'administartion du blog :</p>
 
-        <form action="connecter.php" method="post">
+        <form action="connection.php" method="post">
             <p>
               <input type="text" name="pseudo" />
             <input type="password" name="pass" />

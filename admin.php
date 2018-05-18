@@ -2,8 +2,8 @@
 
 require('modelAdmin.php');
 
-$req = lireBdd();
+$wrt = writePosts();
 
-require('affichageAdmin.php');
+require('viewAdmin.php');
 
 ?>

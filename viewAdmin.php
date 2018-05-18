@@ -25,7 +25,7 @@
         Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
       <div class="envoie">
         <h2>Publier un nouvel article</h2>
-        <form name="article" method="post" action="affichageAdmin.php">
+        <form name="article" method="post" action="viewAdmin.php">
             Titre : <input type="text" name="titre"/> <br/>
             Auteur : <input type="text" name="auteur"/> <br/>
             <textarea name="contenu"><br /> </textarea>
@@ -45,10 +45,12 @@
             $auteur=$_POST['auteur'];
             $contenu=$_POST['contenu'];
             echo 'Article envoyé';
+
         }
         else {
         echo "Problème";
       }
+      
         ?>
 
 <?php include('includes/footer.inc.php'); ?>

@@ -1,19 +1,13 @@
 <?php
 
-// Envoie requête dans la BDD
-function writePosts() {
+// Lis les articles dans la BDD
+function readPosts() {
 $bdd = dbConnect();
 
 try {
-    $wrt = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
-    $wrt->execute(array(
-      'titre' => $titre,
-      'auteur' => $auteur,
-      'contenu' => $contenu
-    ));
-    return $wrt;
-    $wrt->closeCursor();
-    echo 'L article a bien été ajouté !';
+    $req = $bdd->query('SELECT id, titre, date, contenu, auteur FROM post ORDER BY id DESC LIMIT 5');
+    return $req;
+    $req->closeCursor();
   }
   catch (Exception $e) {
               die('Erreur : ' . $e->getMessage());
@@ -21,12 +15,13 @@ try {
 }
 
 
+
 //Se connecte à la BDD
   function dbConnect() {
       try {
           $bdd = new PDO('mysql:host=localhost;dbname=boutique_ecrivain;charset=utf8', 'boutique_bdd', 'cybergoth1978');
           return $bdd;
-          $wrt->closeCursor();
+          $req->closeCursor();
       }
       catch(Exception $e) {
           die('Erreur : '.$e->getMessage());

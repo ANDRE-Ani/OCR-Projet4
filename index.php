@@ -1,9 +1,9 @@
 <?php
 
-require('modele.php');
+require('model.php');
 
-$req = lireBillets();
+$req = readPosts();
 
-require('affichage.php');
+require('view.php');
 
 ?>
