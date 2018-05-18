@@ -1,6 +1,6 @@
 <?php
 
-require('modele.php');
+require('modelAdmin.php');
 
 $req = lireBdd();
 
