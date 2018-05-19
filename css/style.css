@@ -7,6 +7,19 @@
   background: #f1f1f1;
 }
 
+table {
+  width: 100%;
+}
+
+table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+}
+
+th, td {
+  width: 5%;
+}
+
 .header {
   width: 100%;
   font-size: 25px;
@@ -78,13 +91,19 @@
 }
 
 .envoie {
-  width:80%;
+  width: 80%;
+  margin: auto;
+}
+
+.posts {
+  width: 80%;
   margin: auto;
 }
 
 .com {
   width:80%;
   margin: auto;
+  background-color: #dddddd;
 }
 
 .connecter {

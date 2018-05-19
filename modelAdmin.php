@@ -21,6 +21,22 @@ try {
 }
 
 
+// Liste les articles
+function listPosts() {
+$bdd = dbConnect();
+
+try {
+    $list = $bdd->query('SELECT id, titre, date, contenu, auteur FROM post ORDER BY id DESC LIMIT 8');
+    return $list;
+    $list->closeCursor();
+  }
+  catch (Exception $e) {
+              die('Erreur : ' . $e->getMessage());
+            }
+}
+
+
+
 //Se connecte à la BDD
   function dbConnect() {
       try {

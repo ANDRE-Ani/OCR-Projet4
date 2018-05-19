@@ -5,7 +5,7 @@ function readPosts() {
 $bdd = dbConnect();
 
 try {
-    $req = $bdd->query('SELECT id, titre, date, contenu, auteur FROM post ORDER BY id DESC LIMIT 5');
+    $req = $bdd->query('SELECT id, titre, date, contenu, auteur FROM post ORDER BY id DESC LIMIT 8');
     return $req;
     $req->closeCursor();
   }
@@ -13,6 +13,8 @@ try {
               die('Erreur : ' . $e->getMessage());
             }
 }
+
+
 
 
 

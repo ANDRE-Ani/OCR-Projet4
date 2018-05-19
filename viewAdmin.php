@@ -33,6 +33,45 @@
         </form>
       </div>
 
+      <div class="posts">
+        <h2>Liste des articles</h2>
+
+
+
+
+
+
+        <?php
+        while ($donnees = $list->fetch())
+      {
+      ?>
+
+      <table>
+      <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Date</th>
+      </tr>
+
+        <td><?php echo nl2br(htmlspecialchars($donnees['id'])); ?></td>
+
+        <td><?php echo htmlspecialchars($donnees['titre']); ?></td>
+
+        <td><?php echo htmlspecialchars($donnees['auteur']); ?></td>
+
+        <td><?php echo htmlspecialchars($donnees['date']); ?></td>
+
+    </table>
+
+        <?php
+
+        } // Fin de la boucle des billets
+        $list->closeCursor();
+        ?>
+
+      </div>
+
       <div class="com">
         <h2>Vérifier les commentaires</h2>
       </div>
@@ -50,7 +89,7 @@
         else {
         echo "Problème";
       }
-      
+
         ?>
 
 <?php include('includes/footer.inc.php'); ?>
