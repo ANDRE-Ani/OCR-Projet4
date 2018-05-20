@@ -1,19 +1,58 @@
 <?php
 
 // Envoie requête dans la BDD
-function writePosts() {
-$bdd = dbConnect();
+/* function writePosts() {
+$bdd = dbConnect(); */
+
+if(isset($_POST['titre']) && isset($_POST['auteur']) && isset($_POST['contenu'])){
+    lireBdd($_POST['titre'], $_POST['auteur'], $_POST['contenu']);
+}
+
+// Envoie requête dans la BDD
+function lireBdd($titre, $auteur, $contenu) {
+
+    $bdd = dbConnect();
+
+    try {
+        // Ecris l'article dans la BDD
+        $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
+        $req->bindParam(':titre',$titre,PDO::PARAM_STR);
+        $req->bindParam(':contenu',$contenu, PDO::PARAM_STR);
+        $req->bindParam(':auteur', $auteur, PDO::PARAM_STR);
+        $req->execute();
+        echo 'L article a bien été ajouté !';
+        return $req;
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // Ecris l'article dans la BDD
-$req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
+/* $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
 $req->bindValue(':titre','$titre',PDO::PARAM_STR);
 $req->bindValue(':contenu','$contenu', PDO::PARAM_STR);
 $req->bindValue(':auteur', '$auteur', PDO::PARAM_STR);
 $req->execute();
 echo 'L article a bien été ajouté !';
-return $req;
+return $req; */
 
 
 /* try {
