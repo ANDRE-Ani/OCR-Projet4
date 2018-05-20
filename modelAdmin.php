@@ -4,7 +4,19 @@
 function writePosts() {
 $bdd = dbConnect();
 
-try {
+
+
+// Ecris l'article dans la BDD
+$req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
+$req->bindValue(':titre','$titre',PDO::PARAM_STR);
+$req->bindValue(':contenu','$contenu', PDO::PARAM_STR);
+$req->bindValue(':auteur', '$auteur', PDO::PARAM_STR);
+$req->execute();
+echo 'L article a bien été ajouté !';
+return $req;
+
+
+/* try {
     $wrt = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
     $wrt->execute(array(
       'titre' => $titre,
@@ -17,7 +29,7 @@ try {
   }
   catch (Exception $e) {
               die('Erreur : ' . $e->getMessage());
-            }
+            } */
 }
 
 
