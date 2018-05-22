@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <title><?= $titre ?></title>
+  <title>Le blog de l'écrivain</title>
   <meta name="description" content="Le blog de Jean Forteroche" />
   <meta name="author" content="Patrice ANDREANI">
   <meta name="keywords" content="écrivain, jean forteroche">
@@ -36,7 +36,22 @@
      <div class="aside">
 
 
-        <?= $contenu ?>
+       <?php
+while ($data = $posts->fetch())
+
+           {
+              ?>
+
+      <h2><?php echo htmlspecialchars($data['titre']); ?></h2>
+      <p>Auteur : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?> Publié le : <?php echo htmlspecialchars($data['date']); ?></p>
+      <p><?php echo nl2br(htmlspecialchars($data['contenu'])); ?></p>
+      <p><a href ="postView.php">commentaires</a></p>
+<hr>
+    <?php
+
+    } // Fin de la boucle des billets
+    $posts->closeCursor();
+    ?>
 
      </div>
 

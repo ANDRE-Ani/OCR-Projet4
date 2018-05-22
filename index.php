@@ -2,8 +2,6 @@
 
 require('model.php');
 
-$req = readPosts();
+$posts = getPosts();
 
-require('view.php');
-
-?>
+require('indexView.php');

@@ -2,27 +2,24 @@
 <html lang="fr">
 
 <head>
-  <title>Se connecter</title>
+  <title>Le blog de l'écrivain</title>
   <meta name="description" content="Le blog de Jean Forteroche" />
   <meta name="author" content="Patrice ANDREANI">
   <meta name="keywords" content="écrivain, jean forteroche">
   <meta charset="UTF-8">
-  <!-- import favicon, feuille de style et polices -->
+
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="icon" type="image/png" href="images/favicon.ico" />
 
-  <!-- definition du viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
-  <!-- Twitter Card data -->
   <meta name="twitter:card" content="Le blog de Jean Forteroche">
   <meta name="twitter:site" content="https://p4ocr.andre-ani.fr/" />
   <meta name="twitter:title" content="Le blog de Jean Forteroche" />
   <meta name="twitter:description" content="Le blog de Jean Forteroche" />
   <meta name="twitter:image" content="https://p4ocr.andre-ani.fr/images/logo-velov.png" />
 
-  <!-- Open Graph data -->
   <meta property="og:title" content="Le blog de Jean Forteroche" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://p4ocr.andre-ani.fr" />
@@ -32,40 +29,62 @@
 
 <body>
 
-<?php include('includes/header-admin.inc.php'); ?>
+<?php include('includes/header.inc.php'); ?>
 
-<div class="connecter">
-<div class="formulaireAdmin">
-<!-- Formulaire de connexion à l'administration -->
-<p>Veuillez entrer vos identifiants pour vous connecter à l'administartion du blog :</p>
+<div id="contenu">
+   <div class="leftcolumn">
+     <div class="aside">
 
-        <form action="connection.php" method="post">
+       <h3>
+                <?= htmlspecialchars($post['titre']) ?>
+                <em>le <?= $post['date'] ?></em>
+            </h3>
+
             <p>
-              <input type="text" name="pseudo" />
-            <input type="password" name="pass" />
-            <input type="submit" value="Valider" />
+                <?= nl2br(htmlspecialchars($post['contenu'])) ?>
             </p>
-        </form>
-</div>
-</div>
+        </div>
 
-<?php
-$pseudo=$_POST['pseudo'];
-$pass=$_POST['pass'];
+        <h2>Commentaires</h2>
 
-  if (($pseudo == 'ecrivain') && ($pass == 'motdepasse'))
-    {
-        /*echo"<meta http-equiv='refresh' content='0 ; URL=https://p4ocr.andre-ani.fr/admin.php'>"; */
-        header('Location: admin.php');
-        exit;
-      }
-      else
+        <?php
+        while ($comment = $comments->fetch())
         {
-          echo "Erreur d'identifiant";
+        ?>
+
+            <p>Auteur : <?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date'] ?></p>
+            <p>Commentaire : <?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+
+        <?php
         }
-?>
+        ?>
+
+     </div>
+
+   </div>
+
+
+   <div class="rightcolumn">
+     <div class="about">
+       <h2>A propos</h2>
+       <p>A propos de l'auteur</p>
+     </div>
+
+     <div class="reseaux">
+       <h3>Suivez-moi</h3>
+       <p>Réseaux sociaux</p>
+     </div>
+
+     <div class="admin">
+       <h3>Publier</h3>
+       <p><a href="connection.php">Administration</a></p>
+     </div>
+
+   </div>
+</div>
 
    <?php include('includes/footer.inc.php'); ?>
 
 </body>
+
 </html>
