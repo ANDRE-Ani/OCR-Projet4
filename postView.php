@@ -52,8 +52,9 @@
         {
         ?>
 
-            <p>Auteur : <?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date'] ?></p>
-            <p>Commentaire : <?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <p>Auteur : <?= htmlspecialchars($comment['author']) ?>
+          le <?= $comment['comment_date'] ?></p>
+        <p>Commentaire : <?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
         <?php
         }
