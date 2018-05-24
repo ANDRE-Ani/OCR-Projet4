@@ -36,6 +36,7 @@
      <div class="aside">
 
        <h3>
+
                 <?= htmlspecialchars($post['titre']) ?>
                 <em>le <?= $post['date'] ?></em>
             </h3>
