@@ -1,9 +1,9 @@
 <?php
 
-require('model.php');
+require('model/model.php');
 
 $posts = getPosts();
 $data = getPost($_GET["id"]);
 
-require('indexView.php');
-require('postView.php');
+require('view/indexView.php');
+require('view/postView.php');

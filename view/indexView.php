@@ -35,31 +35,26 @@
    <div class="leftcolumn">
      <div class="aside">
 
-       <h3>
 
-                <?= htmlspecialchars($post['titre']) ?>
-                <em>le <?= $post['date'] ?></em>
-            </h3>
+       <?php
+        while ($data = $posts->fetch())
 
-            <p>
-                <?= nl2br(htmlspecialchars($post['contenu'])) ?>
-            </p>
-        </div>
+           {
+              ?>
 
-        <h2>Commentaires</h2>
+      <h2><?php echo htmlspecialchars($data['titre']); ?></h2>
+        <p>Auteur : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?> Publié le : <?php echo htmlspecialchars($data['date']); ?></p>
+        <p><?php echo nl2br(htmlspecialchars($data['contenu'])); ?></p>
+        
+        <p><a href="post.php?id=<?= $data['id'] ?>">Commentaires</a></p>
+        
+      
+      <hr>
+    <?php
 
-        <?php
-        while ($comment = $comments->fetch())
-        {
-        ?>
-
-        <p>Auteur : <?= htmlspecialchars($comment['author']) ?>
-          le <?= $comment['comment_date'] ?></p>
-        <p>Commentaire : <?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-
-        <?php
-        }
-        ?>
+    }
+    $posts->closeCursor();
+    ?>
 
      </div>
 

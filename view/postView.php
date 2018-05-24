@@ -35,26 +35,31 @@
    <div class="leftcolumn">
      <div class="aside">
 
+       <h3>
 
-       <?php
-        while ($data = $posts->fetch())
+                <?= htmlspecialchars($post['titre']) ?>
+                <em>le <?= $post['date'] ?></em>
+            </h3>
 
-           {
-              ?>
-
-      <h2><?php echo htmlspecialchars($data['titre']); ?></h2>
-        <p>Auteur : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?> Publié le : <?php echo htmlspecialchars($data['date']); ?></p>
-        <p><?php echo nl2br(htmlspecialchars($data['contenu'])); ?></p>
+            <p>
+                <?= nl2br(htmlspecialchars($post['contenu'])) ?>
+            </p>
         
-        <p><a href="postView.php?post=<?php echo $data['id']; ?>">Commentaires</a> </p>
-        
-      
-      <hr>
-    <?php
 
-    }
-    $posts->closeCursor();
-    ?>
+        <h2>Commentaires</h2>
+
+        <?php
+        while ($comment = $comments->fetch())
+        {
+        ?>
+
+        <p>Auteur : <?= htmlspecialchars($comment['author']) ?>
+          le <?= $comment['comment_date'] ?></p>
+        <p>Commentaire : <?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+
+        <?php
+        }
+        ?>
 
      </div>
 
@@ -62,6 +67,7 @@
 
 
    <div class="rightcolumn">
+
      <div class="about">
        <h2>A propos</h2>
        <p>A propos de l'auteur</p>
@@ -78,8 +84,8 @@
      </div>
 
    </div>
-</div>
 
+</div>
    <?php include('includes/footer.inc.php'); ?>
 
 </body>

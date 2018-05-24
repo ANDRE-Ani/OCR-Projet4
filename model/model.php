@@ -4,7 +4,7 @@
 function getPosts()
 {
     $db = dbConnect();
-    $req = $db->query('SELECT id, titre, contenu, auteur, date FROM post ORDER BY date DESC LIMIT 0, 8');
+    $req = $db->query('SELECT * FROM post ORDER BY date DESC LIMIT 0, 8');
 
     return $req;
 }
@@ -14,7 +14,7 @@ function getPosts()
 function getPost($postId)
 {
     $db = dbConnect();
-    $req = $db->prepare('SELECT id, titre, contenu, auteur, date FROM post WHERE id = ?');
+    $req = $db->prepare('SELECT * FROM post WHERE id = ?');
     $req->execute(array($postId));
     $post = $req->fetch();
     return $post;
@@ -24,7 +24,7 @@ function getPost($postId)
 function getComments($postId)
 {
     $db = dbConnect();
-    $comments = $db->prepare('SELECT id, post_id, author, comment, comment_date FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
     $comments->execute(array($postId));
     return $comments;
 }
