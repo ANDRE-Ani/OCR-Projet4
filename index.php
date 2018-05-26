@@ -1,8 +1,24 @@
 <?php
 
-require('model/model.php');
+require('controler/controler.php');
 
-$posts = getPosts();
-$data = getPost($_GET["id"]);
+if (isset($_GET['action'])) {
 
-require('view/indexView.php');
+    if ($_GET['action'] == 'listPosts') {
+        listPosts();
+    }
+
+    elseif ($_GET['action'] == 'post') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            post();
+        }
+
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    }
+}
+
+else {
+    listPosts();
+}

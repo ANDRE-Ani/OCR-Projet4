@@ -2,12 +2,13 @@
 
 require('model/model.php');
 
-if (isset($_GET['id']) && $_GET['id'] > 0) {
+function listPosts() {
+    $posts = getPosts();
+    require('view/indexView.php');
+}
+
+function post() {
     $post = getPost($_GET['id']);
     $comments = getComments($_GET['id']);
     require('view/postView.php');
-}
-
-else {
-    echo 'Erreur : aucun identifiant de billet envoyé';
 }
