@@ -1,18 +1,30 @@
 <?php
 
+// Ecris l'article dans la BDD
+function writePost() {
+    $bdd = dbConnect();
+    
+    $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
+      $req->bindValue(':titre','1 titre',PDO::PARAM_STR);
+      $req->bindValue(':contenu','1 contenu', PDO::PARAM_STR);
+      $req->bindValue(':auteur', '1 auteur', PDO::PARAM_STR);
+      $req->execute();
+        echo 'L article a bien été ajouté !';
+        return $req;
+    }
+
+
+
 // Récupère les articles
-function getPosts()
-{
+function getPosts() {
     $db = dbConnect();
     $req = $db->query('SELECT * FROM post ORDER BY date DESC LIMIT 0, 8');
-
     return $req;
 }
 
 
 // Récupère un article
-function getPost($postId)
-{
+function getPost($postId) {
     $db = dbConnect();
     $req = $db->prepare('SELECT * FROM post WHERE id = ?');
     $req->execute(array($postId));
@@ -21,8 +33,7 @@ function getPost($postId)
 }
 
 // Récupère les commentaires
-function getComments($postId)
-{
+function getComments($postId) {
     $db = dbConnect();
     $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
     $comments->execute(array($postId));

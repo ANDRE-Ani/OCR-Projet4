@@ -17,6 +17,24 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }
     }
+
+
+
+
+elseif ($_GET['action'] == 'writePostA') {
+    
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+            writePostA($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
+        }
+        else {
+            echo 'Erreur : tous les champs ne sont pas remplis !';
+        }
+}
+
+
+
+
+
 }
 
 else {
