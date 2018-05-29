@@ -14,13 +14,13 @@ function post() {
 }
 
 function writePostA($titre, $auteur, $contenu) {
-    $affectedLines = postArticle($titre, $auteur, $contenu);
-    
+  $affectedLines = writePost($titre, $auteur, $contenu);
     if ($affectedLines === false) {
-        die('Impossible d\'ajouter un article');
+        die('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: view/adminView.php');
+        header('Location: index.php?action=writePost');
     }
+
     require('view/adminView.php');
 }
