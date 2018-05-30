@@ -1,6 +1,6 @@
 <?php
 
-require('model/modelFront.php');
+require('model/model.php');
 
 function connectionAdmin() {
     require('view/connectionView.php');

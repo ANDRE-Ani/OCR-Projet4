@@ -15,13 +15,27 @@ if (isset($_GET['action'])) {
         }
 
     } elseif ($_GET['action'] == 'writePostA') {
-        if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
-            writePostA($_GET['titre'], $_GET['auteur'], $_GET['contenu']);
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+            writePostA($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
         } else {
-            echo 'Erreur : tous les champs ne sont pas remplis';
+            echo 'Erreur : tous les champs ne sont pas remplis !';
         }
     }
-    
+
+
+    elseif ($_GET['action'] == 'writePostBack') {
+        writePostAdmin();
+    }
+
+    elseif ($_GET['action'] == 'editPosts') {
+        modifyPostView();
+    }
+
+    elseif ($_GET['action'] == 'connection') {
+        connectionAdmin();
+    }
+
+
 } else {
     listPosts();
 }

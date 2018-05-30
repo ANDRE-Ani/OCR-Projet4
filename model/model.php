@@ -25,6 +25,18 @@ function getComments($postId) {
     return $comments;
 }
 
+// Ecris l'article dans la BDD
+function writePost() {
+    $bdd = dbConnect();
+    
+    $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
+      $req->bindValue(':titre','1 titre',PDO::PARAM_STR);
+      $req->bindValue(':contenu','1 contenu', PDO::PARAM_STR);
+      $req->bindValue(':auteur', '1 auteur', PDO::PARAM_STR);
+      $req->execute();
+        echo 'L article a bien été ajouté !';
+        return $req;
+    }
 
 //Se connecte à la BDD
   function dbConnect()

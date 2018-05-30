@@ -5,6 +5,7 @@
 <?php ob_start(); ?>
 
        <?php
+       var_dump($data);
         while ($data = $posts->fetch())
 
            {

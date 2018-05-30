@@ -1,6 +1,6 @@
 <?php
 
-require('model/modelBack.php');
+require('model/model.php');
 
 function writePostAdmin() {
     require('view/writePostView.php');
