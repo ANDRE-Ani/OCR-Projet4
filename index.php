@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
         }
 
     } elseif ($_GET['action'] == 'writePostA') {
+<<<<<<< HEAD
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
             writePostA($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
         } else {
@@ -36,6 +37,15 @@ if (isset($_GET['action'])) {
     }
 
 
+=======
+        if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
+            writePostA($_GET['titre'], $_GET['auteur'], $_GET['contenu']);
+        } else {
+            echo 'Erreur : tous les champs ne sont pas remplis';
+        }
+    }
+    
+>>>>>>> 18d5166f7f07009b2874e7d920c2fe2bf426caee
 } else {
     listPosts();
 }
