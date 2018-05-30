@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
 
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
   <link rel="icon" type="image/png" href="images/favicon.ico" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
@@ -25,44 +25,49 @@
   <meta property="og:url" content="https://p4ocr.andre-ani.fr" />
   <meta property="og:image" content="https://p4ocr.andre-ani.fr/images/logo-velov.png" />
   <meta property="og:description" content="Le blog de Jean Forteroche" />
+  <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+    <!-- !-- -->
+    tinyMCE.init({
+    mode : "textareas",
+    valid_elements : "em/i,strike,u,strong/b,div[align],br,#p[align],-ol[type|compact],-ul[type|compact],-li"
+    });
+    <!-- //--> -->
+    </script>
+
 </head>
 
 <body>
 
-<?php include('includes/header.inc.php'); ?>
+<?php include('../includes/header-admin.inc.php'); ?>
 
 <div id="contenu">
-   <div class="leftcolumn">
-     <div class="aside">
 
+   <div class="leftcolumn2">
+     <div class="post">
+       <h2>Articles</h2>
+       <p><a href="index.php?action=writePostBack">Publier un article</a></p>
+     </div>
+
+    <hr>
+
+     <div class="comments">
+       <h3>Commentaires</h3>
+       <p><a href="index.php?action=modifyPostView">Gérer les commentaires</a></p>
+     </div>
+     </div>
+     <div class="rightcolumn2">
+     <div class="admintext">
 
         <?= $contenu ?>
 
      </div>
+   </div>
 
    </div>
 
 
-   <div class="rightcolumn">
-     <div class="about">
-       <h2>A propos</h2>
-       <p>A propos de l'auteur</p>
-     </div>
-
-     <div class="reseaux">
-       <h3>Suivez-moi</h3>
-       <p>Réseaux sociaux</p>
-     </div>
-
-     <div class="admin">
-       <h3>Publier</h3>
-       <p><a href="index.php?action=connection">Administration</a></p>
-     </div>
-
-   </div>
-</div>
-
-   <?php include('includes/footer.inc.php'); ?>
+   <?php include('../includes/footer.inc.php'); ?>
 
 </body>
 

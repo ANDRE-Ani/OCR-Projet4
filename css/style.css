@@ -33,7 +33,7 @@ th, td {
   width: 100%;
   font-size: 20px;
   text-align: center;
-  background-color: #bad8ff;
+  background-color: #b4b4b4;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -61,6 +61,22 @@ th, td {
 .rightcolumn {
   float: left;
   width: 25%;
+}
+
+.rightcolumn2 {
+  float: right;
+  width: 75%;
+  margin: 5px;
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+
+.leftcolumn2 {
+  float: left;
+  width: 25%;
+  background-color:  #b4b4b4;
+  margin: 5px;
+  padding: 5px;
 }
 
 .about {

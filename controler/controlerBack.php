@@ -1,27 +1,31 @@
 <?php
 
-require('model/model.php');
+require('model/modelBack.php');
 
-function connectionAdmin() {
-    require('connection.php');
+function writePostAdmin() {
+    require('view/writePostView.php');
 }
 
+function writePostBack() {
+  require('view/modifyPostView');
+}
 
-
-function listPosts() {
+function listPostsBack() {
     $posts = getPosts();
     require('view/indexView.php');
 }
 
-function post() {
+
+function postBack() {
     $post = getPost($_GET['id']);
     $comments = getComments($_GET['id']);
     require('view/postView.php');
 }
 
+
 function writePostA($titre, $auteur, $contenu) {
     $affectedLines = postArticle($titre, $auteur, $contenu);
-    
+
     if ($affectedLines === false) {
         die('Impossible d\'ajouter un article');
     }
