@@ -1,22 +1,5 @@
 <?php
 
-// Ecris l'article dans la BDD
-function writePost($titre, $auteur, $contenu)
-{
-    $bdd = dbConnect();
-
-    $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur)VALUES(:titre, :contenu, :auteur)');
-    /* $req->bindValue(':titre','1 titre',PDO::PARAM_STR);
-    $req->bindValue(':contenu','1 contenu', PDO::PARAM_STR);
-    $req->bindValue(':auteur', '1 auteur', PDO::PARAM_STR);
-    $req->execute(); */
-    $affectedLines = $req->execute(array($auteur, $titre, $contenu));
-    echo 'L article a bien été ajouté ! ';
-    return $affectedLines;
-}
-
-
-
 // Récupère les articles
 function getPosts() {
     $db = dbConnect();
