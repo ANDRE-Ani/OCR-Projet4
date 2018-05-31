@@ -30,4 +30,4 @@
 
      <?php $contenu = ob_get_clean(); ?>
 
-<?php require 'templates/templateFront.php'; ?>
+<?php require 'templates/template.php'; ?>

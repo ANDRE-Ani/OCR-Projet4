@@ -35,6 +35,7 @@
    <div class="leftcolumn">
      <div class="aside">
 
+
         <?= $contenu ?>
 
      </div>

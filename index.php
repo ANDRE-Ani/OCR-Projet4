@@ -1,7 +1,6 @@
 <?php
 
-require('controler/controlerFront.php');
-require('controler/controlerBack.php');
+require('controler/controler.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
@@ -22,6 +21,9 @@ if (isset($_GET['action'])) {
         }
     }
 
+    elseif ($_GET['action'] == 'connection') {
+        connectionAdmin();
+    }
 
     elseif ($_GET['action'] == 'writePostBack') {
         writePostAdmin();
@@ -34,6 +36,11 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'connection') {
         connectionAdmin();
     }
+
+
+
+
+
 
 
 } else {

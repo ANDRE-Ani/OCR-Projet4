@@ -1,4 +1,3 @@
-
 <?php $titre = 'Administration du site'; ?>
 
 <?php ob_start(); ?>
