@@ -2,9 +2,13 @@
 
 // Récupère les articles
 function getPosts() {
+    try {
     $db = dbConnect();
     $req = $db->query('SELECT * FROM post ORDER BY date DESC LIMIT 0, 8');
     return $req;
+} catch (Exception $e) {
+    die('Erreur:'.$e->getMessage());
+}
 }
 
 

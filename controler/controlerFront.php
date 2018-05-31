@@ -1,6 +1,6 @@
 <?php
 
-require('model/model.php');
+require_once('model/model.php');
 
 function connectionAdmin() {
     require('view/connectionView.php');
