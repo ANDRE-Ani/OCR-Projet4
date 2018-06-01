@@ -1,3 +1,5 @@
+/* Feuille de style du blog */
+
 * {
   font-family: 'Ubuntu', sans-serif;
 }
@@ -28,6 +30,10 @@ th, td {
   background-color: #bad8ff;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+h3 {
+  text-decoration: underline;
 }
 
 .header-admin {

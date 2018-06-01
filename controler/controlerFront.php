@@ -2,7 +2,8 @@
 
 require_once('model/model.php');
 
-function connectionAdmin() {
+// Fonction de connection pour l'admin
+/*function connectionAdmin() {
     require('view/connectionView.php');
 }
 
@@ -17,6 +18,8 @@ function post() {
     $post = getPost($_GET['id']);
     $comments = getComments($_GET['id']);
     require('view/postView.php');
+} */
+
+function aboutAuthor() {
+    require('view/aboutView.php');
 }
-
-

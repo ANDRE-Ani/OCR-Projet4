@@ -46,17 +46,18 @@
    <div class="rightcolumn">
      <div class="about">
        <h2>A propos</h2>
-       <p>A propos de l'auteur</p>
+       <p>A propos de l'<a href="index.php?action=about">auteur</a></p>
      </div>
 
      <div class="reseaux">
        <h3>Suivez-moi</h3>
-       <p>Réseaux sociaux</p>
+       <p><a href="https://mamot.fr/auth/sign_in" target="_blank"><img src="images/mastodon.png" width="32" height="34" alt="Mastodon"></a>
+       <a href="https://framasphere.org/users/sign_in" target="_blank"><img src="images/diaspora.png" width="32" height="32" alt="Diaspora"></a></p>
      </div>
 
      <div class="admin">
-       <h3>Publier</h3>
-       <p><a href="index.php?action=connection">Administration</a></p>
+       <h3>Administration</h3>
+       <p><a href="index.php?action=connection">Se connecter</a></p>
      </div>
 
    </div>

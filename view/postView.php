@@ -1,3 +1,5 @@
+<!-- Affichae d'un article et de ses commentaires -->
+
 <?php $titre = 'Le blog de l\'écrivain : '.htmlspecialchars($post['titre']); ?>
 
 <?php ob_start(); ?>
@@ -16,9 +18,8 @@
         <h2>Commentaires</h2>
 
         <?php
-        while ($comment = $comments->fetch())
-        {
-        ?>
+        while ($comment = $comments->fetch()) {
+            ?>
 
         <p>Auteur : <?= htmlspecialchars($comment['author']) ?>
           le <?= $comment['comment_date'] ?></p>

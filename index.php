@@ -1,6 +1,16 @@
 <?php
 
+// Routeur de l'application
+
+// Redirige toutes les requêtes utilisateur vers les
+// bonnes pages et actions
+
+
+// Appel des différents controleurs
 require('controler/controlerBack.php');
+require('controler/controlerFront.php');
+
+// Routes des actions et requêtes
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
@@ -41,12 +51,14 @@ if (isset($_GET['action'])) {
         connectionAdmin();
     }
 
+    elseif ($_GET['action'] == 'about') {
+        aboutAuthor();
+    }
 
 
 
 
-
-
+// Requête par défaut qui envoie sur la page d'accueil
 } else {
     listPosts();
 }

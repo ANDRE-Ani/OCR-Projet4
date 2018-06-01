@@ -1,3 +1,5 @@
+<!-- Page admin de rédaction d'un article -->
+
 <?php $titre = 'Publier un article'; ?>
 
    <?php ob_start(); ?> 

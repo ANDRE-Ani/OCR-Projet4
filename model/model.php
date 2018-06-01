@@ -1,5 +1,10 @@
 <?php
 
+
+// Model du site
+// Contient toutes les actions et requêtes pour la BDD
+
+
 // Ecris l'article dans la BDD
 function writePost() {
     $bdd = dbConnect();
@@ -13,15 +18,12 @@ function writePost() {
         return $req;
     }
 
-
-
 // Récupère les articles
 function getPosts() {
     $db = dbConnect();
     $req = $db->query('SELECT * FROM post ORDER BY date DESC LIMIT 0, 8');
     return $req;
 }
-
 
 // Récupère un article
 function getPost($postId) {
@@ -39,7 +41,6 @@ function getComments($postId) {
     $comments->execute(array($postId));
     return $comments;
 }
-
 
 //Se connecte à la BDD
   function dbConnect() {

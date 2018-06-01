@@ -1,3 +1,5 @@
+<!-- Page principal de l'administration -->
+
 <?php $titre = 'Administration du site'; ?>
 
 <?php ob_start(); ?>

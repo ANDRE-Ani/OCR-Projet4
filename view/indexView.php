@@ -1,15 +1,15 @@
-
+<!-- Page d'accueil du blog -->
 
 <?php $titre = 'Le blog de l\'écrivain'; ?>
 
 <?php ob_start(); ?>
 
        <?php
-        while ($data = $posts->fetch())
+        while ($data = $posts->fetch()) {
+            ?>
 
-           {
-              ?>
-
+      <!-- Récupération des articles -->
+      
       <h2><?php echo htmlspecialchars($data['titre']); ?></h2>
         <p>Auteur : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?> Publié le : <?php echo htmlspecialchars($data['date']); ?></p>
         <p><?php echo nl2br(htmlspecialchars($data['contenu'])); ?></p>
@@ -18,8 +18,7 @@
 
       <hr>
     <?php
-
-    }
+        }
     $posts->closeCursor();
     ?>
 

@@ -1,3 +1,5 @@
+<!-- Page admin de gestion des articles -->
+
 <?php $titre = 'Gérer les articles'; ?>
 
 <?php ob_start(); ?>
@@ -5,6 +7,8 @@
 <div id="list">
         <h2>Liste des articles</h2>
 
+        <!-- Récupération des informations des articles -->
+        
         <?php
         while ($data = $posts->fetch()) {
             ?>
