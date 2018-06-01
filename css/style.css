@@ -18,6 +18,7 @@ table, th, td {
 
 th, td {
   width: 5%;
+  text-align: center;
 }
 
 .header {
@@ -65,7 +66,7 @@ th, td {
 
 .rightcolumn2 {
   float: right;
-  width: 75%;
+  width: 85%;
   margin: 5px;
   padding: 5px;
   background-color: #f0f0f0;
@@ -73,7 +74,7 @@ th, td {
 
 .leftcolumn2 {
   float: left;
-  width: 25%;
+  width: 15%;
   background-color:  #b4b4b4;
   margin: 5px;
   padding: 5px;
@@ -92,6 +93,12 @@ th, td {
 }
 
 .admin {
+  background-color: #dddddd;
+  padding: 5px;
+  margin: 5px;
+}
+
+.list {
   background-color: #dddddd;
   padding: 5px;
   margin: 5px;

@@ -39,21 +39,23 @@
 
 <body>
 
-<?php include('../includes/header-admin.inc.php'); ?>
+<?php include('https://p4ocr.andre-ani.fr/includes/header-admin.inc.php'); ?>
 
 <div id="contenu">
 
    <div class="leftcolumn2">
      <div class="post">
+     Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
        <h2>Articles</h2>
-       <p><a href="index.php?action=writePostBack">Publier un article</a></p>
+       <p><a href="../index.php?action=writePostBack">Publier un article</a></p>
+        <p><a href="../index.php?action=modifyPost">Gérer les articles</a></p>
      </div>
 
     <hr>
 
      <div class="comments">
        <h3>Commentaires</h3>
-       <p><a href="index.php?action=modifyPostView">Gérer les commentaires</a></p>
+       <p><a href="../index.php?action=modifyPost">Gérer les commentaires</a></p>
      </div>
      </div>
      <div class="rightcolumn2">
@@ -66,8 +68,7 @@
 
    </div>
 
-
-   <?php include('../includes/footer.inc.php'); ?>
+   <?php include('https://p4ocr.andre-ani.fr/includes/footer.inc.php'); ?>
 
 </body>
 

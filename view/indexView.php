@@ -5,7 +5,6 @@
 <?php ob_start(); ?>
 
        <?php
-       var_dump($data);
         while ($data = $posts->fetch())
 
            {
@@ -26,4 +25,4 @@
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require 'templates/template.php'; ?>
+<?php require 'templates/templateFront.php'; ?>

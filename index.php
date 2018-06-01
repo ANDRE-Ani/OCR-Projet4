@@ -1,6 +1,6 @@
 <?php
 
-require('controler/controler.php');
+require('controler/controlerBack.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
@@ -27,6 +27,10 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'writePostBack') {
         writePostAdmin();
+    }
+
+    elseif ($_GET['action'] == 'modifyPost') {
+        modifyPostBack();
     }
 
     elseif ($_GET['action'] == 'editPosts') {

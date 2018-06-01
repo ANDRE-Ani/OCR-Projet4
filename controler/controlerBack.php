@@ -1,12 +1,11 @@
 <?php
+// Controler back du blog
 
 require('model/model.php');
 
 function connectionAdmin() {
     require('view/connectionView.php');
 }
-
-
 
 function listPosts() {
     $posts = getPosts();
@@ -36,15 +35,15 @@ function writePostAdmin() {
     require('view/writePostView.php');
 }
 
-function writePostBack() {
-  require('view/modifyPostView');
+function modifyPostBack() {
+    $posts = getPosts();
+    require('view/modifyPostView.php');
 }
 
 function listPostsBack() {
     $posts = getPosts();
     require('view/indexView.php');
 }
-
 
 function postBack() {
     $post = getPost($_GET['id']);
