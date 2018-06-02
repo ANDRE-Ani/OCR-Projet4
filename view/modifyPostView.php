@@ -8,12 +8,8 @@
         <h2>Liste des articles</h2>
 
         <!-- Récupération des informations des articles -->
-        
-        <?php
-        while ($data = $posts->fetch()) {
-            ?>
 
-      <table>
+<table>
       <tr>
         <th>ID</th>
         <th>Titre</th>
@@ -21,20 +17,27 @@
         <th>Date</th>
         <th>Modifier</th>
         <th>Supprimer</th>
-      </tr>
+</tr>
+
+<tr>
+<?php
+        while ($data = $posts->fetch()) {
+            ?>
 
         <td><?php echo nl2br(htmlspecialchars($data['id'])); ?></td>
         <td><?php echo htmlspecialchars($data['titre']); ?></td>
         <td><?php echo htmlspecialchars($data['auteur']); ?></td>
         <td><?php echo htmlspecialchars($data['date']); ?></td>
-        <td>Modifer</td>
-        <td>Supprimer</td>
-    </table>
+        <td><a href="#">Modifier</a></td>
+        <td><a href="#">Supprimer</a></td>
+   </tr>     
 
         <?php
         }
         $posts->closeCursor();
         ?>
+
+    </table>
 
       </div>
 

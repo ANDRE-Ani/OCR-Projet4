@@ -24,11 +24,15 @@ if (isset($_GET['action'])) {
         }
 
     } elseif ($_GET['action'] == 'writePostA') {
-        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-            writePostA($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
+        if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
+            writePost($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
         } else {
             echo 'Erreur : tous les champs ne sont pas remplis !';
         }
+    }
+
+    elseif ($_GET['action'] == 'administration') {
+        admin();
     }
 
     elseif ($_GET['action'] == 'connection') {
@@ -43,12 +47,8 @@ if (isset($_GET['action'])) {
         modifyPostBack();
     }
 
-    elseif ($_GET['action'] == 'editPosts') {
-        modifyPostView();
-    }
-
-    elseif ($_GET['action'] == 'connection') {
-        connectionAdmin();
+    elseif ($_GET['action'] == 'modifyCom') {
+        modifyComBack();
     }
 
     elseif ($_GET['action'] == 'about') {
@@ -56,9 +56,7 @@ if (isset($_GET['action'])) {
     }
 
 
-
-
-// Requête par défaut qui envoie sur la page d'accueil
+// Requête par défaut qui renvoie sur la page d'accueil
 } else {
     listPosts();
 }

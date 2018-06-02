@@ -55,7 +55,7 @@
 
      <div class="comments">
        <h3>Commentaires</h3>
-       <p><a href="../index.php?action=modifyPost">Gérer les commentaires</a></p>
+       <p><a href="../index.php?action=modifyCom">Gérer les commentaires</a></p>
      </div>
      </div>
      <div class="rightcolumn2">

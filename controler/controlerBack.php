@@ -23,14 +23,19 @@ function post() {
 
 // Rédaction d'un article
 function writePostA($titre, $auteur, $contenu) {
-    $affectedLines = postArticle($titre, $auteur, $contenu);
+    /* $affectedLines = postArticleAdmin($titre, $auteur, $contenu);
     
     if ($affectedLines === false) {
         die('Impossible d\'ajouter un article');
     }
-    else {
+    else { */
+     
         header('Location: view/adminView.php');
-    }
+    /* } */
+    require('view/adminView.php');
+}
+
+function administration() {
     require('view/adminView.php');
 }
 
@@ -45,13 +50,8 @@ function modifyPostBack() {
     require('view/modifyPostView.php');
 }
 
-/* function listPostsBack() {
-    $posts = getPosts();
-    require('view/indexView.php');
-} */
-
-/* function postBack() {
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
-    require('view/postView.php');
-} */
+// Gérer les commentaires
+function modifyComBack() {
+    $coms = getComs();
+    require('view/modifyComView.php');
+}

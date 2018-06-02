@@ -9,20 +9,35 @@
 function writePost() {
     $bdd = dbConnect();
     
-    $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
-      $req->bindValue(':titre','1 titre',PDO::PARAM_STR);
-      $req->bindValue(':contenu','1 contenu', PDO::PARAM_STR);
-      $req->bindValue(':auteur', '1 auteur', PDO::PARAM_STR);
-      $req->execute();
-        echo 'L article a bien été ajouté !';
+    try {
+        $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
+        $req->bindValue(':titre', $titre, PDO::PARAM_STR);
+        $req->bindValue(':contenu', $contenu, PDO::PARAM_STR);
+        $req->bindValue(':auteur', $auteur, PDO::PARAM_STR);
+        $req->execute();
+            echo 'L\'article a bien été ajouté ';
         return $req;
-    }
+        }
+    catch (Exception $e)
+  {
+    die('Erreur : ' . $e->getMessage());
+  }
+}
+        
+    
 
 // Récupère les articles
 function getPosts() {
     $db = dbConnect();
-    $req = $db->query('SELECT * FROM post ORDER BY date DESC LIMIT 0, 8');
+    $req = $db->query('SELECT * FROM post ORDER BY date DESC');
     return $req;
+}
+
+// Récupère les commentaires
+function getComs() {
+    $db = dbConnect();
+    $coms = $db->query('SELECT * FROM comments ORDER BY date DESC');
+    return $coms;
 }
 
 // Récupère un article

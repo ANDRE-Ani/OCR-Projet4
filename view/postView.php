@@ -3,18 +3,14 @@
 <?php $titre = 'Le blog de l\'écrivain : '.htmlspecialchars($post['titre']); ?>
 
 <?php ob_start(); ?>
-
        <h3>
-
                 <?= htmlspecialchars($post['titre']) ?>
                 <em>le <?= $post['date'] ?></em>
             </h3>
-
             <p>
                 <?= nl2br(htmlspecialchars($post['contenu'])) ?>
             </p>
         
-
         <h2>Commentaires</h2>
 
         <?php
