@@ -6,7 +6,16 @@
 
 
 // Ecris l'article dans la BDD
-function writePost() {
+function writePost($titre, $auteur, $contenu) {
+    $bdd = dbConnect();
+    $comments = $bdd->prepare('INSERT INTO post(titre, auteur, contenu) VALUES(?, ?, ?)');
+    $affectedLines = $comments->execute(array($titre, $auteur, $contenu));
+    return $affectedLines;
+}
+
+
+
+/* function writePost() {
     $bdd = dbConnect();
     
     try {
@@ -22,9 +31,7 @@ function writePost() {
   {
     die('Erreur : ' . $e->getMessage());
   }
-}
-        
-    
+} */
 
 // Récupère les articles
 function getPosts() {
@@ -36,8 +43,9 @@ function getPosts() {
 // Récupère les commentaires
 function getComs() {
     $db = dbConnect();
-    $coms = $db->query('SELECT * FROM comments ORDER BY date DESC');
-    return $coms;
+    $comments = $db->prepare('SELECT * FROM comments ORDER BY comment_date DESC');
+    $comments->execute(array());
+    return $comments;
 }
 
 // Récupère un article

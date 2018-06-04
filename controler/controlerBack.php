@@ -23,16 +23,14 @@ function post() {
 
 // Rédaction d'un article
 function writePostA($titre, $auteur, $contenu) {
-    /* $affectedLines = postArticleAdmin($titre, $auteur, $contenu);
-    
+    $affectedLines = postComment($titre, $auteur, $contenu);
     if ($affectedLines === false) {
-        die('Impossible d\'ajouter un article');
+        die('Impossible d\'ajouter l\'article');
     }
-    else { */
-     
-        header('Location: view/adminView.php');
-    /* } */
-    require('view/adminView.php');
+    else {
+        //header('Location: view/adminView.php');
+        header('location: index.php?action=administration');
+    }
 }
 
 function administration() {
@@ -52,6 +50,6 @@ function modifyPostBack() {
 
 // Gérer les commentaires
 function modifyComBack() {
-    $coms = getComs();
+    $comments = getComs();
     require('view/modifyComView.php');
 }

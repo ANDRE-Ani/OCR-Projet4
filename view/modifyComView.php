@@ -22,21 +22,21 @@
 
 <tr>
 <?php
-        while ($comments = $coms->fetch()) {
+        while ($coms = $comments->fetch()) {
             ?>
 
-        <td><?php echo nl2br(htmlspecialchars($comments['id'])); ?></td>
-        <td><?php echo nl2br(htmlspecialchars($comments['post_id'])); ?></td>
-        <td><?php echo htmlspecialchars($comments['author']); ?></td>
-        <td><?php echo htmlspecialchars($comments['comment_date']); ?></td>
-        <td><?php echo htmlspecialchars($comments['comment']); ?></td>
+        <td><?php echo nl2br(htmlspecialchars($coms['id'])); ?></td>
+        <td><?php echo nl2br(htmlspecialchars($coms['post_id'])); ?></td>
+        <td><?php echo htmlspecialchars($coms['author']); ?></td>
+        <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
+        <td><?php echo htmlspecialchars($coms['comment']); ?></td>
         <td><a href="#">Valider</a></td>
         <td><a href="#">Supprimer</a></td>
    </tr>     
 
         <?php
         }
-        $coms->closeCursor();
+        $comments->closeCursor();
         ?>
 
     </table>
