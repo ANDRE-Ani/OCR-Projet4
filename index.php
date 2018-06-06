@@ -7,11 +7,11 @@
 
 
 // Appel des différents controleurs
-require('controler/controlerBack.php');
-require('controler/controlerFront.php');
+require_once('./controler/controler.php');
 
 // Routes des actions et requêtes
 
+try {
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         listPosts();
@@ -20,14 +20,14 @@ if (isset($_GET['action'])) {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             post();
         } else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            throw new Exception('Aucun identifiant de billet envoyé');
         }
 
     } elseif ($_GET['action'] == 'writePostA') {
         if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
             writePost($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
         } else {
-            echo 'Erreur : tous les champs ne sont pas remplis !';
+            throw new Exception('Tous les champs ne sont pas remplis');
         }
     }
 
@@ -59,4 +59,10 @@ if (isset($_GET['action'])) {
 // Requête par défaut qui renvoie sur la page d'accueil
 } else {
     listPosts();
+    }
+
+}
+
+catch(Exception $e) {
+    echo 'Erreur : ' . $e->getMessage();
 }
