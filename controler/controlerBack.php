@@ -24,12 +24,13 @@ function post() {
 // Rédaction d'un article
 function writePostA($titre, $auteur, $contenu) {
     $affectedLines = postComment($titre, $auteur, $contenu);
+    var_dump($affectedLines);
     if ($affectedLines === false) {
         die('Impossible d\'ajouter l\'article');
     }
     else {
-        //header('Location: view/adminView.php');
-        header('location: index.php?action=administration');
+        
+        header('Location: index.php?action=administration');
     }
 }
 

@@ -13,26 +13,6 @@ function writePost($titre, $auteur, $contenu) {
     return $affectedLines;
 }
 
-
-
-/* function writePost() {
-    $bdd = dbConnect();
-    
-    try {
-        $req = $bdd->prepare('INSERT INTO post(titre, contenu, auteur) VALUES(:titre, :contenu, :auteur)');
-        $req->bindValue(':titre', $titre, PDO::PARAM_STR);
-        $req->bindValue(':contenu', $contenu, PDO::PARAM_STR);
-        $req->bindValue(':auteur', $auteur, PDO::PARAM_STR);
-        $req->execute();
-            echo 'L\'article a bien été ajouté ';
-        return $req;
-        }
-    catch (Exception $e)
-  {
-    die('Erreur : ' . $e->getMessage());
-  }
-} */
-
 // Récupère les articles
 function getPosts() {
     $db = dbConnect();

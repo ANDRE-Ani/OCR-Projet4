@@ -32,7 +32,7 @@ if (isset($_GET['action'])) {
     }
 
     elseif ($_GET['action'] == 'administration') {
-        admin();
+        administration();
     }
 
     elseif ($_GET['action'] == 'connection') {
