@@ -4,7 +4,7 @@ class ComManager
 {
 // Récupère les commentaires
 public function getComs() {
-    $db = dbConnect();
+    $db = $this->dbConnect();
     $comments = $db->prepare('SELECT * FROM comments ORDER BY comment_date DESC');
     $comments->execute(array());
     return $comments;
@@ -12,7 +12,7 @@ public function getComs() {
 
 // Récupère les commentaires
 public function getComments($postId) {
-    $db = dbConnect();
+    $db = $this->dbConnect();
     $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
     $comments->execute(array($postId));
     return $comments;

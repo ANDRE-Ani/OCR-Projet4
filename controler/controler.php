@@ -7,15 +7,15 @@ require_once('./model/ComManager.php');
 
 // Affichage des articles
 function listPosts() {
-    $postManager = new PostManager();
+    $PostManager = new PostManager();
     $posts = $PostManager->getPosts();
     require('view/indexView.php');
 }
 
 // Affichage d'un seul article avec commentaires
 function post() {
-    $postManager = new PostManager();
-    $commentManager = new CommentManager();
+    $PostManager = new PostManager();
+    $ComManager = new ComManager();
     $post = $PostManager->getPost($_GET['id']);
     $comments = $ComManager->getComments($_GET['id']);
     require('view/postView.php');
@@ -23,7 +23,7 @@ function post() {
 
 // Rédaction d'un article
 function writePostA($titre, $auteur, $contenu) {
-    $postManager = new PostManager();
+    $PostManager = new PostManager();
     $affectedLines = $PostManager->postComment($titre, $auteur, $contenu);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire');
@@ -36,7 +36,7 @@ function writePostA($titre, $auteur, $contenu) {
 
 // Gérer les articles
 function modifyPostBack() {
-    $postManager = new PostManager();
+    $PostManager = new PostManager();
     $posts = $PostManager->getPosts();
     require('view/modifyPostView.php');
 }
