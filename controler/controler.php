@@ -24,9 +24,9 @@ function post() {
 // Rédaction d'un article
 function writePostA($titre, $auteur, $contenu) {
     $PostManager = new PostManager();
-    $affectedLines = $PostManager->postComment($titre, $auteur, $contenu);
+    $affectedLines = $PostManager->writePost($titre, $auteur, $contenu);
     if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter le commentaire');
+        throw new Exception('Impossible d\'ajouter un article');
     }
     else {
         

@@ -1,5 +1,7 @@
 <?php
-class PostManager
+
+require_once("model/Manager.php");
+class PostManager extends Manager
 
 {
 // Ecris l'article dans la BDD
@@ -28,9 +30,9 @@ public function getPost($postId) {
 }
 
 //Se connecte à la BDD
-private function dbConnect() {
+/* private function dbConnect() {
     $bdd = new PDO('mysql:host=localhost;dbname=boutique_ecrivain;charset=utf8', 'boutique_bdd', 'cybergoth1978');
         return $bdd;
-}
+} */
 
 }

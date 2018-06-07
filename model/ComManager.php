@@ -1,5 +1,7 @@
 <?php
-class ComManager
+
+require_once("model/Manager.php");
+class ComManager extends Manager
 
 {
 // Récupère les commentaires
@@ -19,9 +21,9 @@ public function getComments($postId) {
 }
 
 //Se connecte à la BDD
-private function dbConnect() {
+/* private function dbConnect() {
     $bdd = new PDO('mysql:host=localhost;dbname=boutique_ecrivain;charset=utf8', 'boutique_bdd', 'cybergoth1978');
-        return $bdd;
-}
+    return $bdd;
+} */
 
 }

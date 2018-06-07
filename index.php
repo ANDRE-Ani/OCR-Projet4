@@ -5,7 +5,6 @@
 // Redirige toutes les requêtes utilisateur vers les
 // bonnes pages et actions
 
-
 // Appel des différents controleurs
 require_once('./controler/controler.php');
 
