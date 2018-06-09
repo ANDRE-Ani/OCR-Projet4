@@ -15,7 +15,7 @@
         <th>Titre</th>
         <th>Auteur</th>
         <th>Date</th>
-        <th>Modifier</th>
+        <th>Editer</th>
         <th>Supprimer</th>
 </tr>
 
@@ -28,7 +28,7 @@
         <td><?php echo htmlspecialchars($data['titre']); ?></td>
         <td><?php echo htmlspecialchars($data['auteur']); ?></td>
         <td><?php echo htmlspecialchars($data['date']); ?></td>
-        <td><a href="#">Modifier</a></td>
+        <td><a href="#">Editer</a></td>
         <td><a href="../index.php?action=deletePost&amp;id=<?php echo $data['id']; ?>">Supprimer</a></td>
    </tr>     
 
@@ -43,4 +43,4 @@
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require './templates/templateBack.php'; ?>
+<?php require 'templates/templateBack.php'; ?>

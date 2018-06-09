@@ -10,4 +10,4 @@
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require './templates/templateBack.php'; ?>
+<?php require 'templates/templateBack.php'; ?>

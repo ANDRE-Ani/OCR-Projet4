@@ -15,6 +15,14 @@ public function getComs() {
     return $comments;
 }
 
+// Ecris le commentaire
+public function writeComF($author, $comment) {
+    $bdd = $this->dbConnect();
+    $comments = $bdd->prepare('INSERT INTO comments(author, comment) VALUES(?, ?)');
+    $affectedLines = $comments->execute(array($author, $comment));
+    return $affectedLines;
+}
+
 // Récupère les commentaires
 public function getComments($postId) {
     $db = $this->dbConnect();
@@ -23,11 +31,13 @@ public function getComments($postId) {
     return $comments;
 }
 
+// Supprime un commentaire
+public function deleteCom($postId) {
+    $bdd = $this->dbConnect();
+    $comment = $bdd->prepare("DELETE FROM comments WHERE id=".$_GET['id']);
+    $affectedLines = $comment->execute(array($postId));
+    return $affectedLines;
+}
 
-//Se connecte à la BDD
-/* private function dbConnect() {
-    $bdd = new PDO('mysql:host=localhost;dbname=boutique_ecrivain;charset=utf8', 'boutique_bdd', 'cybergoth1978');
-    return $bdd;
-} */
 
 }

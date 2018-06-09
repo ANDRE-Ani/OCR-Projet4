@@ -23,6 +23,7 @@ if (isset($_GET['action'])) {
             throw new Exception('Aucun identifiant de billet envoyé');
         }
 
+        // écrire un article
     } elseif ($_GET['action'] == 'writePostA') {
         if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
             writePost($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
@@ -31,9 +32,28 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // écrire un commentaire
+    elseif ($_GET['action'] == 'writeComA') {
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+            writeComFront($_GET['author'], $_POST['comment']);
+        } else {
+            throw new Exception('Tous les champs ne sont pas remplis');
+        }
+    }
+
+    // supprimer un article
     elseif ($_GET['action'] == 'deletePost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             suprPost();
+        } else {
+            throw new Exception('Aucun identifiant d\'article envoyé');
+        }
+    }
+
+    // supprimer un commentaire
+    elseif ($_GET['action'] == 'deleteCom') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            suprCom();
         } else {
             throw new Exception('Aucun identifiant de commentaire envoyé');
         }
@@ -49,6 +69,10 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'writePostBack') {
         writePostAdmin();
+    }
+
+    elseif ($_GET['action'] == 'postCom') {
+        writeCom();
     }
 
     elseif ($_GET['action'] == 'modifyPost') {

@@ -23,9 +23,9 @@ function post() {
 }
 
 // Rédaction d'un article
-function writePostA($titre, $auteur, $contenu) {
+function writePost($titre, $auteur, $contenu) {
     $PostManager = new PostManager();
-    $affectedLines = $PostManager->writePost($titre, $auteur, $contenu);
+    $affectedLines = $PostManager->writePostA($titre, $auteur, $contenu);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter un article');
     }
@@ -34,12 +34,38 @@ function writePostA($titre, $auteur, $contenu) {
     }
 }
 
+
+// Rédaction d'un commentaire
+function writeComFront($author, $comment) {
+    $ComManager = new ComManager();
+    $affectedLines = $ComManager->writeComF($author, $comment);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter un commentaire');
+    }
+    else {
+        header('Location: index.php');
+    }
+}
+
+
 // supprime un article
 function suprPost($postId) {
     $PostManager = new PostManager();
     $affectedLines = $PostManager->deletePost($postId);
     if ($affectedLines === false) {
         throw new Exception('Impossible de supprimer un article');
+    }
+    else {
+        header('Location: index.php?action=administration');
+    }
+}
+
+// supprime un commentaire
+function suprCom($postId) {
+    $ComManager = new ComManager();
+    $affectedLines = $ComManager->deleteCom($postId);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de supprimer un commentaire');
     }
     else {
         header('Location: index.php?action=administration');
@@ -60,7 +86,12 @@ function modifyComBack() {
     require('view/modifyComView.php');
 }
 
+// page rédaction de commentaire
+function writeCom() {
+    require('view/writeComView.php');
+}
 
+// page à propos
 function aboutAuthor() {
     require('view/aboutView.php');
 }
@@ -70,6 +101,7 @@ function connectionAdmin() {
     require('view/connectionView.php');
 }
 
+// page d'admin
 function administration() {
     require('view/adminView.php');
 }

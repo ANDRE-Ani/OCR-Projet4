@@ -8,10 +8,10 @@ class PostManager extends Manager
 
 {
 // Ecris l'article dans la BDD
-public function writePost($titre, $auteur, $contenu) {
+public function writePostA($titre, $auteur, $contenu) {
     $bdd = $this->dbConnect();
-    $comments = $bdd->prepare('INSERT INTO post(titre, auteur, contenu) VALUES(?, ?, ?)');
-    $affectedLines = $comments->execute(array($titre, $auteur, $contenu));
+    $post = $bdd->prepare('INSERT INTO post(titre, auteur, contenu) VALUES(?, ?, ?)');
+    $affectedLines = $post->execute(array($titre, $auteur, $contenu));
     return $affectedLines;
 }
 
@@ -22,6 +22,7 @@ public function deletePost($postId) {
     $affectedLines = $post->execute(array($postId));
     return $affectedLines;
 }
+
 
 // Récupère les articles
 public function getPosts() {

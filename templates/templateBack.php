@@ -39,7 +39,7 @@
 
 <body>
 
-<?php include('https://p4ocr.andre-ani.fr/includes/header-admin.inc.php'); ?>
+<?php include('includes/header-admin.inc.php'); ?>
 
 <div id="contenu">
 
@@ -68,7 +68,7 @@
 
    </div>
 
-   <?php include('https://p4ocr.andre-ani.fr/includes/footer.inc.php'); ?>
+   <?php include('includes/footer.inc.php'); ?>
 
 </body>
 

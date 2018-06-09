@@ -31,7 +31,7 @@
         <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
         <td><?php echo htmlspecialchars($coms['comment']); ?></td>
         <td><a href="#">Valider</a></td>
-        <td><a href="#">Supprimer</a></td>
+        <td><a href="../index.php?action=deleteCom&amp;id=<?php echo $coms['id']; ?>">Supprimer</a></td>
    </tr>     
 
         <?php
@@ -45,4 +45,4 @@
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require './templates/templateBack.php'; ?>
+<?php require 'templates/templateBack.php'; ?>
