@@ -1,6 +1,9 @@
 <?php
 
+
 require_once("model/Manager.php");
+require_once("model/PostManager.php");
+
 class ComManager extends Manager
 
 {
@@ -19,6 +22,7 @@ public function getComments($postId) {
     $comments->execute(array($postId));
     return $comments;
 }
+
 
 //Se connecte à la BDD
 /* private function dbConnect() {

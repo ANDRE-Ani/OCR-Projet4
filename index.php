@@ -5,6 +5,7 @@
 // Redirige toutes les requêtes utilisateur vers les
 // bonnes pages et actions
 
+
 // Appel des différents controleurs
 require_once('./controler/controler.php');
 
@@ -27,6 +28,14 @@ if (isset($_GET['action'])) {
             writePost($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
+        }
+    }
+
+    elseif ($_GET['action'] == 'deletePost') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            suprPost();
+        } else {
+            throw new Exception('Aucun identifiant de commentaire envoyé');
         }
     }
 

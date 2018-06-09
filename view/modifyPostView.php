@@ -29,7 +29,7 @@
         <td><?php echo htmlspecialchars($data['auteur']); ?></td>
         <td><?php echo htmlspecialchars($data['date']); ?></td>
         <td><a href="#">Modifier</a></td>
-        <td><a href="#">Supprimer</a></td>
+        <td><a href="../index.php?action=deletePost&amp;id=<?php echo $data['id']; ?>">Supprimer</a></td>
    </tr>     
 
         <?php

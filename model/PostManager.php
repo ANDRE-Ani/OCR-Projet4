@@ -1,6 +1,9 @@
 <?php
 
+
 require_once("model/Manager.php");
+require_once("model/ComManager.php");
+
 class PostManager extends Manager
 
 {
@@ -9,6 +12,14 @@ public function writePost($titre, $auteur, $contenu) {
     $bdd = $this->dbConnect();
     $comments = $bdd->prepare('INSERT INTO post(titre, auteur, contenu) VALUES(?, ?, ?)');
     $affectedLines = $comments->execute(array($titre, $auteur, $contenu));
+    return $affectedLines;
+}
+
+// Supprime un article
+public function deletePost($postId) {
+    $bdd = $this->dbConnect();
+    $post = $bdd->prepare("DELETE FROM post WHERE id=".$_GET['id']);
+    $affectedLines = $post->execute(array($postId));
     return $affectedLines;
 }
 
@@ -28,11 +39,5 @@ public function getPost($postId) {
     $post = $req->fetch();
     return $post;
 }
-
-//Se connecte à la BDD
-/* private function dbConnect() {
-    $bdd = new PDO('mysql:host=localhost;dbname=boutique_ecrivain;charset=utf8', 'boutique_bdd', 'cybergoth1978');
-        return $bdd;
-} */
 
 }

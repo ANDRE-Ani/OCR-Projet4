@@ -1,6 +1,7 @@
 <?php
 // Controler
 
+
 require_once('./model/PostManager.php');
 require_once('./model/ComManager.php');
 
@@ -29,7 +30,18 @@ function writePostA($titre, $auteur, $contenu) {
         throw new Exception('Impossible d\'ajouter un article');
     }
     else {
-        
+        header('Location: index.php?action=administration');
+    }
+}
+
+// supprime un article
+function suprPost($postId) {
+    $PostManager = new PostManager();
+    $affectedLines = $PostManager->deletePost($postId);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de supprimer un article');
+    }
+    else {
         header('Location: index.php?action=administration');
     }
 }
@@ -47,6 +59,7 @@ function modifyComBack() {
     $comments = $ComManager->getComs();
     require('view/modifyComView.php');
 }
+
 
 function aboutAuthor() {
     require('view/aboutView.php');
