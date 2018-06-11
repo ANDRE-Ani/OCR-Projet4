@@ -56,7 +56,8 @@ $pass=$_POST['pass'];
 
   if (($pseudo == 'ecrivain') && ($pass == 'motdepasse'))
     {
-        header('Location: adminView.php');
+        // header('Location: adminView.php');
+        header('Location: /?action=administration');
         exit;
       }
       else

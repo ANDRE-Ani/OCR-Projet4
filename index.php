@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
         // écrire un article
     } elseif ($_GET['action'] == 'writePostA') {
         if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
-            writePost($_GET['titre'], $_POST['auteur'], $_POST['contenu']);
+            writePost($_POST['titre'], $_POST['auteur'], $_POST['contenu']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
         }
@@ -35,7 +35,7 @@ if (isset($_GET['action'])) {
     // écrire un commentaire
     elseif ($_GET['action'] == 'writeComA') {
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-            writeComFront($_GET['author'], $_POST['comment']);
+            writeComFront($_POST['author'], $_POST['comment']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
         }
