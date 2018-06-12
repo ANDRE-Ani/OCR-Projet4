@@ -35,7 +35,7 @@ if (isset($_GET['action'])) {
     // écrire un commentaire
     elseif ($_GET['action'] == 'writeComA') {
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-            writeComFront($_POST['author'], $_POST['comment']);
+            writeComFront($_POST['author'], $_POST['comment'], $_POST['id']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
         }

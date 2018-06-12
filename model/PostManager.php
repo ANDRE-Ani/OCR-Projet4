@@ -27,7 +27,7 @@ public function deletePost($postId) {
 // Récupère les articles
 public function getPosts() {
     $db = $this->dbConnect();
-    $req = $db->query('SELECT id, titre, contenu, auteur, DATE_FORMAT(date, "%d/%m/%Y à %Hh%imin") AS date FROM post ORDER BY date DESC');
+    $req = $db->query('SELECT id, titre, contenu, auteur, DATE_FORMAT(date, "%d/%m/%Y à %Hh%imin") AS date FROM post ORDER BY date ASC');
     return $req;
     
 }

@@ -16,10 +16,10 @@ public function getComs() {
 }
 
 // Ecris le commentaire
-public function writeComF($author, $comment, $postId) {
+public function writeComF($author, $comment, $id) {
     $bdd = $this->dbConnect();
-    $comments = $bdd->prepare('INSERT INTO comments(author, comment, id) VALUES(?,?, ?)');
-    $affectedLines = $comments->execute(array($author, $comment, $postId));
+    $comments = $bdd->prepare('INSERT INTO comments(author, comment, id) VALUES(?, ?, ?)');
+    $affectedLines = $comments->execute(array($author, $comment, $id)); 
     return $affectedLines;
 }
 

@@ -3,10 +3,9 @@
 <?php $titre = 'Le blog de l\'écrivain : '.htmlspecialchars($post['titre']); ?>
 
 <?php ob_start(); ?>
-       <h3>
-                <?= htmlspecialchars($post['titre']) ?>
-                <em>le <?= $post['date'] ?></em>
-            </h3>
+       <h3><?= htmlspecialchars($post['titre']) ?></h3>
+                le <?= $post['date'] ?>
+            
             <p>
                 <?= nl2br(htmlspecialchars($post['contenu'])) ?>
             </p>
