@@ -15,7 +15,7 @@
         <p><?php echo nl2br(htmlspecialchars($data['contenu'])); ?></p>
 
         <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a></p>
-        <p><a href="index.php?action=postCom">Publier un commentaire</a></p>
+        <p><a href="index.php?action=postCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>
       <hr>
     <?php
         }

@@ -10,16 +10,16 @@ class ComManager extends Manager
 // Récupère les commentaires
 public function getComs() {
     $db = $this->dbConnect();
-    $comments = $db->prepare('SELECT * FROM comments ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin") AS comment_date FROM comments ORDER BY comment_date DESC');
     $comments->execute(array());
     return $comments;
 }
 
 // Ecris le commentaire
-public function writeComF($author, $comment) {
+public function writeComF($author, $comment, $postId) {
     $bdd = $this->dbConnect();
-    $comments = $bdd->prepare('INSERT INTO comments(author, comment) VALUES(?, ?)');
-    $affectedLines = $comments->execute(array($author, $comment));
+    $comments = $bdd->prepare('INSERT INTO comments(author, comment, id) VALUES(?,?, ?)');
+    $affectedLines = $comments->execute(array($author, $comment, $postId));
     return $affectedLines;
 }
 

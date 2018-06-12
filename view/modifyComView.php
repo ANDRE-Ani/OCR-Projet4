@@ -15,7 +15,7 @@
         <th>Post ID</th>
         <th>Auteur</th>
         <th>Date</th>
-        <th>Commentaire</th>
+        <th>Statut</th>
         <th>Valider</th>
         <th>Supprimer</th>
 </tr>
@@ -29,7 +29,7 @@
         <td><?php echo nl2br(htmlspecialchars($coms['post_id'])); ?></td>
         <td><?php echo htmlspecialchars($coms['author']); ?></td>
         <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
-        <td><?php echo htmlspecialchars($coms['comment']); ?></td>
+        <td> # </td>
         <td><a href="#">Valider</a></td>
         <td><a href="../index.php?action=deleteCom&amp;id=<?php echo $coms['id']; ?>">Supprimer</a></td>
    </tr>     
