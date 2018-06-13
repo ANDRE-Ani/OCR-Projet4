@@ -38,9 +38,6 @@ function writePost($titre, $auteur, $contenu) {
 // Rédaction d'un commentaire
 function writeComFront($author, $comment, $id) {
     $ComManager = new ComManager();
-    $PostManager = new PostManager();
-    $post = $PostManager->getPost($_GET['id']);
-    $comments = $ComManager->getComments($_GET['post_id']);
     $affectedLines = $ComManager->writeComF($author, $comment, $id);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter un commentaire');
@@ -89,8 +86,10 @@ function modifyComBack() {
     require('view/modifyComView.php');
 }
 
-// page rédaction de commentaire
-function writeCom() {
+// envoie vers la page de rédaction de commentaire
+function writeCom($idPostCom) {
+    $idPost = $idPostCom;
+    var_dump($idPost);
     require('view/writeComView.php');
 }
 

@@ -72,7 +72,11 @@ if (isset($_GET['action'])) {
     }
 
     elseif ($_GET['action'] == 'postCom') {
-        writeCom();
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            writeCom($_GET['id']);
+        } else {
+            throw new Exception('Aucun identifiant de billet envoyé');
+        }
     }
 
     elseif ($_GET['action'] == 'modifyPost') {

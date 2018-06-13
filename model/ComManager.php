@@ -16,14 +16,14 @@ public function getComs() {
 }
 
 // Ecris le commentaire
-public function writeComF($author, $comment, $id) {
+public function writeComF($author, $comment, $idPost) {
     $bdd = $this->dbConnect();
     $comments = $bdd->prepare('INSERT INTO comments(author, comment, id) VALUES(?, ?, ?)');
-    $affectedLines = $comments->execute(array($author, $comment, $id)); 
+    $affectedLines = $comments->execute(array($author, $comment, $idPost)); 
     return $affectedLines;
 }
 
-// Récupère les commentaires
+// Récupère les commentaires d'un article
 public function getComments($postId) {
     $db = $this->dbConnect();
     $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
