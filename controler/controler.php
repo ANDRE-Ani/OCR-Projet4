@@ -89,7 +89,6 @@ function modifyComBack() {
 // envoie vers la page de rédaction de commentaire
 function writeCom($idPostCom) {
     $idPost = $idPostCom;
-    var_dump($idPost);
     require('view/writeComView.php');
 }
 
@@ -98,7 +97,7 @@ function aboutAuthor() {
     require('view/aboutView.php');
 }
 
-// Fonction de connection pour l'admin
+// page de connection pour l'admin
 function connectionAdmin() {
     require('view/connectionView.php');
 }
@@ -108,7 +107,7 @@ function administration() {
     require('view/adminView.php');
 }
 
-// Rédaction d'un article
+// page de rédaction d'un article
 function writePostAdmin() {
     require('view/writePostView.php');
 }

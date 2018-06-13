@@ -12,10 +12,12 @@ require_once('./controler/controler.php');
 // Routes des actions et requêtes
 
 try {
+// page d'accueil avec tous les articles    
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         listPosts();
 
+    // affiche un article et ses commentaires    
     } elseif ($_GET['action'] == 'post') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             post();
@@ -32,6 +34,16 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // envoie vers la page de rédaction d'un commentaire
+    elseif ($_GET['action'] == 'postCom') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            writeCom($_GET['id']);
+        } else {
+            throw new Exception('Aucun identifiant de billet envoyé');
+        }
+    }
+
+    
     // écrire un commentaire
     elseif ($_GET['action'] == 'writeComA') {
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -59,34 +71,33 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // envoie vers la page d'administration
     elseif ($_GET['action'] == 'administration') {
         administration();
     }
 
+    // envoie vers la page de connection
     elseif ($_GET['action'] == 'connection') {
         connectionAdmin();
     }
 
+    // envoie vers la page de rédaction d'un article
     elseif ($_GET['action'] == 'writePostBack') {
         writePostAdmin();
     }
 
-    elseif ($_GET['action'] == 'postCom') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            writeCom($_GET['id']);
-        } else {
-            throw new Exception('Aucun identifiant de billet envoyé');
-        }
-    }
 
+    // envoie vers la page de modification d'un article
     elseif ($_GET['action'] == 'modifyPost') {
         modifyPostBack();
     }
 
+    // envoie vers la page de modification d'un commentaire
     elseif ($_GET['action'] == 'modifyCom') {
         modifyComBack();
     }
 
+    // envoie vers la page à propos
     elseif ($_GET['action'] == 'about') {
         aboutAuthor();
     }
