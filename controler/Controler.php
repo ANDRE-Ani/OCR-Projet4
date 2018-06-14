@@ -1,12 +1,17 @@
 <?php
+
+use model\ComManager;
+use model\PostManager;
 // Controler
 
+namespace controller;
 
-require_once('./model/PostManager.php');
-require_once('./model/ComManager.php');
+// require_once('./model/PostManager.php');
+// require_once('./model/ComManager.php');
 
+class Controller {
 
-// Affichage des articles
+    // Affichage des articles
 function listPosts() {
     $PostManager = new PostManager();
     $posts = $PostManager->getPosts();
@@ -111,3 +116,6 @@ function administration() {
 function writePostAdmin() {
     require('view/writePostView.php');
 }
+
+}
+

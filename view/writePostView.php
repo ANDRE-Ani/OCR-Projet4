@@ -7,7 +7,7 @@
         
       <div class="envoie">
         <h2>Publier un nouvel article</h2>
-        <form action="index.php?action=writePostA&amp;titre=<?= $post['titre'] ?>&amp;auteur=<?= $post['auteur'] ?>&amp;contenu=<?= $post['contenu'] ?>" method="post">
+        <form action="index.php?action=writePostA" method="post">
             Titre : <input type="text" name="titre"/> <br/>
             Auteur : <input type="text" name="auteur"/> <br/>
             <textarea name="contenu" rows="4" cols="50"> </textarea>

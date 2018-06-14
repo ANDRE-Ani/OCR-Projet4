@@ -7,7 +7,7 @@
         
       <div class="envoie">
         <h2>Publier un nouveau commentaire</h2>
-        <form action="index.php?action=writeComA&amp;author=<?= $post['author'] ?>&amp;comment=<?= $post['comment'] ?>&amp;id=<?= $data['id'] ?>" method="post">
+        <form action="index.php?action=writeComA" method="post">
             Auteur :<br/> <input type="text" name="author"/> <br/>
             Commentaire :<br/> <textarea name="comment" rows="4" cols="50"> </textarea><br/>
             <input type="submit" name="valider" value="OK"/>
