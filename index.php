@@ -7,7 +7,11 @@
 
 
 // Appel des différents controleurs
+require_once("model/Manager.php");
 require_once('./controler/controler.php');
+
+require_once("model/PostManager.php");
+require_once("model/ComManager.php");
 
 // Routes des actions et requêtes
 
