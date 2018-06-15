@@ -3,8 +3,9 @@
 <?php $titre = 'Le blog de l\'écrivain : '.htmlspecialchars($post['titre']); ?>
 
 <?php ob_start(); ?>
+Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
        <h3><?= htmlspecialchars($post['titre']) ?></h3>
-                le <?= $post['date'] ?>
+                le <?= $post['post_date'] ?>
             
             <p>
                 <?= nl2br(htmlspecialchars($post['contenu'])) ?>

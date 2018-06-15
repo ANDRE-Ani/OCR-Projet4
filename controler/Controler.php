@@ -6,8 +6,6 @@ use model\PostManager;
 
 namespace controller;
 
-// require_once('./model/PostManager.php');
-// require_once('./model/ComManager.php');
 
 class Controller {
 
