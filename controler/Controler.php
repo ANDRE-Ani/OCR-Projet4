@@ -2,6 +2,7 @@
 
 use model\ComManager;
 use model\PostManager;
+
 // Controler
 
 namespace controller;
@@ -9,7 +10,33 @@ namespace controller;
 
 class Controller {
 
-    // Affichage des articles
+    // connection à l'admin
+    function logAdminA() {
+        $PostManager = new PostManager();
+        $resultat = $PostManager->admin();
+        $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
+
+
+if (!$resultat) {
+    echo 'Mauvais identifiant ou mot de passe !';
+}
+
+else {
+    if ($isPasswordCorrect) {
+        session_start();
+        $_SESSION['id'] = $resultat['id'];
+        $_SESSION['user'] = $user;
+        echo 'Vous êtes connecté !';
+    }
+    else {
+        echo 'Mauvais identifiant ou mot de passe !';
+    }
+}
+        require('view/adminView.php');
+    }
+
+    
+// Affichage des articles
 function listPosts() {
     $PostManager = new PostManager();
     $posts = $PostManager->getPosts();
@@ -39,9 +66,9 @@ function writePost($titre, $auteur, $contenu) {
 
 
 // Rédaction d'un commentaire
-function writeComFront($author, $comment, $id) {
+function writeComFront($author, $comment, $idPost) {
     $ComManager = new ComManager();
-    $affectedLines = $ComManager->writeComF($author, $comment, $id);
+    $affectedLines = $ComManager->writeComF($author, $comment, $idPost);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter un commentaire');
     }
@@ -61,6 +88,13 @@ function suprPost($postId) {
     else {
         header('Location: index.php?action=administration');
     }
+}
+
+// envoie vers la page d'édition d'un article
+function editPostA($postId) {
+    $PostManager = new PostManager();
+    $post = $PostManager->editPost($postId);
+    require('view/editPostView.php');
 }
 
 // supprime un commentaire

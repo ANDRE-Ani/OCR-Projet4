@@ -10,9 +10,9 @@
 <!-- Formulaire de connexion à l'administration -->
 <p>Veuillez entrer vos identifiants pour vous connecter à l'administartion du blog :</p>
 
-        <form action="view/connectionView.php" method="post">
+        <form action="index.php?action=logAdmin" method="post">
             <p>
-              <input type="text" name="pseudo" />
+              <input type="text" name="user" />
             <input type="password" name="pass" />
             <input type="submit" value="Valider" />
             </p>
@@ -20,20 +20,7 @@
 </div>
 </div>
 
-<?php
-$pseudo=$_POST['pseudo'];
-$pass=$_POST['pass'];
 
-  if (($pseudo == 'ecrivain') && ($pass == 'motdepasse'))
-    {
-        header('Location: /?action=administration');
-        exit;
-      }
-      else
-        {
-          echo "Erreur d'identifiant";
-        }
-?>
 
 <?php $contenu = ob_get_clean(); ?>
 

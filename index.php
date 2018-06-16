@@ -41,6 +41,16 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // connection à l'admin
+    elseif ($_GET['action'] == 'logAdmin') {
+        if (!empty($_POST['user']) && !empty($_POST['pass'])) {
+            $infos = new Controller();
+            $infos->logAdminF;
+        } else {
+            throw new Exception('Tous les champs ne sont pas remplis');
+        }
+    }
+
     // envoie vers la page de rédaction d'un commentaire
     elseif ($_GET['action'] == 'postCom') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -51,6 +61,15 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // envoie vers la page d'édition d'un article
+    elseif ($_GET['action'] == 'editPost') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $infos = new Controller();
+            $infos->editPostA($_GET['id']);
+        } else {
+            throw new Exception('Aucun identifiant d\'article envoyé');
+        }
+    }
     
     // écrire un commentaire
     elseif ($_GET['action'] == 'writeComA') {
@@ -71,6 +90,7 @@ if (isset($_GET['action'])) {
             throw new Exception('Aucun identifiant d\'article envoyé');
         }
     }
+
 
     // supprimer un commentaire
     elseif ($_GET['action'] == 'deleteCom') {
