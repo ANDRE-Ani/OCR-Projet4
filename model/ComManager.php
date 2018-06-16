@@ -1,11 +1,8 @@
 <?php
 
-use model\Manager;
-
 namespace model;
 
-// require_once("model/Manager.php");
-// require_once("model/PostManager.php");
+use model\Manager;
 
 class ComManager extends Manager
 

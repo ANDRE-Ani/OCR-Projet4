@@ -1,11 +1,11 @@
 <?php
 
+namespace controller;
+
 use model\ComManager;
 use model\PostManager;
 
 // Controler
-
-namespace controller;
 
 
 class Controller {

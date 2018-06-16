@@ -1,9 +1,8 @@
 <?php
 
-use model\Manager;
-
 namespace model;
 
+use model\Manager;
 
 class PostManager extends Manager
 
