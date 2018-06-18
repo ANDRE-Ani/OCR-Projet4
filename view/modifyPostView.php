@@ -15,6 +15,7 @@
         <th>Titre</th>
         <th>Auteur</th>
         <th>Date</th>
+        <th>Commentaire</th>
         <th>Editer</th>
         <th>Supprimer</th>
 </tr>
@@ -28,7 +29,8 @@
         <td><?php echo htmlspecialchars($data['titre']); ?></td>
         <td><?php echo htmlspecialchars($data['auteur']); ?></td>
         <td><?php echo htmlspecialchars($data['post_date']); ?></td>
-        <td><a href="../index.php?action=editPost&amp;id=<?php echo $data['id']; ?>">Editer</a></td>
+        <td><?php echo htmlspecialchars($data['contenu']); ?></td>
+        <td><a href="../index.php?action=editPost&amp;id=<?php echo $data['id']; ?>&amp;auteur=<?php echo $data['auteur']; ?>&amp;titre=<?php echo $data['titre']; ?>&amp;contenu=<?php echo $data['contenu']; ?>">Editer</a></td>
         <td><a href="../index.php?action=deletePost&amp;id=<?php echo $data['id']; ?>">Supprimer</a></td>
    </tr>     
 

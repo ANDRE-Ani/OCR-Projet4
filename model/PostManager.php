@@ -53,12 +53,12 @@ public function getPost($postId) {
 }
 
 // Edite un article
-/*public function editPostA() {
+public function editPost() {
     $db = $this->dbConnect();
     $req = $db->prepare('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post WHERE id = ?');
     $req->execute(array($postId));
     $post = $req->fetch();
     return $post;
-} */
+}
 
 }

@@ -2,6 +2,7 @@
 
 namespace controller;
 
+use Exception;
 use model\ComManager;
 use model\PostManager;
 
@@ -34,6 +35,9 @@ else {
 }
         require('view/adminView.php');
     }
+
+    
+
 
     
 // Affichage des articles
@@ -91,10 +95,16 @@ function suprPost($postId) {
 }
 
 // envoie vers la page d'édition d'un article
-function editPostA($postId) {
+function editPostA($postId, $auteur, $titre, $contenu) {
     $PostManager = new PostManager();
-    $post = $PostManager->editPost($postId);
+    $post = $PostManager->editPost($postId, $auteur, $titre, $contenu);
     require('view/editPostView.php');
+}
+
+// envoie vers la page de rédaction de commentaire
+function writeCom($idPostCom) {
+    $idPost = $idPostCom;
+    require('view/writeComView.php');
 }
 
 // supprime un commentaire
@@ -121,12 +131,6 @@ function modifyComBack() {
     $ComManager = new ComManager();
     $comments = $ComManager->getComs();
     require('view/modifyComView.php');
-}
-
-// envoie vers la page de rédaction de commentaire
-function writeCom($idPostCom) {
-    $idPost = $idPostCom;
-    require('view/writeComView.php');
 }
 
 // page à propos

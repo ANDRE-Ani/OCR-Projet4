@@ -6,11 +6,11 @@
    <div id="admin">
      
    <div class="envoie">
-     <h2>Publier un nouvel article</h2>
+     <h2>Editer un article</h2>
      <form action="index.php?action=editPostA" method="post">
-         Titre : <input type="text" name="titre" value="'.$post['auteur'].'"/> <br/>
-         Auteur : <input type="text" name="auteur"/> <br/>
-         <textarea name="contenu" rows="4" cols="50"> </textarea>
+         Titre : <input type="text" name="titre" value="<?php echo $_GET['titre']; ?>" /> <br/>
+         Auteur : <input type="text" name="auteur" value="<?php echo $_GET['auteur']; ?>" /> <br/>
+         <textarea name="contenu" rows="4" cols="50"/> <?php echo $_GET['contenu']; ?>  </textarea>
          <input type="submit" name="valider" value="OK"/>
      </form>
    </div>

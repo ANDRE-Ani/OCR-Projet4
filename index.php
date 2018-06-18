@@ -5,10 +5,11 @@
 // Redirige toutes les requêtes utilisateur vers les
 // bonnes pages et actions
 
+use controller\Controller;
 
-// Appel des différents controleurs
+// Appel des différents controlers
 require_once("model/Manager.php");
-require_once('./controler/controler.php');
+require_once('./controller/Controller.php');
 
 require_once("model/PostManager.php");
 require_once("model/ComManager.php");
@@ -41,6 +42,16 @@ if (isset($_GET['action'])) {
         }
     }
 
+    // écrire un commentaire
+    elseif ($_GET['action'] == 'writeComA') {
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+            $infos = new Controller();
+            $infos->writeComFront($_POST['author'], $_POST['comment'], $_POST['id']);
+        } else {
+            throw new Exception('Tous les champs ne sont pas remplis');
+        }
+    }
+
     // connection à l'admin
     elseif ($_GET['action'] == 'logAdmin') {
         if (!empty($_POST['user']) && !empty($_POST['pass'])) {
@@ -65,22 +76,13 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'editPost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $infos = new Controller();
-            $infos->editPostA($_GET['id']);
+            $infos->editPostA($_GET['id'], $_GET['auteur'], $_GET['titre'], $_GET['contenu']);
         } else {
             throw new Exception('Aucun identifiant d\'article envoyé');
         }
     }
     
-    // écrire un commentaire
-    elseif ($_GET['action'] == 'writeComA') {
-        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-            $infos = new Controller();
-            $infos->writeComFront($_POST['author'], $_POST['comment'], $_POST['id']);
-        } else {
-            throw new Exception('Tous les champs ne sont pas remplis');
-        }
-    }
-
+    
     // supprimer un article
     elseif ($_GET['action'] == 'deletePost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
