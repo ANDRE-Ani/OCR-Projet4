@@ -53,14 +53,14 @@ if (isset($_GET['action'])) {
     }
 
     // connection à l'admin
-    elseif ($_GET['action'] == 'logAdmin') {
-        if (!empty($_POST['user']) && !empty($_POST['pass'])) {
+    /* elseif ($_GET['action'] == 'logAdmin') {
+        if ((isset($_POST['user']) && !empty($_POST['user'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) {
             $infos = new Controller();
-            $infos->logAdminF;
+            $infos->logAdminF();
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
         }
-    }
+    } */
 
     // envoie vers la page de rédaction d'un commentaire
     elseif ($_GET['action'] == 'postCom') {

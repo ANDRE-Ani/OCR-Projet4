@@ -12,29 +12,29 @@ use model\PostManager;
 class Controller {
 
     // connection à l'admin
-    function logAdminA() {
-        $PostManager = new PostManager();
-        $resultat = $PostManager->admin();
-        $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
+    function logAdminF() {
+            $PostManager = new PostManager();
+            $resultat = $PostManager->admin();
+            $isPasswordCorrect = password_verify($_POST['pass'], $_POST['user'], $resultat['pass']);
 
+            var_dump($user);
 
-if (!$resultat) {
-    echo 'Mauvais identifiant ou mot de passe !';
-}
-
-else {
-    if ($isPasswordCorrect) {
-        session_start();
-        $_SESSION['id'] = $resultat['id'];
-        $_SESSION['user'] = $user;
-        echo 'Vous êtes connecté !';
-    }
-    else {
-        echo 'Mauvais identifiant ou mot de passe !';
-    }
-}
-        require('view/adminView.php');
-    }
+            if (!$resultat) {
+                echo 'Mauvais identifiant ou mot de passe';
+                require('view/connectionView.php');
+            } else {
+                if ($isPasswordCorrect) {
+                    session_start();
+                    $_SESSION['id'] = $resultat['id'];
+                    $_SESSION['user'] = $user;
+                    echo 'Vous êtes connecté !';
+                } else {
+                    echo 'Mauvais identifiant ou mot de passe';
+                    require('view/connectionView.php');
+                }
+            }
+            require('view/adminView.php');
+        }
 
     
 
@@ -95,9 +95,9 @@ function suprPost($postId) {
 }
 
 // envoie vers la page d'édition d'un article
-function editPostA($postId, $auteur, $titre, $contenu) {
+function editPostA($postId) {
     $PostManager = new PostManager();
-    $post = $PostManager->editPost($postId, $auteur, $titre, $contenu);
+    $post = $PostManager->editPost($postId);
     require('view/editPostView.php');
 }
 

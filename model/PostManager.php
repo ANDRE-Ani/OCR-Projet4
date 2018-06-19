@@ -8,7 +8,7 @@ class PostManager extends Manager
 
 {
     // vérifie le login
-public function admin($id, $user, $pass) {
+public function admin() {
     $bdd = $this->dbConnect();
     $users = $bdd->prepare('SELECT id, pass FROM admin WHERE user = :user');
     $users->execute(array(
@@ -55,7 +55,10 @@ public function getPost($postId) {
 // Edite un article
 public function editPost() {
     $db = $this->dbConnect();
-    $req = $db->prepare('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post WHERE id = ?');
+    // $req = $db->prepare('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post WHERE id = ?');
+    
+    $req = $db->prepare('UPDATE post SET titre = $titre, contenu= $contenu WHERE id= ?');
+    
     $req->execute(array($postId));
     $post = $req->fetch();
     return $post;

@@ -7,7 +7,7 @@
      
    <div class="envoie">
      <h2>Editer un article</h2>
-     <form action="index.php?action=editPostA" method="post">
+     <form action="index.php?action=writePostA" method="post">
          Titre : <input type="text" name="titre" value="<?php echo $_GET['titre']; ?>" /> <br/>
          Auteur : <input type="text" name="auteur" value="<?php echo $_GET['auteur']; ?>" /> <br/>
          <textarea name="contenu" rows="4" cols="50"/> <?php echo $_GET['contenu']; ?>  </textarea>
@@ -16,6 +16,9 @@
    </div>
 
  </div>
+
+<!-- "post"=>"titre" -->
+
  <?php $contenu = ob_get_clean(); ?>
 
 <?php require 'templates/templateBack.php'; ?>

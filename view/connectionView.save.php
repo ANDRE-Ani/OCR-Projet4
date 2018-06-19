@@ -10,7 +10,7 @@
 <!-- Formulaire de connexion à l'administration -->
 <p>Veuillez entrer vos identifiants pour vous connecter à l'administartion du blog :</p>
 
-        <form action="index.php?action=logAdmin" method="post">
+        <form action="index.php?action=logAdminF" method="post">
             <p>
               <input type="text" name="user" />
             <input type="password" name="pass" />
