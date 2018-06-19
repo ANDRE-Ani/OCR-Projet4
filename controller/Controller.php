@@ -95,9 +95,10 @@ function suprPost($postId) {
 }
 
 // envoie vers la page d'édition d'un article
-function editPostA($postId) {
+function editPostA($idPost) {
     $PostManager = new PostManager();
-    $post = $PostManager->editPost($postId);
+    $dataPost = $PostManager->getPost($idPost);
+    $post = $PostManager->editPost($idPost);
     require('view/editPostView.php');
 }
 
@@ -123,14 +124,14 @@ function suprCom($postId) {
 function modifyPostBack() {
     $PostManager = new PostManager();
     $posts = $PostManager->getPosts();
-    require('view/modifyPostView.php');
+    require('view/allPostView.php');
 }
 
 // Gérer les commentaires
 function modifyComBack() {
     $ComManager = new ComManager();
     $comments = $ComManager->getComs();
-    require('view/modifyComView.php');
+    require('view/allComView.php');
 }
 
 // page à propos

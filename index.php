@@ -46,7 +46,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'writeComA') {
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
             $infos = new Controller();
-            $infos->writeComFront($_POST['author'], $_POST['comment'], $_POST['id']);
+            $infos->writeComFront($_POST['author'], $_POST['comment'], $_GET['post_id']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
         }
@@ -76,7 +76,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'editPost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $infos = new Controller();
-            $infos->editPostA($_GET['id'], $_GET['auteur'], $_GET['titre'], $_GET['contenu']);
+            $infos->editPostA($_GET['id']);
         } else {
             throw new Exception('Aucun identifiant d\'article envoyé');
         }

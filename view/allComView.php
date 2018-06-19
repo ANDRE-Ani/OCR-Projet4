@@ -16,7 +16,7 @@
         <th>Auteur</th>
         <th>Date</th>
         <th>Statut</th>
-        <th>Valider</th>
+        <th>Editer</th>
         <th>Supprimer</th>
 </tr>
 
@@ -30,7 +30,7 @@
         <td><?php echo htmlspecialchars($coms['author']); ?></td>
         <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
         <td><?php echo htmlspecialchars($coms['statut']); ?></td>
-        <td><a href="#">Valider</a></td>
+        <td><a href="#">Editer</a></td>
         <td><a href="../index.php?action=deleteCom&amp;id=<?php echo $coms['id']; ?>">Supprimer</a></td>
    </tr>     
 
