@@ -10,11 +10,11 @@ class PostManager extends Manager
     // vérifie le login
 public function admin() {
     $bdd = $this->dbConnect();
-    $users = $bdd->prepare('SELECT id, pass FROM admin WHERE user = :user');
-    $users->execute(array(
-    'user' => $user));
-    $resultat = $users->fetch();
-    
+    $users = $bdd->prepare('SELECT pass FROM adminU WHERE user = :user');
+    $users->bindParam(':user', $_POST["user"]);
+	$users->execute();
+    $result = $users->fetch();
+    $hash = $result[0];
 }
 
 

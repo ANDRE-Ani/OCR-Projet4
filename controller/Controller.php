@@ -8,37 +8,25 @@ use model\PostManager;
 
 // Controler
 
-
 class Controller {
 
-    // connection à l'admin
-    function logAdminF() {
-            $PostManager = new PostManager();
-            $resultat = $PostManager->admin();
-            $isPasswordCorrect = password_verify($_POST['pass'], $_POST['user'], $resultat['pass']);
-
-            var_dump($user);
-
-            if (!$resultat) {
-                echo 'Mauvais identifiant ou mot de passe';
-                require('view/connectionView.php');
-            } else {
-                if ($isPasswordCorrect) {
-                    session_start();
-                    $_SESSION['id'] = $resultat['id'];
-                    $_SESSION['user'] = $user;
-                    echo 'Vous êtes connecté !';
-                } else {
-                    echo 'Mauvais identifiant ou mot de passe';
-                    require('view/connectionView.php');
-                }
+// connection à l'admin
+function logAdmin() {
+    $PostManager = new PostManager();
+    $result = $PostManager->admin();
+    $hash = password_hash($_POST["pass"], PASSWORD_DEFAULT);
+    $correctPassword = password_verify($_POST["pass"], $hash);
+	    if($correctPassword){
+            session_start();
+            $_SESSION['user'] = $user;
+	        header('Location: index.php?action=administration');
             }
-            require('view/adminView.php');
-        }
+        else {
+		    echo "login/password incorrect";
+	        }
+        } 
 
     
-
-
     
 // Affichage des articles
 function listPosts() {
