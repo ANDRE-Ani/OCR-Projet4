@@ -12,20 +12,20 @@ class Controller {
 
 // connection à l'admin
 function logAdmin() {
-    $PostManager = new PostManager();
-    $result = $PostManager->admin();
-    $hash = password_hash($_POST["pass"], PASSWORD_DEFAULT);
-    $correctPassword = password_verify($_POST["pass"], $hash);
-	    if($correctPassword){
+    if (isset($_POST["user"]) && isset($_POST["pass"])) {
+        $PostManager = new PostManager();
+        $user = $PostManager->admin($_GET['user']);
+        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $correctPassword = password_verify($_POST['pass'], $hash);
+        if ($correctPassword) {
             session_start();
             $_SESSION['user'] = $user;
-	        header('Location: index.php?action=administration');
-            }
-        else {
-		    echo "login/password incorrect";
-	        }
-        } 
-
+            header('Location: index.php?action=administration');
+        } else {
+            echo 'login/password incorrect';
+        }
+    }
+}
     
     
 // Affichage des articles
@@ -56,7 +56,6 @@ function writePost($titre, $auteur, $contenu) {
     }
 }
 
-
 // Rédaction d'un commentaire
 function writeComFront($author, $comment, $idPost) {
     $ComManager = new ComManager();
@@ -68,7 +67,6 @@ function writeComFront($author, $comment, $idPost) {
         header('Location: index.php');
     }
 }
-
 
 // supprime un article
 function suprPost($postId) {
@@ -85,8 +83,8 @@ function suprPost($postId) {
 // envoie vers la page d'édition d'un article
 function editPostA($idPost) {
     $PostManager = new PostManager();
+    $post = $PostManager->getPost($_GET['id']);
     $dataPost = $PostManager->getPost($idPost);
-    $post = $PostManager->editPost($idPost);
     require('view/editPostView.php');
 }
 

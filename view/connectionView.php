@@ -20,8 +20,6 @@
 </div>
 </div>
 
-
-
 <?php $contenu = ob_get_clean(); ?>
 
 <?php require 'templates/templateFront.php'; ?>

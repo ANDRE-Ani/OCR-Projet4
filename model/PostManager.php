@@ -11,7 +11,7 @@ class PostManager extends Manager
 public function admin() {
     $bdd = $this->dbConnect();
     $users = $bdd->prepare('SELECT pass FROM adminU WHERE user = :user');
-    $users->bindParam(':user', $_POST["user"]);
+    $users->bindParam(':user', $_POST['user']);
 	$users->execute();
     $result = $users->fetch();
     $hash = $result[0];
@@ -53,12 +53,9 @@ public function getPost($postId) {
 }
 
 // Edite un article
-public function editPost() {
+public function editPost($postId) {
     $db = $this->dbConnect();
-    // $req = $db->prepare('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post WHERE id = ?');
-    
-    $req = $db->prepare('UPDATE post SET titre = $titre, contenu= $contenu WHERE id= ?');
-    
+    $req = $db->prepare('UPDATE post SET titre = $titre, contenu= $contenu WHERE id='.$_GET['id']);
     $req->execute(array($postId));
     $post = $req->fetch();
     return $post;
