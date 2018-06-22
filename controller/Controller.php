@@ -88,6 +88,14 @@ function editPostA($idPost) {
     require('view/editPostView.php');
 }
 
+// envoie vers la page d'édition d'un commentaire
+function editComF($idCom) {
+    $ComManager = new ComManager();
+    $com = $ComManager->getCom($_GET['id']);
+    $dataCom = $ComManager->getCom($idCom);
+    require('view/editComView.php');
+}
+
 // envoie vers la page de rédaction de commentaire
 function writeCom($idPostCom) {
     $idPost = $idPostCom;
@@ -105,6 +113,19 @@ function suprCom($postId) {
         header('Location: index.php?action=administration');
     }
 }
+
+// signal un commentaire
+function tagCom($postId) {
+    $ComManager = new ComManager();
+    $affectedLines = $ComManager->tagComF($postId);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de signaler le commentaire');
+    }
+    else {
+        header('Location: index.php');
+    }
+}
+
 
 // Gérer les articles
 function modifyPostBack() {

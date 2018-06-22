@@ -82,7 +82,16 @@ if (isset($_GET['action'])) {
         }
     }
     
-    
+    // envoie vers la page d'édition d'un commentaire
+    elseif ($_GET['action'] == 'editCom') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $infos = new Controller();
+            $infos->editComF($_GET['id']);
+        } else {
+            throw new Exception('Aucun identifiant d\'article envoyé');
+        }
+    }
+
     // supprimer un article
     elseif ($_GET['action'] == 'deletePost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -140,6 +149,17 @@ if (isset($_GET['action'])) {
         $infos = new Controller();
         $infos->aboutAuthor();
     }
+
+    // signalement d'un commentaire
+    elseif ($_GET['action'] == 'tag') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $infos = new Controller();
+            $infos->tagCom($_GET['id']);
+        } else {
+            throw new Exception('Aucun identifiant de commentaire envoyé');
+        }
+    }
+
 
 
 // Requête par défaut qui renvoie sur la page d'accueil

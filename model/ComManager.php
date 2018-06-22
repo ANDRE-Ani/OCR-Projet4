@@ -15,10 +15,19 @@ public function getComs() {
     return $comments;
 }
 
+// Récupère un commentaire
+public function getCom($comId) {
+    $db = $this->dbConnect();
+    $req = $db->prepare('SELECT id, post_id, author, comment, comment_date, statut FROM comments WHERE id = ?');
+    $req->execute(array($comId));
+    $com = $req->fetch();
+    return $com;
+}
+
 // Ecris le commentaire
 public function writeComF($author, $comment, $idPost) {
     $bdd = $this->dbConnect();
-    $comments = $bdd->prepare('INSERT INTO comments(author, comment, post_id, statut) VALUES(?, ?, ?, "5")');
+    $comments = $bdd->prepare('INSERT INTO comments(author, comment, post_id, statut) VALUES(?, ?, ?, "en attente")');
     $affectedLines = $comments->execute(array($author, $comment, $idPost)); 
     return $affectedLines;
 }
@@ -39,5 +48,21 @@ public function deleteCom($postId) {
     return $affectedLines;
 }
 
+// Edite un commentaire
+public function editCom($postId) {
+    $db = $this->dbConnect();
+    $req = $db->prepare('UPDATE comments SET contenu = $contenu, statut = $statut WHERE id='.$_GET['id']);
+    $req->execute(array($postId));
+    $com = $req->fetch();
+    return $com;
+}
+
+// signal un commentaire
+public function tagComF($postId) {
+    $bdd = $this->dbConnect();
+    $comment = $bdd->prepare("UPDATE comments SET statut=1 WHERE id=".$_GET['id']);
+    $affectedLines = $comment->execute(array($postId));
+    return $affectedLines;
+}
 
 }

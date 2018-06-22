@@ -20,7 +20,7 @@ Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
         <p>Auteur : <?= htmlspecialchars($comment['author']) ?>
           le <?= $comment['comment_date'] ?></p>
         <p>Commentaire : <?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-
+        <p><a href="index.php?action=tag&amp;id=<?php echo $comment['id']; ?>"><button type="button">Signaler</button></a></p> 
         <?php
         }
         ?>

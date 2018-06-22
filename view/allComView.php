@@ -30,7 +30,7 @@
         <td><?php echo htmlspecialchars($coms['author']); ?></td>
         <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
         <td><?php echo htmlspecialchars($coms['statut']); ?></td>
-        <td><a href="#">Editer</a></td>
+        <td><a href="../index.php?action=editCom&amp;id=<?php echo $coms['id']; ?>">Editer</a></td>
         <td><a href="../index.php?action=deleteCom&amp;id=<?php echo $coms['id']; ?>">Supprimer</a></td>
    </tr>     
 
