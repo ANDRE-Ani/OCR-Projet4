@@ -26,6 +26,14 @@ td {
     text-align: center;
 }
 
+th {
+    background-color: #869aea;
+}
+
+tr:hover {
+    background-color: #bfdfff;
+}
+
 .header {
     width: 100%;
     font-size: 25px;
@@ -48,9 +56,18 @@ h3 {
     padding-bottom: 10px;
 }
 
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
 #contenu {
     display: flex;
     width: 100%;
+}
+
+.aside button:hover {
+    background-color: #bad8ff;
 }
 
 .leftcolumn {
@@ -62,6 +79,13 @@ h3 {
     background-color: #bcffba;
     margin: 5px;
     padding: 5px;
+}
+
+.aside img {
+    width: 340px;
+    height: 37px;
+    margin: auto;
+    display: block;
 }
 
 .aside h2 {

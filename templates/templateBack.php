@@ -47,17 +47,19 @@
 
    <div class="leftcolumn2">
      <div class="post">
-     Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
+     <p>Retour sur le <a href="https://p4ocr.andre-ani.fr/" title="Retour sur l'accueil du blog">blog</a></p>
+     <img src="../images/commentaires.png">
        <h2>Articles</h2>
-       <p><a href="../index.php?action=writePostBack">Publier un article</a></p>
-        <p><a href="../index.php?action=modifyPost">Gérer les articles</a></p>
+       <p><a href="../index.php?action=writePostBack" title="Publier u nouvel article">Publier un article</a></p>
+        <p><a href="../index.php?action=modifyPost" title="Gérer les articles du blog">Gérer les articles</a></p>
      </div>
 
     <hr>
 
      <div class="comments">
+     <img src="../images/articles.png">
        <h3>Commentaires</h3>
-       <p><a href="../index.php?action=modifyCom">Gérer les commentaires</a></p>
+       <p><a href="../index.php?action=modifyCom" title="Gérer les commentaires du blog">Gérer les commentaires</a></p>
      </div>
      </div>
      <div class="rightcolumn2">

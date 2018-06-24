@@ -35,13 +35,11 @@
    <div class="leftcolumn">
      <div class="aside">
 
-
         <?= $contenu ?>
 
      </div>
 
    </div>
-
 
    <div class="rightcolumn">
      <div class="about">

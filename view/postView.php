@@ -3,7 +3,7 @@
 <?php $titre = 'Le blog de l\'écrivain : '.htmlspecialchars($post['titre']); ?>
 
 <?php ob_start(); ?>
-Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
+<p>Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a></p>
        <h3><?= htmlspecialchars($post['titre']) ?></h3>
                 le <?= $post['post_date'] ?>
             
@@ -16,6 +16,7 @@ Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
         <?php
         while ($comment = $comments->fetch()) {
             ?>
+            <img src="../images/stylo.png">
 
         <p>Auteur : <?= htmlspecialchars($comment['author']) ?>
           le <?= $comment['comment_date'] ?></p>
@@ -24,7 +25,7 @@ Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
         <?php
         }
         ?>
-
+        
      <?php $contenu = ob_get_clean(); ?>
 
 <?php require 'templates/templateFront.php'; ?>
