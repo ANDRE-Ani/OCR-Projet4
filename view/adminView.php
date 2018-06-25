@@ -3,7 +3,6 @@
 <?php $titre = 'Administration du site'; ?>
 
 <?php 
-
 if (isset($_SESSION['user'])) {
     echo 'Bonjour ' . $_SESSION['user'];
 }

@@ -13,9 +13,12 @@ class Controller {
 // connection à l'admin
 function logAdmin() {
     if (isset($_POST["user"]) && isset($_POST["pass"])) {
+
         $PostManager = new PostManager();
-        $user = $PostManager->admin($_GET['user']);
-        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $result = $PostManager->admin($_POST['user']);
+        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
+        var_dump($_POST['pass']);
+        var_dump($hash);
         $correctPassword = password_verify($_POST['pass'], $hash);
         if ($correctPassword) {
             session_start();
@@ -24,6 +27,9 @@ function logAdmin() {
         } else {
             echo 'login/password incorrect';
         }
+    }
+    else {
+        echo 'Il manque un champ';
     }
 }
     

@@ -12,8 +12,8 @@
 
         <form action="index.php?action=logAdminF" method="post">
             <p>
-              <input type="text" name="user" />
-            <input type="password" name="pass" />
+              <input type="text" name="user" required />
+            <input type="password" name="pass" required />
             <input type="submit" value="Valider" />
             </p>
         </form>
