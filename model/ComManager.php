@@ -15,6 +15,15 @@ public function getComs() {
     return $comments;
 }
 
+// comptage des commentaires
+public function numberC() {
+    $db = $this->dbConnect();
+    $req = $db->query('SELECT COUNT(id) as countid FROM comments'); 
+    $req->execute(array());
+    $nbligneC = $req->fetch();
+    return $nbligneC;
+}
+
 // Récupère un commentaire
 public function getCom($comId) {
     $db = $this->dbConnect();

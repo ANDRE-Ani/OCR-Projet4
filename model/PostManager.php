@@ -35,13 +35,20 @@ public function deletePost($postId) {
     return $affectedLines;
 }
 
+// comptage des articles
+public function number() {
+    $db = $this->dbConnect();
+    $req = $db->query('SELECT COUNT(id) as countid FROM post'); 
+    $req->execute(array());
+    $nbligne = $req->fetch();
+    return $nbligne;
+}
 
 // Récupère les articles
 public function getPosts() {
     $db = $this->dbConnect();
-    $req = $db->query('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post ORDER BY post_date DESC');
+    $req = $db->query('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post ORDER BY post_date DESC');  
     return $req;
-    
 }
 
 // Récupère un article

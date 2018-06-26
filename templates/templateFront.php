@@ -34,7 +34,6 @@
 <div id="contenu">
    <div class="leftcolumn">
      <div class="aside">
-
         <?= $contenu ?>
 
      </div>
@@ -55,6 +54,7 @@
 
      <div class="admin">
        <h3>Administration</h3>
+       <p>Nombre d'articles : <?php echo $total[0]; ?><br>Nombre de commentaires : <?php echo $totalC[0]; ?></p>
        <p><a href="index.php?action=connection">Se connecter</a></p>
      </div>
 

@@ -19,6 +19,7 @@ function logAdmin() {
         $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
         var_dump($_POST['pass']);
         var_dump($hash);
+
         $correctPassword = password_verify($_POST['pass'], $hash);
         if ($correctPassword) {
             session_start();
@@ -37,7 +38,10 @@ function logAdmin() {
 // Affichage des articles
 function listPosts() {
     $PostManager = new PostManager();
+    $ComManager = new ComManager();
     $posts = $PostManager->getPosts();
+    $total = $PostManager->number($nbligne);
+    $totalC = $ComManager->numberC($nbligneC);
     require('view/indexView.php');
 }
 
@@ -47,6 +51,8 @@ function post() {
     $ComManager = new ComManager();
     $post = $PostManager->getPost($_GET['id']);
     $comments = $ComManager->getComments($_GET['id']);
+    $total = $PostManager->number($nbligne);
+    $totalC = $ComManager->numberC($nbligneC);
     require('view/postView.php');
 }
 
