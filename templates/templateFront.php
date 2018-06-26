@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<?php $cookie_name = "userF";
+$cookie_value = "anonymous";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); ?>
+
 <head>
   <title><?= $titre ?></title>
   <meta name="description" content="Le blog de Jean Forteroche" />

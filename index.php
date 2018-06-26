@@ -78,7 +78,7 @@ if (isset($_GET['action'])) {
             $infos = new Controller();
             $infos->editPostA($_GET['id']);
         } else {
-            throw new Exception('Aucun identifiant d\'article envoyé');
+            throw new Exception('Aucun identifiant d\'article envoyé pour édition');
         }
     }
     

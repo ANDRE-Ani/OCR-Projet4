@@ -7,7 +7,7 @@
      
    <div class="envoie">
      <h2>Editer un article</h2>
-     <form action="index.php?action=editPost&id="<?php echo $data['id']; ?>" method="post">
+     <form action="index.php?action=editPost&id="<?php echo $idPost['id'] ?>" method="post">
          Titre : <input type="text" name="titre" value="<?php echo $dataPost['titre']; ?>" /> <br/>
          Auteur : <input type="text" name="auteur" value="<?php echo $dataPost['auteur']; ?>" /> <br/>
          <textarea name="contenu" rows="4" cols="50"/> <?php echo $dataPost['contenu']; ?>  </textarea>

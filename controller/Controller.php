@@ -93,10 +93,9 @@ function suprPost($postId) {
 }
 
 // envoie vers la page d'édition d'un article
-function editPostA($idPost) {
+function editPostA($postId) {
     $PostManager = new PostManager();
-    $post = $PostManager->getPost($_GET['id']);
-    $dataPost = $PostManager->getPost($idPost);
+    $dataPost = $PostManager->getPost($postId);
     require('view/editPostView.php');
 }
 
