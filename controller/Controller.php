@@ -17,9 +17,7 @@ function logAdmin() {
         $PostManager = new PostManager();
         $result = $PostManager->admin($_POST['user']);
         $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
-        var_dump($_POST['pass']);
-        var_dump($hash);
-
+        
         $correctPassword = password_verify($_POST['pass'], $hash);
         if ($correctPassword) {
             session_start();
