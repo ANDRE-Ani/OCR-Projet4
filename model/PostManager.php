@@ -3,6 +3,7 @@
 namespace model;
 
 use model\Manager;
+use PDO;
 
 class PostManager extends Manager
 
@@ -62,10 +63,14 @@ public function getPost($postId) {
 }
 
 // Edite un article
-public function editPost($postId) {
+public function editPost($titre, $auteur, $contenu) {
     $db = $this->dbConnect();
-    $req = $db->prepare('UPDATE post SET titre = $titre, contenu= $contenu WHERE id='.$_GET['id']);
-    $req->execute(array($postId));
+    $req = $db->prepare('UPDATE post SET titre = :titre, contenu = :contenu WHERE id=:id');
+    $req->bindValue('titre', $titre, PDO::PARAM_STR);
+    $req->bindValue('contenu', $contenu, PDO::PARAM_STR);
+    $id = intval($_GET['id']);
+    $req->bindValue('id', $id, PDO::PARAM_INT);
+    $req->execute();
     $post = $req->fetch();
     return $post;
 }

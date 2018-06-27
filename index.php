@@ -47,14 +47,9 @@ if (isset($_GET['action'])) {
 
     // édite un article
     elseif ($_GET['action'] == 'editPost') {
-     
         if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
         $infos = new Controller();
         $infos->editPostBack($_POST['titre'], $_POST['auteur'], $_POST['contenu']);
-        var_dump('auteur');
-        var_dump('contenu');
-        die();    
-    
     }   else {
         throw new Exception('Tous les champs ne sont pas remplis');
     }

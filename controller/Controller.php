@@ -71,8 +71,6 @@ function writePost($titre, $auteur, $contenu) {
 // édition d'un article
 function editPostBack($titre, $auteur, $contenu) {
     $PostManager = new PostManager();
-    
-
     $affectedLines = $PostManager->editPost($titre, $auteur, $contenu);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter un article');
