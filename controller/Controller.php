@@ -80,6 +80,17 @@ function editPostBack($titre, $auteur, $contenu) {
     }
 }
 
+// édition d'un commentaire
+function editComFront($statut, $comment) {
+    $ComManager = new ComManager();
+    $affectedLines = $ComManager->editComF($statut, $comment);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter un commentaire');
+    }
+    else {
+        header('Location: index.php');
+    }
+}
 
 // Rédaction d'un commentaire
 function writeComFront($author, $comment, $idPost) {
@@ -93,17 +104,6 @@ function writeComFront($author, $comment, $idPost) {
     }
 }
 
-// édition d'un commentaire
-function editComFront($statut, $comment, $idPost) {
-    $ComManager = new ComManager();
-    $affectedLines = $ComManager->editComF($statut, $comment, $idPost);
-    if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter un commentaire');
-    }
-    else {
-        header('Location: index.php');
-    }
-}
 
 // supprime un article
 function suprPost($postId) {

@@ -55,6 +55,16 @@ if (isset($_GET['action'])) {
     }
 }
 
+// édition d'un commentaire
+elseif ($_GET['action'] == 'editComBack') {
+    if (!empty($_POST['statut']) && !empty($_POST['comment']) && !empty($_POST['id'])) {
+        $infos = new Controller();
+        $infos->editComFront($_POST['statut'], $_POST['comment'], $_GET['post_id']);
+    } else {
+        throw new Exception('Tous les champs ne sont pas remplis pour l\'édition');
+    }
+}
+
 
     // écrire un commentaire
     elseif ($_GET['action'] == 'writeComA') {
@@ -63,21 +73,6 @@ if (isset($_GET['action'])) {
             $infos->writeComFront($_POST['author'], $_POST['comment'], $_GET['post_id']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis');
-        }
-    }
-
-
-    // édition d'un commentaire
-    elseif ($_GET['action'] == 'editComBack') {
-        /*var_dump($_POST['comment']);
-        var_dump($_POST['statut']);
-        var_dump($_POST['id']);
-        die();*/
-        if (!empty($_POST['statut']) && !empty($_POST['comment']) && !empty($_POST['id'])) {
-            $infos = new Controller();
-            $infos->editComFront($_POST['statut'], $_POST['comment'], $_GET['post_id']);
-        } else {
-            throw new Exception('Tous les champs ne sont pas remplis pour l\'édition');
         }
     }
 
