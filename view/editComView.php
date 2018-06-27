@@ -7,15 +7,15 @@
      
    <div class="envoie">
      <h2>Editer un commentaire</h2>
-     <form action="index.php?action=editCom&id="<?php echo $idPostCom ?>" method="post">
+     <form action="index.php?action=editComBack&id=<?php echo $com['id'] ?>" method="post">
 
         <textarea name="contenu" rows="4" cols="50"/> <?php echo $com['comment']; ?>  </textarea>
         
         <p>Statut :
-        <SELECT name="statut">
-        <option selected>En attente
-        <option>Validé
-        <option>Signalé
+        <SELECT id="statut">
+        <option value="en attente">En attente</option>
+        <option value="valide">Validé</option>
+        <option value="signale">Signalé</option>
         </SELECT>
         </p>
 
@@ -23,9 +23,7 @@
      </form>
    </div>
 
-test2
-<?php echo $dataCom['id']; ?>
- </div>
+</div>
 
  <?php $contenu = ob_get_clean(); ?>
 

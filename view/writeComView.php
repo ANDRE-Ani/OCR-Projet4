@@ -13,7 +13,7 @@
             <input type="submit" name="valider" value="OK"/>
         </form>
       </div>
-      <?php var_dump($idPost) ?>
+
     </div>
     <?php $contenu = ob_get_clean(); ?>
 

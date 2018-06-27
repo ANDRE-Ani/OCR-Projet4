@@ -7,11 +7,12 @@ use model\Manager;
 class PostManager extends Manager
 
 {
-    // vérifie le login
-public function admin() {
+// vérifie le login
+public function admin($user, $pass) {
     $bdd = $this->dbConnect();
-    $users = $bdd->prepare('SELECT * FROM adminU WHERE user = :user');
-    $users->bindParam(':user', $_POST["user"]);
+    $users = $bdd->prepare('SELECT * FROM adminU WHERE user = :user AND pass = :pass');
+    $users->bindParam(':user', $user);
+    $users->bindParam(':pass', $pass);
 	$users->execute();
     $result = $users->fetch();
     $hash = $result[0];

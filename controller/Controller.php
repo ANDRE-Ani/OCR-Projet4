@@ -13,13 +13,14 @@ class Controller {
 // connection à l'admin
 function logAdmin() {
     if (isset($_POST["user"]) && isset($_POST["pass"])) {
-
+            
         $PostManager = new PostManager();
-        $result = $PostManager->admin($_POST['user']);
-        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
-        
+        $result = $PostManager->admin($_POST['user'], $_POST['pass']);
+        // $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
+
         $correctPassword = password_verify($_POST['pass'], $hash);
-        if ($correctPassword) {
+        if ($result != false) {
+        // if ($correctPassword) {
             session_start();
             $_SESSION['user'] = $user;
             header('Location: index.php?action=administration');
@@ -66,10 +67,38 @@ function writePost($titre, $auteur, $contenu) {
     }
 }
 
+
+// édition d'un article
+function editPostBack($titre, $auteur, $contenu) {
+    $PostManager = new PostManager();
+    
+
+    $affectedLines = $PostManager->editPost($titre, $auteur, $contenu);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter un article');
+    }
+    else {
+        header('Location: index.php?action=administration');
+    }
+}
+
+
 // Rédaction d'un commentaire
 function writeComFront($author, $comment, $idPost) {
     $ComManager = new ComManager();
     $affectedLines = $ComManager->writeComF($author, $comment, $idPost);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter un commentaire');
+    }
+    else {
+        header('Location: index.php');
+    }
+}
+
+// édition d'un commentaire
+function editComFront($statut, $comment, $idPost) {
+    $ComManager = new ComManager();
+    $affectedLines = $ComManager->editComF($statut, $comment, $idPost);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter un commentaire');
     }
@@ -91,22 +120,21 @@ function suprPost($postId) {
 }
 
 // envoie vers la page d'édition d'un article
-function editPostA($postId) {
+function viewEditPostB($postId) {
     $PostManager = new PostManager();
     $dataPost = $PostManager->getPost($postId);
     require('view/editPostView.php');
 }
 
 // envoie vers la page d'édition d'un commentaire
-function editComF($idCom) {
+function viewEditComB($idCom) {
     $ComManager = new ComManager();
-    $com = $ComManager->getCom($_GET['id']);
-    $dataCom = $ComManager->getCom($idCom);
+    $com = $ComManager->getCom($idCom);
     require('view/editComView.php');
 }
 
 // envoie vers la page de rédaction de commentaire
-function writeCom($idPostCom) {
+function viewWriteComBack($idPostCom) {
     $idPost = $idPostCom;
     require('view/writeComView.php');
 }
@@ -123,8 +151,8 @@ function suprCom($postId) {
     }
 }
 
-// signal un commentaire
-function tagCom($postId) {
+// signaler un commentaire
+function signalComUser($postId) {
     $ComManager = new ComManager();
     $affectedLines = $ComManager->tagComF($postId);
     if ($affectedLines === false) {
@@ -137,14 +165,14 @@ function tagCom($postId) {
 
 
 // Gérer les articles
-function modifyPostBack() {
+function allPostBack() {
     $PostManager = new PostManager();
     $posts = $PostManager->getPosts();
     require('view/allPostView.php');
 }
 
 // Gérer les commentaires
-function modifyComBack() {
+function allComBack() {
     $ComManager = new ComManager();
     $comments = $ComManager->getComs();
     require('view/allComView.php');
@@ -155,18 +183,18 @@ function aboutAuthor() {
     require('view/aboutView.php');
 }
 
-// page de connection pour l'admin
+// envoie vers la page de connection pour l'admin
 function connectionAdmin() {
     require('view/connectionView.php');
 }
 
-// page d'admin
+// envoie vers la page d'administration
 function administration() {
     require('view/adminView.php');
 }
 
-// page de rédaction d'un article
-function writePostAdmin() {
+// envoie vers la page de rédaction d'un article
+function viewWritePost() {
     require('view/writePostView.php');
 }
 

@@ -58,10 +58,10 @@ public function deleteCom($postId) {
 }
 
 // Edite un commentaire
-public function editCom($postId) {
+public function editComF($comId) {
     $db = $this->dbConnect();
-    $req = $db->prepare('UPDATE comments SET contenu = $contenu, statut = $statut WHERE id='.$_GET['id']);
-    $req->execute(array($postId));
+    $req = $db->prepare('UPDATE comments SET contenu = $contenu, statut = $statut WHERE id='.$comId);
+    $req->execute(array($comId));
     $com = $req->fetch();
     return $com;
 }

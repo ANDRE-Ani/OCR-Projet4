@@ -22,6 +22,7 @@ if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         $infos = new Controller();
         $infos->listPosts();
+    
 
     // affiche un article et ses commentaires    
     } elseif ($_GET['action'] == 'post') {
@@ -32,7 +33,8 @@ if (isset($_GET['action'])) {
             throw new Exception('Aucun identifiant de billet envoyé');
         }
 
-        // écrire un article
+
+    // écrire un article
     } elseif ($_GET['action'] == 'writePostA') {
         if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
             $infos = new Controller();
@@ -41,6 +43,23 @@ if (isset($_GET['action'])) {
             throw new Exception('Tous les champs ne sont pas remplis');
         }
     }
+
+
+    // édite un article
+    elseif ($_GET['action'] == 'editPost') {
+     
+        if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
+        $infos = new Controller();
+        $infos->editPostBack($_POST['titre'], $_POST['auteur'], $_POST['contenu']);
+        var_dump('auteur');
+        var_dump('contenu');
+        die();    
+    
+    }   else {
+        throw new Exception('Tous les champs ne sont pas remplis');
+    }
+}
+
 
     // écrire un commentaire
     elseif ($_GET['action'] == 'writeComA') {
@@ -52,6 +71,22 @@ if (isset($_GET['action'])) {
         }
     }
 
+
+    // édition d'un commentaire
+    elseif ($_GET['action'] == 'editComBack') {
+        /*var_dump($_POST['comment']);
+        var_dump($_POST['statut']);
+        var_dump($_POST['id']);
+        die();*/
+        if (!empty($_POST['statut']) && !empty($_POST['comment']) && !empty($_POST['id'])) {
+            $infos = new Controller();
+            $infos->editComFront($_POST['statut'], $_POST['comment'], $_GET['post_id']);
+        } else {
+            throw new Exception('Tous les champs ne sont pas remplis pour l\'édition');
+        }
+    }
+
+
     // connection à l'admin
     elseif ($_GET['action'] == 'logAdminF') {
         if ((isset($_POST['user']) && !empty($_POST['user'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) {
@@ -62,31 +97,32 @@ if (isset($_GET['action'])) {
         }
     }
 
+
     // envoie vers la page de rédaction d'un commentaire
-    elseif ($_GET['action'] == 'postCom') {
+    elseif ($_GET['action'] == 'viewWriteCom') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $infos = new Controller();
-            $infos->writeCom($_GET['id']);
+            $infos->viewWriteComBack($_GET['id']);
         } else {
             throw new Exception('Aucun identifiant de billet envoyé');
         }
     }
 
     // envoie vers la page d'édition d'un article
-    elseif ($_GET['action'] == 'editPost') {
+    elseif ($_GET['action'] == 'viewEditPost') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $infos = new Controller();
-            $infos->editPostA($_GET['id']);
+            $infos->viewEditPostB($_GET['id']);
         } else {
             throw new Exception('Aucun identifiant d\'article envoyé pour édition');
         }
     }
     
     // envoie vers la page d'édition d'un commentaire
-    elseif ($_GET['action'] == 'editCom') {
+    elseif ($_GET['action'] == 'viewEditCom') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $infos = new Controller();
-            $infos->editComF($_GET['id']);
+            $infos->viewEditComB($_GET['id']);
         } else {
             throw new Exception('Aucun identifiant d\'article envoyé');
         }
@@ -126,22 +162,22 @@ if (isset($_GET['action'])) {
     }
 
     // envoie vers la page de rédaction d'un article
-    elseif ($_GET['action'] == 'writePostBack') {
+    elseif ($_GET['action'] == 'viewWritePost') {
         $infos = new Controller();
-        $infos->writePostAdmin();
+        $infos->viewWritePost();
     }
 
 
-    // envoie vers la page de modification d'un article
-    elseif ($_GET['action'] == 'modifyPost') {
+    // envoie vers la page de gestion des articles
+    elseif ($_GET['action'] == 'viewAllPost') {
         $infos = new Controller();
-        $infos->modifyPostBack();
+        $infos->allPostBack();
     }
 
-    // envoie vers la page de modification d'un commentaire
-    elseif ($_GET['action'] == 'modifyCom') {
+    // envoie vers la page de gestion des commentaires
+    elseif ($_GET['action'] == 'viewAllCom') {
         $infos = new Controller();
-        $infos->modifyComBack();
+        $infos->allComBack();
     }
 
     // envoie vers la page à propos
@@ -151,10 +187,10 @@ if (isset($_GET['action'])) {
     }
 
     // signalement d'un commentaire
-    elseif ($_GET['action'] == 'tag') {
+    elseif ($_GET['action'] == 'signalCom') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $infos = new Controller();
-            $infos->tagCom($_GET['id']);
+            $infos->signalComUser($_GET['id']);
         } else {
             throw new Exception('Aucun identifiant de commentaire envoyé');
         }
