@@ -13,6 +13,7 @@ require_once('./controller/Controller.php');
 
 require_once("model/PostManager.php");
 require_once("model/ComManager.php");
+require_once("model/UserManager.php");
 
 // Routes des actions et requêtes
 
@@ -87,6 +88,15 @@ elseif ($_GET['action'] == 'editComBack') {
         }
     }
 
+    // création de compte
+    elseif ($_GET['action'] == 'createUser') {
+        if (!empty($_POST['user']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && ($_POST['pass']) == ($_POST['pass2'])) {
+            $infos = new Controller();
+            $infos->creationUserA($_POST['user'], $_POST['pass']);
+        } else {
+            throw new Exception('Tous les champs ne sont pas remplis ou les mots de passe ne correspondent pas');
+        }
+    }
 
     // envoie vers la page de rédaction d'un commentaire
     elseif ($_GET['action'] == 'viewWriteCom') {
@@ -168,6 +178,12 @@ elseif ($_GET['action'] == 'editComBack') {
     elseif ($_GET['action'] == 'viewAllCom') {
         $infos = new Controller();
         $infos->allComBack();
+    }
+
+    // envoie vers la page de création de compte
+    elseif ($_GET['action'] == 'creationUser') {
+        $infos = new Controller();
+        $infos->createUserView();
     }
 
     // envoie vers la page à propos

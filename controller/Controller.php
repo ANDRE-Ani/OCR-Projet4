@@ -5,6 +5,7 @@ namespace controller;
 use Exception;
 use model\ComManager;
 use model\PostManager;
+use model\UserManager;
 
 // Controler
 
@@ -13,19 +14,19 @@ class Controller {
 // connection à l'admin
 function logAdmin() {
     if (isset($_POST["user"]) && isset($_POST["pass"])) {
-            
-        $PostManager = new PostManager();
-        $result = $PostManager->admin($_POST['user'], $_POST['pass']);
-        // $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
+        $UserManager = new UserManager();
+        $result = $UserManager->admin($_POST['user'], $_POST['pass']);
+        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
 
         $correctPassword = password_verify($_POST['pass'], $hash);
         if ($result != false) {
-        // if ($correctPassword) {
             session_start();
             $_SESSION['user'] = $user;
             header('Location: index.php?action=administration');
         } else {
-            echo 'login/password incorrect';
+            echo 'Login ou mot de passe incorrect';
+            echo '<br>';
+            echo 'Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>';
         }
     }
     else {
@@ -73,7 +74,7 @@ function editPostBack($titre, $auteur, $contenu) {
     $PostManager = new PostManager();
     $affectedLines = $PostManager->editPost($titre, $auteur, $contenu);
     if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter un article');
+        throw new Exception('Impossible d\'éditer l\'article');
     }
     else {
         header('Location: index.php?action=administration');
@@ -176,13 +177,44 @@ function allComBack() {
     require('view/allComView.php');
 }
 
+// page de création de compte
+function createUserView() {
+    $PostManager = new PostManager();
+    $ComManager = new ComManager();
+    $total = $PostManager->number($nbligne);
+    $totalC = $ComManager->numberC($nbligneC);
+    require('view/createUserView.php');
+}
+
+// création de compte
+function creationUserA($user, $pass) {
+    $UserManager = new UserManager();
+    $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+    $affectedLines = $UserManager->createUser($user, $pass_hash);
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de créer le compte');
+    }
+    else {
+        header('Location: index.php?action=connection');
+    }
+}
+
 // page à propos
 function aboutAuthor() {
+    $PostManager = new PostManager();
+    $ComManager = new ComManager();
+    $total = $PostManager->number($nbligne);
+    $totalC = $ComManager->numberC($nbligneC);
     require('view/aboutView.php');
 }
 
 // envoie vers la page de connection pour l'admin
 function connectionAdmin() {
+    $PostManager = new PostManager();
+    $ComManager = new ComManager();
+    $UserManager = new UserManager();
+    $total = $PostManager->number($nbligne);
+    $totalC = $ComManager->numberC($nbligneC);
     require('view/connectionView.php');
 }
 

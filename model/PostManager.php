@@ -8,18 +8,6 @@ use PDO;
 class PostManager extends Manager
 
 {
-// vérifie le login
-public function admin($user, $pass) {
-    $bdd = $this->dbConnect();
-    $users = $bdd->prepare('SELECT * FROM adminU WHERE user = :user AND pass = :pass');
-    $users->bindParam(':user', $user);
-    $users->bindParam(':pass', $pass);
-	$users->execute();
-    $result = $users->fetch();
-    $hash = $result[0];
-    return $result;
-}
-
 
 // Ecris l'article dans la BDD
 public function writePostA($titre, $auteur, $contenu) {
@@ -74,5 +62,6 @@ public function editPost($titre, $auteur, $contenu) {
     $post = $req->fetch();
     return $post;
 }
+
 
 }
