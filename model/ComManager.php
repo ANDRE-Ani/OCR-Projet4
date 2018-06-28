@@ -73,7 +73,7 @@ public function editComF($statut, $comment) {
 // signal un commentaire
 public function tagComF($postId) {
     $bdd = $this->dbConnect();
-    $comment = $bdd->prepare("UPDATE comments SET statut=1 WHERE id=".$_GET['id']);
+    $comment = $bdd->prepare("UPDATE comments SET statut='signalé' WHERE id=".$_GET['id']);
     $affectedLines = $comment->execute(array($postId));
     return $affectedLines;
 }

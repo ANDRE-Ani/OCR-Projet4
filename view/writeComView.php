@@ -1,6 +1,6 @@
 <!-- Page de rédaction d'un commentaire -->
 
-<?php $titre = 'Publier un commentaire'; ?>
+<?php $titre = SITE_NAME . ' - Administration - Publier un commentaire'; ?>
 
    <?php ob_start(); ?> 
       <div id="admin">

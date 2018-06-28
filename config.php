@@ -4,3 +4,5 @@
     define('DB_PASS', 'cybergoth1978');
     define('DB_NAME', 'boutique_ecrivain');
     
+    define('SITE_NAME', 'Le blog de l\'écrivain');
+    define('AUTEUR', 'Jean Forteroche');

@@ -1,6 +1,6 @@
 <!-- Page à propos -->
 
-<?php $titre = 'Le blog de l\'écrivain - A propos'; ?>
+<?php $titre = SITE_NAME . ' - A propos'; ?>
 
 <?php ob_start(); ?>
 Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>

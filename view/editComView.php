@@ -1,6 +1,6 @@
 <!-- Page admin d'édition d'un commentaire -->
 
-<?php $titre = 'Editer un commentaire'; ?>
+<?php $titre = SITE_NAME . ' - Administration - Editer un commentaire'; ?>
 
 <?php ob_start(); ?> 
    <div id="admin">

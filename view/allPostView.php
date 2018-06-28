@@ -1,6 +1,6 @@
 <!-- Page admin de gestion des articles -->
 
-<?php $titre = 'Gérer les articles'; ?>
+<?php $titre = SITE_NAME . ' - Administration - Gérer les articles'; ?>
 
 <?php ob_start(); ?>
 

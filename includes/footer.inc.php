@@ -1,3 +1,4 @@
 <div class="footer">
-<p>Copyright 2018 - Jean Forteroche - Ecrivain <img src="../images/machine.png"></p>
+
+<p><?php echo SITE_NAME ?> - Copyright 2018 - <?php echo AUTEUR ?> - Ecrivain <img src="../images/machine.png"></p>
 </div>

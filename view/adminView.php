@@ -1,6 +1,6 @@
 <!-- Page principal de l'administration -->
 
-<?php $titre = 'Administration du site'; ?>
+<?php $titre = SITE_NAME . ' - Administration'; ?>
 
 <?php 
 if (isset($_SESSION['user'])) {

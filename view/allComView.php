@@ -1,6 +1,6 @@
 <!-- Page admin de gestion des commentaires -->
 
-<?php $titre = 'Gérer les commentaires'; ?>
+<?php $titre = SITE_NAME . ' - Administration - Gérer les commentaires'; ?>
 
 <?php ob_start(); ?>
 

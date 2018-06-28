@@ -1,6 +1,6 @@
 <!-- Page admin d'édition d'un article -->
 
-<?php $titre = 'Editer un article'; ?>
+<?php $titre = SITE_NAME . ' - Administration - Editer un article'; ?>
 
 <?php ob_start(); ?> 
    <div id="admin">

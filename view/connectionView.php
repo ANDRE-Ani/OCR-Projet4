@@ -1,6 +1,6 @@
-<!-- Page de connection à l'admin -->
+<!-- Page de connexion à l'admin -->
 
-<?php $titre = 'Connection'; ?>
+<?php $titre = SITE_NAME . ' - Connexion à l\'administration'; ?>
 
 <?php ob_start(); ?>
 
