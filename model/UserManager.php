@@ -9,11 +9,10 @@ class UserManager extends Manager
 
 {
 // vérifie le login
-public function admin($user, $pass) {
+public function admin($user) {
     $bdd = $this->dbConnect();
-    $users = $bdd->prepare('SELECT * FROM adminU WHERE user = :user AND pass = :pass');
+    $users = $bdd->prepare('SELECT * FROM adminU WHERE user = :user');
     $users->bindParam(':user', $user);
-    $users->bindParam(':pass', $pass);
 	$users->execute();
     $result = $users->fetch();
     $hash = $result[0];

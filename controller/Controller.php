@@ -16,10 +16,10 @@ function logAdmin() {
     if (isset($_POST["user"]) && isset($_POST["pass"])) {
         $UserManager = new UserManager();
         $result = $UserManager->admin($_POST['user'], $_POST['pass']);
-        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);     
+        $correctPassword = password_verify($_POST['pass'], $result['pass']);
+        $user = ($_POST['user']);
 
-        $correctPassword = password_verify($_POST['pass'], $hash);
-        if ($result != false) {
+        if ($correctPassword != false) {
             session_start();
             $_SESSION['user'] = $user;
             header('Location: index.php?action=administration');

@@ -3,6 +3,7 @@
 <?php $titre = SITE_NAME . ' - A propos'; ?>
 
 <?php ob_start(); ?>
+
 Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a>
 <p><h1>A propos de l'auteur</h1></p>
 <p>Jean Forteroche est un acteur et écrivain américain.</p>

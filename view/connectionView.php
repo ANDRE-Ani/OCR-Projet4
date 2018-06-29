@@ -5,7 +5,7 @@
 <?php ob_start(); ?>
 
 <div class="connecter">
-<div class="formulaireAdmin">
+<div class="formulaireLogin">
 
 <!-- Formulaire de connexion à l'administration -->
 <p>Veuillez entrer vos identifiants pour vous connecter à l'administartion du blog :</p>
@@ -20,4 +20,4 @@
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require 'templates/templateFront.php'; ?>
+<?php require 'templates/templateUser.php'; ?>
