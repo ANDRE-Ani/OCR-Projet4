@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION['user'] = $user;
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 

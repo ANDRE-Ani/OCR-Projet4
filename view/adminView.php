@@ -7,7 +7,7 @@ if (isset($_SESSION['user'])) {
     echo 'Bonjour ' . $_SESSION['user'];
 }
 else {
-    echo "rien";
+    echo 'rien';
 }
 ?>
 
