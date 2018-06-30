@@ -1,5 +1,7 @@
 <!-- Page admin de rédaction d'un article -->
 
+<?php session_start(); ?>
+
 <?php $titre = SITE_NAME . ' - Administration - Publier un article'; ?>
 
    <?php ob_start(); ?> 

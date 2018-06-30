@@ -22,7 +22,7 @@ class UserController extends Controller
 
             if ($correctPassword != false) {
                 session_start();
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = $_POST['user'];
                 header('Location: index.php?action=administration');
             } else {
                 echo 'Login ou mot de passe incorrect';
@@ -39,8 +39,6 @@ function connectionAdmin() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
     $UserManager = new UserManager();
-    $total = $PostManager->number($nbligne);
-    $totalC = $ComManager->numberC($nbligneC);
     require('view/connectionView.php');
 }
 
@@ -61,10 +59,7 @@ function creationUserA($user, $pass) {
 function createUserView() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
-    $total = $PostManager->number($nbligne);
-    $totalC = $ComManager->numberC($nbligneC);
     require('view/createUserView.php');
 }
-
 
 }

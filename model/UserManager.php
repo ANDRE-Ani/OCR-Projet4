@@ -27,4 +27,5 @@ public function createUser($user, $pass_hash) {
     return $affectedLines;
 }
 
+
 }

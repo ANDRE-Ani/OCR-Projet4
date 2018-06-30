@@ -1,5 +1,7 @@
 <!-- Page d'accueil du blog -->
 
+<?php session_start(); ?>
+
 <?php $titre = 'Le blog de l\'écrivain'; ?>
 
 <?php ob_start(); ?>

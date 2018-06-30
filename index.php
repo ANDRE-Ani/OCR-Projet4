@@ -1,14 +1,19 @@
 <?php
 
+
+
 // Routeur de l'application
 
 // Redirige toutes les requêtes utilisateur vers les
 // bonnes pages et actions
 
+use model\Manager;
+use model\ComManager;
+use model\PostManager;
 use controller\Controller;
-use controller\UserController;
-use controller\PostController;
 use controller\ComController;
+use controller\PostController;
+use controller\UserController;
 
 // Appel des différents controlers
 require_once("model/Manager.php");
@@ -160,6 +165,16 @@ elseif ($_GET['action'] == 'editComBack') {
     elseif ($_GET['action'] == 'connection') {
         $infos = new UserController();
         $infos->connectionAdmin();
+    }
+
+    // deconnection
+    elseif ($_GET['action'] == 'logout') {
+        $infos = new UserController();
+        $infos->connectionAdmin();
+        session_start ();
+        session_unset ();
+        session_destroy ();
+        header ('Location: index.php');
     }
 
     // envoie vers la page de rédaction d'un article

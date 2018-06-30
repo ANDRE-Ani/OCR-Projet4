@@ -1,8 +1,3 @@
-<?php
-session_start();
-$_SESSION['user'] = $user;
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -51,6 +46,16 @@ $_SESSION['user'] = $user;
    <div class="leftcolumn2">
      <div class="post">
      <p>Retour sur le <a href="https://p4ocr.andre-ani.fr/" title="Retour sur l'accueil du blog">blog</a></p>
+     
+     <h2>Utilisateur</h2>
+     <p><?php 
+      if (isset($_SESSION['user'])) {
+          echo 'Connecté : ' . $_SESSION['user'];
+      } ?></p>
+        <p><a href="index.php?action=logout">Se déconnecter</a></p>
+
+    <hr>
+
      <img src="../images/commentaires.png">
        <h2>Articles</h2>
        <p><a href="../index.php?action=viewWritePost" title="Publier un nouvel article">Publier un article</a></p>
@@ -61,7 +66,7 @@ $_SESSION['user'] = $user;
 
      <div class="comments">
      <img src="../images/articles.png">
-       <h3>Commentaires</h3>
+       <h2>Commentaires</h2>
        <p><a href="../index.php?action=viewAllCom" title="Gérer les commentaires du blog">Gérer les commentaires</a></p>
      </div>
      </div>

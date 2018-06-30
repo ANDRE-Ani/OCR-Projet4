@@ -12,7 +12,7 @@ use model\UserManager;
 class PostController extends Controller
 {
 
-    // Affichage des articles
+// Affichage des articles
 function listPosts() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
@@ -72,7 +72,7 @@ function suprPost($postId) {
 // envoie vers la page d'édition d'un article
 function viewEditPostB($postId) {
     $PostManager = new PostManager();
-    $dataPost = $PostManager->getPost($postId);
+    $total = $PostManager->number($nbligne);
     require('view/editPostView.php');
 }
 

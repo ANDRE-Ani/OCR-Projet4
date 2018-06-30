@@ -64,8 +64,6 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); ?>
 
      <div class="admin">
        <h3>Administration</h3>
-       <p>Nombre d'articles : <?php echo $total[0]; ?><br>
-       Nombre de commentaires : <?php echo $totalC[0]; ?></p>
        <p><a href="index.php?action=creationUser">Créer un compte</a></p>
        <p><a href="index.php?action=connection">Se connecter</a></p>
      </div>

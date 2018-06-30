@@ -72,7 +72,7 @@ function editComFront($statut, $comment) {
     $ComManager = new ComManager();
     $affectedLines = $ComManager->editComF($statut, $comment);
     if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter un commentaire');
+        throw new Exception('Impossible d\'editer un commentaire');
     }
     else {
         header('Location: index.php');

@@ -1,5 +1,7 @@
 <!-- Page admin de gestion des articles -->
 
+<?php session_start(); ?>
+
 <?php $titre = SITE_NAME . ' - Administration - Gérer les articles'; ?>
 
 <?php ob_start(); ?>
@@ -20,7 +22,7 @@
 </tr>
 
 <tr>
-<?php
+        <?php
         while ($data = $posts->fetch()) {
             ?>
 

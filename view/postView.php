@@ -1,5 +1,7 @@
 <!-- Affichae d'un article et de ses commentaires -->
 
+<?php session_start(); ?>
+
 <?php $titre = 'Le blog de l\'écrivain : '.htmlspecialchars($post['titre']); ?>
 
 <?php ob_start(); ?>

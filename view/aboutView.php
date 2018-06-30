@@ -1,5 +1,7 @@
 <!-- Page à propos -->
 
+<?php session_start(); ?>
+
 <?php $titre = SITE_NAME . ' - A propos'; ?>
 
 <?php ob_start(); ?>

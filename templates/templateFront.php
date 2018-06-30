@@ -1,9 +1,3 @@
-<?php
-session_start();
-$_SESSION['user'] = $user;
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -64,10 +58,18 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); ?>
 
      <div class="admin">
        <h3>Administration</h3>
-       <p>Nombre d'articles : <?php echo $total[0]; ?><br>
-       Nombre de commentaires : <?php echo $totalC[0]; ?></p>
-       <p><a href="index.php?action=creationUser">Créer un compte</a></p>
-       <p><a href="index.php?action=connection">Se connecter</a></p>
+
+      <?php 
+      if (isset($_SESSION['user'])) { 
+        echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a>' . '</p>';  
+        echo '<p><a href="index.php?action=logout">Se déconnecter</a></p>';
+      }
+      else {
+      echo '<p><a href="index.php?action=connection">Se connecter</a></p>';
+      echo '<p><a href="index.php?action=creationUser">Créer un compte</a></p>';
+      }
+?>
+
      </div>
 
    </div>
