@@ -62,4 +62,5 @@ function createUserView() {
     require('view/createUserView.php');
 }
 
+
 }

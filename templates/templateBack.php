@@ -47,6 +47,9 @@
      <div class="post">
      <p>Retour sur le <a href="https://p4ocr.andre-ani.fr/" title="Retour sur l'accueil du blog">blog</a></p>
      
+     <hr>
+
+     <img src="../images/user.png">
      <h2>Utilisateur</h2>
      <p><?php 
       if (isset($_SESSION['user'])) {

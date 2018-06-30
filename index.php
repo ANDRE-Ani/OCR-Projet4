@@ -174,6 +174,7 @@ elseif ($_GET['action'] == 'editComBack') {
         session_start ();
         session_unset ();
         session_destroy ();
+        setcookie('userF','',time());
         header ('Location: index.php');
     }
 
