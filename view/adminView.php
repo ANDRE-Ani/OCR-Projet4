@@ -2,13 +2,6 @@
 
 <?php session_start(); ?>
 
-<?php $cookie_name = "userF";
-if (isset($_SESSION['user'])) {
-$cookie_value = $_SESSION['user'];
-setcookie($cookie_name, $cookie_value, time()+3600, "/", null, false, true);
-}
-?>
-
 <?php $titre = SITE_NAME . ' - Administration'; ?>
 
 <h2>Bienvenue dans l'administration du site</h2>
@@ -26,8 +19,12 @@ setcookie($cookie_name, $cookie_value, time()+3600, "/", null, false, true);
 <p>Système d'exploitation : <?php echo php_uname(s); ?></p>
 <p>Nom d'hôte : <?php echo php_uname(n); ?></p>
 <p>Architecture : <?php echo php_uname(m); ?></p>
-
 <p>Version de PHP : <?php echo phpversion(); ?></p>
+<p>Mail de l'administrateur : <?php echo $_SERVER['SERVER_ADMIN'] ?></p>
+<p>I.P. du serveur : <?php echo $_SERVER['SERVER_ADDR'] ?></p>
+<p>Domaine : <?php echo $_SERVER['HTTP_HOST'] ?></p>
+
+
 
 <?php $contenu = ob_get_clean(); ?>
 

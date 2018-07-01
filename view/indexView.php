@@ -2,6 +2,13 @@
 
 <?php session_start(); ?>
 
+<?php $cookie_name = "visitor";
+    $addr = $_SERVER['REMOTE_ADDR'];
+    $nav = $_SERVER['HTTP_USER_AGENT'];
+    $cookie_value = 'Utilisateur anonyme ' . ' I.P. ' . $addr . ' Navigateur ' . $nav;
+    setcookie($cookie_name, $cookie_value, time()+3600, "/", null, false, true);
+?>
+
 <?php $titre = 'Le blog de l\'écrivain'; ?>
 
 <?php ob_start(); ?>

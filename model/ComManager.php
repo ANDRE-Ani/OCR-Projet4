@@ -2,6 +2,7 @@
 
 namespace model;
 
+use PDO;
 use model\Manager;
 
 class ComManager extends Manager
@@ -58,8 +59,14 @@ public function deleteCom($postId) {
 }
 
 // Edite un commentaire
-public function editComF($statut, $comment) {
+public function editComF($id, $comment, $statut) {
+
     $db = $this->dbConnect();
+    $req = $db->prepare('UPDATE comments SET comment = ?, statut = ? WHERE id = ?');
+    $com = $req->execute(array($id, $comment, $statut));
+    return $com;
+
+    /* $db = $this->dbConnect();
     $req = $db->prepare('UPDATE comments SET comment = :comment, statut = :statut WHERE id=:id');
     $req->bindValue('comment', $comment, PDO::PARAM_STR);
     $req->bindValue('statut', $statut, PDO::PARAM_STR);
@@ -67,7 +74,7 @@ public function editComF($statut, $comment) {
     $req->bindValue('id', $id, PDO::PARAM_INT);
     $req->execute();
     $com = $req->fetch();
-    return $com;
+    return $com; */
 }
 
 // signal un commentaire

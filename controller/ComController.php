@@ -68,14 +68,14 @@ function writeComFront($author, $comment, $idPost) {
 }
 
 // édition d'un commentaire
-function editComFront($statut, $comment) {
+function editComFront($id, $comment, $statut) {
     $ComManager = new ComManager();
-    $affectedLines = $ComManager->editComF($statut, $comment);
+    $affectedLines = $ComManager->editComF($id, $comment, $statut);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'editer un commentaire');
     }
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=administration');
     }
 }
 

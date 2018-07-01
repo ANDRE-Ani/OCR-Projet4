@@ -23,6 +23,12 @@ class UserController extends Controller
             if ($correctPassword != false) {
                 session_start();
                 $_SESSION['user'] = $_POST['user'];
+                $cookie_name = "admin";
+                $addr = $_SERVER['REMOTE_ADDR'];
+                $nav = $_SERVER['HTTP_USER_AGENT'];
+                $cookie_value = 'Utilisateur ' . $_SESSION['user'] . ' I.P. ' . $addr . ' Navigateur ' . $nav;
+                setcookie($cookie_name, $cookie_value, time()+3600, "/", null, false, true);
+
                 header('Location: index.php?action=administration');
             } else {
                 echo 'Login ou mot de passe incorrect';

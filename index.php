@@ -67,11 +67,17 @@ if (isset($_GET['action'])) {
 
 // édition d'un commentaire
 elseif ($_GET['action'] == 'editComBack') {
-    if (!empty($_POST['statut']) && !empty($_POST['comment']) && !empty($_POST['id'])) {
-        $infos = new ComController();
-        $infos->editComFront($_POST['statut'], $_POST['comment'], $_GET['post_id']);
-    } else {
-        throw new Exception('Tous les champs ne sont pas remplis pour l\'édition');
+    if (isset($_GET['id']) && $_GET['id'] > 0) {
+        if (!empty($_POST['contenu']) && !empty($_POST['statut'])) {
+            $infos = new ComController();
+            $infos->editComFront($_GET['id'], $_POST['contenu'], $_POST['statut']);   
+           }
+        else {
+            throw new Exception('Tous les champs ne sont pas remplis pour l\'édition');
+        }
+    }
+    else {
+        throw new Exception('Aucun identifiant de billet envoyé');
     }
 }
 
@@ -174,7 +180,7 @@ elseif ($_GET['action'] == 'editComBack') {
         session_start ();
         session_unset ();
         session_destroy ();
-        setcookie('userF','',time());
+        setcookie('admin','',time());
         header ('Location: index.php');
     }
 

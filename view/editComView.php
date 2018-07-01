@@ -11,10 +11,10 @@
      <h2>Editer un commentaire</h2>
      <form action="index.php?action=editComBack&id=<?php echo $com['id'] ?>" method="post">
 
-        <textarea name="contenu" rows="4" cols="50"/> <?php echo $com['comment']; ?>  </textarea>
+        <textarea name="contenu" rows="4" cols="50"/> <?php echo $com['comment']; ?></textarea>
         
         <p>Statut :
-        <SELECT id="statut">
+        <SELECT name="statut">
         <option value="en attente">En attente</option>
         <option value="valide">Validé</option>
         <option value="signale">Signalé</option>
