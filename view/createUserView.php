@@ -12,6 +12,7 @@
 
         <form action="index.php?action=createUser" method="post">
             <p>Identifiant : <input type="text" name="user" required /></p>
+            <p>Mail : <input type="text" name="mail" required /></p>
             <p>Mot de passe : <input type="password" name="pass" required /></p>
             <p>Retapper le<br>mot de passe : <input type="password" name="pass2" required /></p>
             <p><input type="submit" value="Valider" /></p>

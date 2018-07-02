@@ -49,10 +49,10 @@ function connectionAdmin() {
 }
 
 // création de compte
-function creationUserA($user, $pass) {
+function creationUserA($user, $mail, $pass) {
     $UserManager = new UserManager();
     $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-    $affectedLines = $UserManager->createUser($user, $pass_hash);
+    $affectedLines = $UserManager->createUser($user, $mail, $pass_hash);
     if ($affectedLines === false) {
         throw new Exception('Impossible de créer le compte');
     }
@@ -68,5 +68,11 @@ function createUserView() {
     require('view/createUserView.php');
 }
 
+// affiche les utilisateurs
+function allUsers() {
+    $UserManager = new UserManager();
+    $users = $UserManager->getUsers();
+    require('view/allPostView.php');
+}
 
 }

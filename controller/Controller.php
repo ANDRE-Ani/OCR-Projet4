@@ -20,8 +20,13 @@ function aboutAuthor() {
 function administration() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
+    $UserManager = new UserManager();
+    $login = $UserManager->getUsers($users);
     $total = $PostManager->number($nbligne);
     $totalC = $ComManager->numberC($nbligneC);
+
+    //var_dump($users['user']);
+    //die();
     require('view/adminView.php');
 }
 

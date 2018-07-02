@@ -20,12 +20,18 @@ public function admin($user) {
 }
 
 // crée l'utilisateur
-public function createUser($user, $pass_hash) {
+public function createUser($user, $mail, $pass_hash) {
     $bdd = $this->dbConnect();
-    $login = $bdd->prepare('INSERT INTO adminU(user, pass) VALUES(?, ?)');
-    $affectedLines = $login->execute(array($user, $pass_hash));
+    $login = $bdd->prepare('INSERT INTO adminU(user, mail, pass) VALUES(?, ?, ?)');
+    $affectedLines = $login->execute(array($user, $mail, $pass_hash));
     return $affectedLines;
 }
 
+// Récupère les utilisateurs
+public function getUsers() {
+    $db = $this->dbConnect();
+    $req = $db->query('SELECT id, user, mail, DATE_FORMAT(dayTime, "%d/%m/%Y à %Hh%imin") AS dayTime FROM adminU ORDER BY dayTime DESC');  
+    return $req;
+}
 
 }

@@ -109,9 +109,9 @@ elseif ($_GET['action'] == 'editComBack') {
 
     // création de compte
     elseif ($_GET['action'] == 'createUser') {
-        if (!empty($_POST['user']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && ($_POST['pass']) == ($_POST['pass2'])) {
+        if (!empty($_POST['user']) && !empty($_POST['mail']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && ($_POST['pass']) == ($_POST['pass2'])) {
             $infos = new UserController();
-            $infos->creationUserA($_POST['user'], $_POST['pass']);
+            $infos->creationUserA($_POST['user'], $_POST['mail'], $_POST['pass']);
         } else {
             throw new Exception('Tous les champs ne sont pas remplis ou les mots de passe ne correspondent pas');
         }
