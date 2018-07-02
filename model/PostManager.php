@@ -51,17 +51,11 @@ public function getPost($postId) {
 }
 
 // Edite un article
-public function editPost($titre, $auteur, $contenu) {
+public function editPost($id, $titre, $auteur, $contenu) {
     $db = $this->dbConnect();
-    $req = $db->prepare('UPDATE post SET titre = :titre, contenu = :contenu WHERE id=:id');
-    $req->bindValue('titre', $titre, PDO::PARAM_STR);
-    $req->bindValue('contenu', $contenu, PDO::PARAM_STR);
-    $id = intval($_GET['id']);
-    $req->bindValue('id', $id, PDO::PARAM_INT);
-    $req->execute();
-    $post = $req->fetch();
+    $req = $db->prepare('UPDATE post SET titre = ?, auteur = ?, contenu = ? WHERE id = ?');
+    $post = $req->execute(array($titre, $auteur, $contenu, $id));
     return $post;
 }
-
 
 }

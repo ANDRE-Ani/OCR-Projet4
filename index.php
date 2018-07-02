@@ -57,12 +57,18 @@ if (isset($_GET['action'])) {
 
     // édite un article
     elseif ($_GET['action'] == 'editPost') {
-        if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
-        $infos = new PostController();
-        $infos->editPostBack($_POST['titre'], $_POST['auteur'], $_POST['contenu']);
-    }   else {
-        throw new Exception('Tous les champs ne sont pas remplis');
-    }
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['contenu'])) {
+                $infos = new PostController();
+                $infos->editPostBack($_GET['id'], $_POST['titre'], $_POST['auteur'], $_POST['contenu']);   
+               }
+            else {
+                throw new Exception('Tous les champs ne sont pas remplis');
+            }
+        }
+        else {
+            throw new Exception('Aucun identifiant de billet envoyé');
+        }
 }
 
 // édition d'un commentaire

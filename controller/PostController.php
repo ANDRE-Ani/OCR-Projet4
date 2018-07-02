@@ -46,9 +46,9 @@ function writePost($titre, $auteur, $contenu) {
 }
 
 // édition d'un article
-function editPostBack($titre, $auteur, $contenu) {
+function editPostBack($id, $titre, $auteur, $contenu) {
     $PostManager = new PostManager();
-    $affectedLines = $PostManager->editPost($titre, $auteur, $contenu);
+    $affectedLines = $PostManager->editPost($id, $titre, $auteur, $contenu);
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'éditer l\'article');
     }
@@ -72,7 +72,7 @@ function suprPost($postId) {
 // envoie vers la page d'édition d'un article
 function viewEditPostB($postId) {
     $PostManager = new PostManager();
-    $total = $PostManager->number($nbligne);
+    $postE = $PostManager->getPost($postId);
     require('view/editPostView.php');
 }
 

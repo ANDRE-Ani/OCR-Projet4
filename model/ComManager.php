@@ -60,21 +60,10 @@ public function deleteCom($postId) {
 
 // Edite un commentaire
 public function editComF($id, $comment, $statut) {
-
     $db = $this->dbConnect();
     $req = $db->prepare('UPDATE comments SET comment = ?, statut = ? WHERE id = ?');
-    $com = $req->execute(array($id, $comment, $statut));
+    $com = $req->execute(array($comment, $statut, $id));
     return $com;
-
-    /* $db = $this->dbConnect();
-    $req = $db->prepare('UPDATE comments SET comment = :comment, statut = :statut WHERE id=:id');
-    $req->bindValue('comment', $comment, PDO::PARAM_STR);
-    $req->bindValue('statut', $statut, PDO::PARAM_STR);
-    $id = intval($_GET['id']);
-    $req->bindValue('id', $id, PDO::PARAM_INT);
-    $req->execute();
-    $com = $req->fetch();
-    return $com; */
 }
 
 // signal un commentaire
