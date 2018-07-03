@@ -46,7 +46,7 @@
    <div class="leftcolumn2">
      <div class="post">
      <p>Retour sur le <a href="https://p4ocr.andre-ani.fr/" title="Retour sur l'accueil du blog">blog</a></p>
-     
+     <p><a href="index.php?action=administration">Administration</a></p>
      <hr>
 
      <img src="../images/user.png">
