@@ -27,11 +27,17 @@
         while ($coms = $comments->fetch()) {
             ?>
 
+        
+
         <td><?php echo nl2br(htmlspecialchars($coms['id'])); ?></td>
         <td><?php echo nl2br(htmlspecialchars($coms['post_id'])); ?></td>
         <td><?php echo htmlspecialchars($coms['author']); ?></td>
         <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
-        <td><?php echo htmlspecialchars($coms['statut']); ?></td>
+        
+        <td <?php if(($coms['statut']) == 'signale'): ?> style="color: red;" <?php endif; ?>>
+        <?php echo htmlspecialchars($coms['statut']); ?>
+        </td>
+        
         <td><a href="../index.php?action=viewEditCom&amp;id=<?php echo $coms['id']; ?>">Editer</a></td>
         <td><a href="../index.php?action=deleteCom&amp;id=<?php echo $coms['id']; ?>">Supprimer</a></td>
    </tr>     

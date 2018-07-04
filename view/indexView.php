@@ -24,9 +24,19 @@
         <p>Publié le : <?php echo htmlspecialchars($data['post_date']); ?></p>
         
         <?php $description = ($data['contenu']);
-        echo substr($description, 0, 40)."(...)"; ?>
-        <a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire la suite</a>
 
+            if (strlen($description) >= 40) {
+                $description = substr($description, 0, 40);
+                $espace = strrpos($description, ' ');
+                $description = substr($description, 0, $espace) . " (...)";
+                echo $description;
+            }
+            else {
+                echo $description;
+            }
+             ?>
+        
+        <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire la suite</a></p>
         <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a></p>
         <p><a href="index.php?action=viewWriteCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>
       

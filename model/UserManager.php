@@ -34,4 +34,33 @@ public function getUsers() {
     return $req;
 }
 
+// Récupère un utilisateur
+public function getUser($idUser) {
+    $db = $this->dbConnect();
+    $req = $db->prepare('SELECT id, user, mail FROM adminU WHERE id = ?');
+    $req->execute(array($idUser));
+    $userE = $req->fetch();
+    return $userE;
+}
+
+// Supprime un utilisateur
+public function deleteUser() {
+    $bdd = $this->dbConnect();
+    $userD = $bdd->prepare("DELETE FROM adminU WHERE id=".$_GET['id']);
+    $affectedLines = $userD->execute(array($userId));
+    return $affectedLines;
+}
+
+// Edite un utilisateur
+public function editUserL($user, $mail, $id) {
+    $db = $this->dbConnect();
+    $req = $db->prepare('UPDATE adminU SET user = ?, mail = ? WHERE id = ?');
+    $userLog = $req->execute(array($user, $mail, $id));
+    /* var_dump($login);
+    var_dump($id);
+    var_dump($mail);
+    die(); */
+    return $userLog;
+}
+
 }

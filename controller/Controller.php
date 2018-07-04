@@ -25,8 +25,6 @@ function administration() {
     $total = $PostManager->number($nbligne);
     $totalC = $ComManager->numberC($nbligneC);
 
-    //var_dump($users['user']);
-    //die();
     require('view/adminView.php');
 }
 

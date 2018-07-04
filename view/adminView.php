@@ -12,18 +12,6 @@
 <p><h3>Informations sur le blog :</h3></p>
 <p>Nombre d'articles : <?php echo $total[0]; ?></p>
 <p>Nombre de commentaires : <?php echo $totalC[0]; ?></p>
-<p>Utilisateurs : 
-
-<?php while ($data = $login->fetch()) { ?>
-        <?php echo nl2br(htmlspecialchars($data['user'])); ?>
-        <?php echo nl2br(htmlspecialchars($data['mail'])); ?>
-        <?php echo ' / ';
-        }
-        $login->closeCursor();
-        ?>
-</p>
-
-
 
 <br><hr><br>
 

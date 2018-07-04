@@ -56,7 +56,7 @@
           echo 'Connecté : ' . $_SESSION['user'];
       } ?></p>
         <p><a href="index.php?action=logout">Se déconnecter</a></p>
-
+      <p><a href="index.php?action=usersA">Gérer les utilisateurs</a></p>
     <hr>
 
      <img src="../images/commentaires.png">
