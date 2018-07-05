@@ -38,7 +38,7 @@ tr:hover {
     width: 100%;
     font-size: 25px;
     text-align: center;
-    background-color: #bad8ff;
+    background-image: url("../images/nuage.png");
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -51,7 +51,7 @@ h3 {
     width: 100%;
     font-size: 20px;
     text-align: center;
-    background-color: #b4b4b4;
+    background-color: #ff8b73;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -79,13 +79,7 @@ h3 {
     background-color: #bcffba;
     margin: 5px;
     padding: 5px;
-}
-
-.aside img {
-    width: 340px;
-    height: 37px;
-    margin: auto;
-    display: block;
+    border: 1px solid #005094;
 }
 
 .aside h2 {
@@ -108,25 +102,29 @@ h3 {
 .leftcolumn2 {
     float: left;
     width: 15%;
-    background-color: #b4b4b4;
+    border: dashed #ff8b73;
+    background-image: url("../images/hexagon-background.png");
     margin: 5px;
     padding: 5px;
 }
 
 .about {
-    background-color: #dddddd;
+    border: thick double #005297;
+    background-image: url("../images/hexagon-background.png");
     padding: 5px;
     margin: 5px;
 }
 
 .reseaux {
-    background-color: #dddddd;
+    border: thick double #005297;
+    background-image: url("../images/hexagon-background.png");
     padding: 5px;
     margin: 5px;
 }
 
 .admin {
-    background-color: #dddddd;
+    border: thick double #005297;
+    background-image: url("../images/hexagon-background.png");
     padding: 5px;
     margin: 5px;
 }
@@ -140,9 +138,11 @@ h3 {
 .footer {
     width: 100%;
     text-align: center;
-    background-color: #bad8ff;
+    font-weight: bolder;
+    background-color: #005399;
+    background-image: url("../images/herbe.png");
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     margin-top: 10px;
 }
 
@@ -192,7 +192,6 @@ h3 {
     padding: 5px;
     background-color: #ff8b73;
 }
-
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 

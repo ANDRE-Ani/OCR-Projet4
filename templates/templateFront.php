@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <title><?= $titre ?></title>
+  <title><?=$titre?></title>
   <meta name="description" content="Le blog de Jean Forteroche" />
   <meta name="author" content="Patrice ANDREANI">
   <meta name="keywords" content="écrivain, jean forteroche">
@@ -29,12 +29,13 @@
 
 <body>
 
-<?php include('includes/header.inc.php'); ?>
+<?php include 'includes/header.inc.php';?>
 
 <div id="contenu">
    <div class="leftcolumn">
      <div class="aside">
-        <?= $contenu ?>
+
+        <?=$contenu?>
 
      </div>
 
@@ -42,7 +43,7 @@
 
    <div class="rightcolumn">
      <div class="about">
-       <h2>A propos</h2>
+       <h3>A propos</h3>
        <p>A propos de l'<a href="index.php?action=about">auteur</a></p>
      </div>
 
@@ -55,15 +56,14 @@
      <div class="admin">
        <h3>Administration</h3>
 
-      <?php 
-      if (isset($_SESSION['user'])) { 
-        echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a>' . '</p>';  
-        echo '<p><a href="index.php?action=logout">Se déconnecter</a></p>';
-      }
-      else {
-      echo '<p><a href="index.php?action=connection">Se connecter</a></p>';
-      echo '<p><a href="index.php?action=creationUser">Créer un compte</a></p>';
-      }
+      <?php
+if (isset($_SESSION['user'])) {
+    echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a>' . '</p>';
+    echo '<p><a href="index.php?action=logout">Se déconnecter</a></p>';
+} else {
+    echo '<p><a href="index.php?action=connection">Se connecter</a></p>';
+    echo '<p><a href="index.php?action=creationUser">Créer un compte</a></p>';
+}
 ?>
 
      </div>
@@ -71,7 +71,7 @@
    </div>
 </div>
 
-   <?php include('includes/footer.inc.php'); ?>
+   <?php include 'includes/footer.inc.php';?>
 
 </body>
 

@@ -12,6 +12,7 @@
 <p><h3>Informations sur le blog :</h3></p>
 <p>Nombre d'articles : <?php echo $total[0]; ?></p>
 <p>Nombre de commentaires : <?php echo $totalC[0]; ?></p>
+<p>Nombre d'utilisateurs : <?php echo $loginUser[0]; ?></p>
 
 <br><hr><br>
 

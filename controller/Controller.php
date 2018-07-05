@@ -21,7 +21,8 @@ function administration() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
     $UserManager = new UserManager();
-    $login = $UserManager->getUsers($users);
+    // $login = $UserManager->getUsers($users);
+    $loginUser = $UserManager->login($nbLigne);
     $total = $PostManager->number($nbligne);
     $totalC = $ComManager->numberC($nbligneC);
 

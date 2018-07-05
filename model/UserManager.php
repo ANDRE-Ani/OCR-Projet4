@@ -51,6 +51,15 @@ public function deleteUser() {
     return $affectedLines;
 }
 
+// comptage des utilisateurs
+public function login() {
+    $db = $this->dbConnect();
+    $req = $db->query('SELECT COUNT(id) as countid FROM adminU'); 
+    $req->execute(array());
+    $nbLogin = $req->fetch();
+    return $nbLogin;
+}
+
 // Edite un utilisateur
 public function editUserL($user, $mail, $id) {
     $db = $this->dbConnect();
