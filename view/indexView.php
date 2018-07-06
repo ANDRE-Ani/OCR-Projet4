@@ -19,9 +19,15 @@ while ($data = $posts->fetch()) {
 
       <!-- Récupération des articles -->
 
-      <h2><?php echo htmlspecialchars($data['titre']); ?></h2>
+      <p><h2><?php echo htmlspecialchars($data['titre']); ?></h2></p>
         <p><img src="../images/author.png" alt="author"> : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?>
-        <img src="../images/date.png" alt="date"> : <?php echo htmlspecialchars($data['post_date']); ?></p>
+
+<?php list($date, $time) = explode(" ", $data['post_date']); ?>
+<?php list($year, $month, $day) = explode("-", $date); ?>
+<?php list($hour, $min, $sec) = explode(":", $time); ?>
+
+
+        <img src="../images/date.png" alt="date"> : <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
 
         <?php $description = ($data['contenu']);
 

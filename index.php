@@ -1,31 +1,26 @@
 <?php
 
-
-
 // Routeur de l'application
 
 // Redirige toutes les requêtes utilisateur vers les
 // bonnes pages et actions
 
-use model\Manager;
-use model\ComManager;
-use model\PostManager;
-use controller\Controller;
 use controller\ComController;
+use controller\Controller;
 use controller\PostController;
 use controller\UserController;
 
 // Appel des différents controlers
-require_once("model/Manager.php");
-require_once('./controller/Controller.php');
-require_once('./controller/UserController.php');
-require_once('./controller/PostController.php');
-require_once('./controller/ComController.php');
+require_once "model/Manager.php";
+require_once './controller/Controller.php';
+require_once './controller/UserController.php';
+require_once './controller/PostController.php';
+require_once './controller/ComController.php';
 
 // appel des model
-require_once("model/PostManager.php");
-require_once("model/ComManager.php");
-require_once("model/UserManager.php");
+require_once "model/PostManager.php";
+require_once "model/ComManager.php";
+require_once "model/UserManager.php";
 
 // Routes des actions et requêtes
 
@@ -35,8 +30,8 @@ try {
         if ($_GET['action'] == 'listPosts') {
             $infos = new PostController();
             $infos->listPosts();
-    
-        // affiche un article et ses commentaires
+
+            // affiche un article et ses commentaires
         } elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $infos = new PostController();
@@ -97,7 +92,6 @@ try {
             }
         }
 
-
         // écrire un commentaire
         elseif ($_GET['action'] == 'writeComA') {
             if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -147,7 +141,7 @@ try {
                 throw new Exception('Aucun identifiant d\'article envoyé pour édition');
             }
         }
-    
+
         // envoie vers la page d'édition d'un commentaire
         elseif ($_GET['action'] == 'viewEditCom') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -200,15 +194,13 @@ try {
 
         // envoie vers la page d'administration
         elseif ($_GET['action'] == 'administration') {
-            if(isset($_COOKIE["admin"]))
-                {
-                    $infos = new Controller();
-                    $infos->administration();
-                }
-                else {
-                    // throw new Exception('Vous n\'êtes pas autorisé');
-                    header('Location: index.php?action=connection');
-                }
+            if (isset($_COOKIE["admin"])) {
+                $infos = new Controller();
+                $infos->administration();
+            } else {
+                // throw new Exception('Vous n\'êtes pas autorisé');
+                header('Location: index.php?action=connection');
+            }
         }
 
         // envoie vers la page de connection
@@ -216,6 +208,18 @@ try {
             $infos = new UserController();
             $infos->connectionAdmin();
         }
+
+        // envoie vers la page d'accueil
+        elseif ($_GET['action'] == '') {
+            $infos = new UserController();
+            $infos->listPosts();
+        }
+
+        // envoie vers la page d'accueil
+        elseif ($_GET['action'] == '/') {
+            $infos = new UserController();
+            $infos->listPosts();
+        } 
 
         // envoie vers la page gestion des utilisateurs
         elseif ($_GET['action'] == 'usersA') {
@@ -274,12 +278,13 @@ try {
             }
         }
 
-
-        // Requête par défaut qui renvoie sur la page d'accueil
+    // Requête par défaut qui renvoie sur la page d'accueil
     } else {
         $infos = new PostController();
         $infos->listPosts();
     }
+
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
 }
+

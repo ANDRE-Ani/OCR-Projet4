@@ -5,7 +5,7 @@
 <?php $titre = 'Le blog de l\'écrivain : ' . htmlspecialchars($post['titre']);?>
 
 <?php ob_start();?>
-<p>Retour sur le <a href="https://p4ocr.andre-ani.fr/">blog</a></p>
+<p>Retour sur le <a href="index.php?action=listPosts">blog</a></p>
        <h3><?=htmlspecialchars($post['titre'])?></h3>
        <img src="../images/date.png" alt="date"> : <?=$post['post_date']?>
 
@@ -16,8 +16,8 @@
         <h2>Commentaires</h2>
 
         <?php
-while ($comment = $comments->fetch()) {
-    ?>
+            while ($comment = $comments->fetch()) {
+        ?>
             <hr>
 
         <p><img src="../images/author.png" alt="author"> : <?=htmlspecialchars($comment['author'])?>

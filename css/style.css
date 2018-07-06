@@ -77,7 +77,6 @@ h3 {
 
 .aside {
     background-color: #bcffba;
-    margin: 5px;
     padding: 5px;
     border: 1px solid #005094;
 }
@@ -93,7 +92,7 @@ h3 {
 
 .rightcolumn2 {
     float: right;
-    width: 85%;
+    width: 75%;
     margin: 5px;
     padding: 5px;
     background-color: #f0f0f0;
@@ -101,10 +100,9 @@ h3 {
 
 .leftcolumn2 {
     float: left;
-    width: 15%;
+    width: 25%;
     border: dashed #ff8b73;
     background-image: url("../images/hexagon-background.png");
-    margin: 5px;
     padding: 5px;
 }
 
@@ -193,12 +191,31 @@ h3 {
     background-color: #ff8b73;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+/* Responsive layout */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
+
+    #contenu {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .aside {
+        width: 100%;
+        margin: 0;
+    }
+
     .leftcolumn,
     .rightcolumn {
         width: 100%;
         padding: 0;
+        margin: 0;
+    }
+
+    .leftcolumn2,
+    .rightcolumn2 {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 }

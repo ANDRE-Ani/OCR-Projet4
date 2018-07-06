@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <title><?= $titre ?></title>
+  <title><?=$titre?></title>
   <meta name="description" content="Le blog de Jean Forteroche" />
   <meta name="author" content="Patrice ANDREANI">
   <meta name="keywords" content="écrivain, jean forteroche">
@@ -39,24 +39,25 @@
 
 <body>
 
-<?php include('includes/header-admin.inc.php'); ?>
+<?php include 'includes/header-admin.inc.php';?>
 
 <div id="contenu">
 
    <div class="leftcolumn2">
      <div class="post">
-     <p>Retour sur le <a href="https://p4ocr.andre-ani.fr/" title="Retour sur l'accueil du blog">blog</a></p>
+     <p>Retour sur le <a href="index.php?action=listPosts" title="Retour sur l'accueil du blog">blog</a></p>
      <p><a href="index.php?action=administration">Administration</a></p>
      <hr>
 
      <img src="../images/user.png">
      <h2>Utilisateur</h2>
-     <p><?php 
-      if (isset($_SESSION['user'])) {
-          echo 'Connecté : ' . $_SESSION['user'];
-      } ?></p>
+     <p><?php
+if (isset($_SESSION['user'])) {
+    echo 'Connecté : ' . $_SESSION['user'];
+}?></p>
         <p><a href="index.php?action=logout">Se déconnecter</a></p>
       <p><a href="index.php?action=usersA">Gérer les utilisateurs</a></p>
+      
     <hr>
 
      <img src="../images/commentaires.png">
@@ -76,14 +77,14 @@
      <div class="rightcolumn2">
      <div class="admintext">
 
-        <?= $contenu ?>
+        <?=$contenu?>
 
      </div>
    </div>
 
    </div>
 
-   <?php include('includes/footer.inc.php'); ?>
+   <?php include 'includes/footer.inc.php';?>
 
 </body>
 

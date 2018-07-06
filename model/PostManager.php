@@ -37,8 +37,11 @@ public function number() {
 // Récupère les articles
 public function getPosts() {
     $db = $this->dbConnect();
-    $req = $db->query('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, "%d/%m/%Y à %Hh%imin") AS post_date FROM post ORDER BY post_date ASC');  
+    $req = $db->query('SELECT id, titre, contenu, auteur, post_date FROM post ORDER BY post_date DESC');  
+    // $req = $db->query('SELECT id, titre, contenu, auteur, DATE_FORMAT(post_date, \'%d/%m/%Y à %H:%i\') AS post_date FROM post ORDER BY post_date ASC');
+    $req->execute();
     return $req;
+
 }
 
 // Récupère un article

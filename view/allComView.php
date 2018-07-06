@@ -27,12 +27,15 @@
         while ($coms = $comments->fetch()) {
             ?>
 
+        <?php list($date, $time) = explode(" ", $coms['comment_date']); ?>
+        <?php list($year, $month, $day) = explode("-", $date); ?>
+        <?php list($hour, $min, $sec) = explode(":", $time); ?>
         
 
         <td><?php echo nl2br(htmlspecialchars($coms['id'])); ?></td>
         <td><?php echo nl2br(htmlspecialchars($coms['post_id'])); ?></td>
         <td><?php echo htmlspecialchars($coms['author']); ?></td>
-        <td><?php echo htmlspecialchars($coms['comment_date']); ?></td>
+        <td><?php echo $coms['comment_date'] = "$day/$month/$year" . " - " . "$time"; ?></td>
         
         <td <?php if(($coms['statut']) == 'signale'): ?> style="color: red;" <?php endif; ?>>
         <?php echo htmlspecialchars($coms['statut']); ?>

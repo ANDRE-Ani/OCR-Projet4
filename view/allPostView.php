@@ -26,10 +26,15 @@
         while ($data = $posts->fetch()) {
             ?>
 
+        <?php list($date, $time) = explode(" ", $data['post_date']); ?>
+        <?php list($year, $month, $day) = explode("-", $date); ?>
+        <?php list($hour, $min, $sec) = explode(":", $time); ?>
+
+
         <td><?php echo nl2br(htmlspecialchars($data['id'])); ?></td>
         <td><?php echo htmlspecialchars($data['titre']); ?></td>
         <td><?php echo htmlspecialchars($data['auteur']); ?></td>
-        <td><?php echo htmlspecialchars($data['post_date']); ?></td>
+        <td><?php echo $data['post_date'] = "$day/$month/$year" . " - " . "$time"; ?></td>
         <td><a href="../index.php?action=viewEditPost&amp;id=<?php echo $data['id']; ?>">Editer</a></td>
         <td><a href="../index.php?action=deletePost&amp;id=<?php echo $data['id']; ?>">Supprimer</a></td>
    </tr>     

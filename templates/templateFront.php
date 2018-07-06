@@ -58,7 +58,7 @@
 
       <?php
 if (isset($_SESSION['user'])) {
-    echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a>' . '</p>';
+    echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a></p>';
     echo '<p><a href="index.php?action=logout">Se déconnecter</a></p>';
 } else {
     echo '<p><a href="index.php?action=connection">Se connecter</a></p>';

@@ -11,7 +11,7 @@ class ComManager extends Manager
 // Récupère les commentaires
 public function getComs() {
     $db = $this->dbConnect();
-    $comments = $db->prepare('SELECT id, post_id, author, comment, statut, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin") AS comment_date FROM comments ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT id, post_id, author, comment, statut, comment_date FROM comments ORDER BY comment_date DESC');
     $comments->execute(array());
     return $comments;
 }
