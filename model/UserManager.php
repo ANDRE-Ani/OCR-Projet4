@@ -1,5 +1,7 @@
 <?php
 
+// manager pour les requêtes BDD gérant les utilisateurs
+
 namespace model;
 
 use model\Manager;
@@ -65,10 +67,6 @@ public function editUserL($user, $mail, $id) {
     $db = $this->dbConnect();
     $req = $db->prepare('UPDATE adminU SET user = ?, mail = ? WHERE id = ?');
     $userLog = $req->execute(array($user, $mail, $id));
-    /* var_dump($login);
-    var_dump($id);
-    var_dump($mail);
-    die(); */
     return $userLog;
 }
 

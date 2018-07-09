@@ -191,27 +191,24 @@ h3 {
     background-color: #ff8b73;
 }
 
+
 /* Responsive layout */
 
 @media screen and (max-width: 500px) {
-
     #contenu {
         flex-direction: column;
         margin: 0;
     }
-
     .aside {
         width: 100%;
         margin: 0;
     }
-
     .leftcolumn,
     .rightcolumn {
         width: 100%;
         padding: 0;
         margin: 0;
     }
-
     .leftcolumn2,
     .rightcolumn2 {
         width: 100%;

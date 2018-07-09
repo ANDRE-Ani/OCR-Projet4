@@ -6,7 +6,7 @@ use model\ComManager;
 use model\PostManager;
 use model\UserManager;
 
-// Controler
+// Controler principal
 
 class Controller
 {
@@ -30,11 +30,5 @@ class Controller
         require 'view/adminView.php';
     }
 
-// page d'erreur
-    public function errorView()
-    {
-        // $UserManager = new UserManager();
-        require 'view/errorView.php';
-    }
 
 }

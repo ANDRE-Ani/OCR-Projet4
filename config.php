@@ -1,5 +1,7 @@
 <?php
 
+// Configuration des principales variables, indentifiants pour la BDD
+
     define('DB_HOST', 'localhost');
     define('DB_USER', 'boutique_bdd');
     define('DB_PASS', 'cybergoth1978');

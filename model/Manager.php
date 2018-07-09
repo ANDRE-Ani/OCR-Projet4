@@ -1,5 +1,7 @@
 <?php
 
+// manager principal gérant la connexion à la BDD
+
 namespace model;
 
 include 'config.php';
