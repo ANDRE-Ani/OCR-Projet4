@@ -29,21 +29,19 @@ while ($data = $posts->fetch()) {
 
         <img src="../images/date.png" alt="date"> : <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
 
-<p>nbr de com : <?php echo $nbrComP[0] ?></p>
-
         <?php $description = ($data['contenu']);
 
-$lg_max = 95;
-$article = $description;
-$description = strip_tags($description);
-if (strlen($description) > $lg_max) { 
-    $description = substr($description, 0, $lg_max) ;
-    $last_space = strrpos($description, " ") ;
-    $description = substr($description, 0, $last_space)."..." ;
-    echo $description;
-} else {
-    echo $article;
-}
+    $lg_max = 95;
+    $article = $description;
+    $description = strip_tags($description);
+    if (strlen($description) > $lg_max) {
+        $description = substr($description, 0, $lg_max);
+        $last_space = strrpos($description, " ");
+        $description = substr($description, 0, $last_space) . "...";
+        echo $description;
+    } else {
+        echo $article;
+    }
     ?>
         <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire l'article</a></p>
         <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a></p>

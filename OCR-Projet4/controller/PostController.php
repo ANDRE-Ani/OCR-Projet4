@@ -17,7 +17,7 @@ function listPosts() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
     $posts = $PostManager->getPosts();
-    $nbrComP = $ComManager->numberCP($nbrCom);
+    // $nbrComP = $ComManager->numberCP($nbrCom);
     require('view/indexView.php');
 }
 
