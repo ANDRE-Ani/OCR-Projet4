@@ -52,6 +52,15 @@ public function getComments($postId) {
     return $comments;
 }
 
+// comptage des commentaires d'un article
+/* public function numberCP($postId) {
+    $db = $this->dbConnect();
+    $req = $db->query('SELECT COUNT(id) as countid FROM comments'); 
+    $req->execute(array($postId));
+    $nbrCom = $req->fetch();
+    return $nbrCom;
+} */
+
 // Supprime un commentaire
 public function deleteCom($postId) {
     $bdd = $this->dbConnect();

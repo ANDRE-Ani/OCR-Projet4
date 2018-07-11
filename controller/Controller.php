@@ -17,6 +17,12 @@ class Controller
         require 'view/aboutView.php';
     }
 
+    // page d'erreur
+    public function error404()
+    {
+        require '../view/errorView.php';
+    }
+
 // envoie vers la page d'administration
     public function administration()
     {

@@ -30,6 +30,7 @@ try {
         if ($_GET['action'] == 'listPosts') {
             $infos = new PostController();
             $infos->listPosts();
+            
 
             // affiche un article et ses commentaires
         } elseif ($_GET['action'] == 'post') {
@@ -122,6 +123,16 @@ try {
             }
         }
 
+        // création de compte depuis back
+        elseif ($_GET['action'] == 'createUserB') {
+            if (!empty($_POST['user']) && !empty($_POST['mail']) && !empty($_POST['pass']) && !empty($_POST['pass2']) && ($_POST['pass']) == ($_POST['pass2'])) {
+                $infos = new UserController();
+                $infos->creationUserB($_POST['user'], $_POST['mail'], $_POST['pass']);
+            } else {
+                throw new Exception('Tous les champs ne sont pas remplis ou les mots de passe ne correspondent pas');
+            }
+        }
+
         // envoie vers la page de rédaction d'un commentaire
         elseif ($_GET['action'] == 'viewWriteCom') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -166,7 +177,7 @@ try {
         elseif ($_GET['action'] == 'deletePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $infos = new PostController();
-                $infos->suprPost();
+                $infos->suprPost($postId);
             } else {
                 throw new Exception('Aucun identifiant d\'article envoyé');
             }
@@ -176,7 +187,7 @@ try {
         elseif ($_GET['action'] == 'deleteCom') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $infos = new ComController();
-                $infos->suprCom();
+                $infos->suprCom($postId);
             } else {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
@@ -198,9 +209,14 @@ try {
                 $infos = new Controller();
                 $infos->administration();
             } else {
-                // throw new Exception('Vous n\'êtes pas autorisé');
                 header('Location: index.php?action=connection');
             }
+        }
+
+        // envoie vers la page d'erreur
+        elseif ($_GET['action'] == 'error') {
+                $infos = new Controller();
+                header('Location: index.php?action=error404');
         }
 
         // envoie vers la page de connection
@@ -256,10 +272,16 @@ try {
             $infos->allComBack();
         }
 
-        // envoie vers la page de création de compte
+        // envoie vers la page de création de compte depuis front
         elseif ($_GET['action'] == 'creationUser') {
             $infos = new UserController();
             $infos->createUserView();
+        }
+
+        // envoie vers la page de création de compte depuis back
+        elseif ($_GET['action'] == 'creationUserB') {
+            $infos = new UserController();
+            $infos->createUserViewB();
         }
 
         // envoie vers la page à propos
@@ -278,10 +300,10 @@ try {
             }
         }
 
-    // Requête par défaut qui renvoie sur la page d'accueil
+    // page d'accueil
     } else {
         $infos = new PostController();
-        $infos->listPosts();
+        $infos->listPosts();        
     }
 
 } catch (Exception $e) {

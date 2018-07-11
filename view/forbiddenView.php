@@ -8,8 +8,8 @@
   <meta charset="UTF-8">
 
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="icon" type="image/png" href="images/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../images/favicon.ico" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
@@ -33,9 +33,9 @@
 </div>
 
 <div class="error">
-<p><h1>Oups...</h1></p>
+<p><h1>Erreur !</h1></p>
 <br>
-<p><h2>La page demandée n'a pas été trouvée, il semble y avoir une erreur...</h2></p>
+<p><h2>Cette page est interdite aux visiteurs</h2></p>
 
 <p>Retour sur l'<a href="index.php?action=listPosts">accueil</a></p>
 <br>

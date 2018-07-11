@@ -2,12 +2,13 @@
 
 <?php session_start();?>
 
-<?php $cookie_name = "visitor";
-$addr = $_SERVER['REMOTE_ADDR'];
-$nav = $_SERVER['HTTP_USER_AGENT'];
-$cookie_value = 'Utilisateur anonyme ' . ' I.P. ' . $addr . ' Navigateur ' . $nav;
-setcookie($cookie_name, $cookie_value, time() + 3600, "/", null, false, true);
-?>
+<?php 
+    $cookie_name = "visitor";
+    $visitor = session_id().microtime().rand(0,9999999999);
+    $visitor = hash('sha512', $visitor);
+    setcookie($cookie_name, $visitor, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
+    $_SESSION['visitor'] = $visitor;
+    ?>
 
 <?php $titre = 'Le blog de l\'écrivain';?>
 
@@ -22,25 +23,27 @@ while ($data = $posts->fetch()) {
       <p><h2><?php echo htmlspecialchars($data['titre']); ?></h2></p>
         <p><img src="../images/author.png" alt="author"> : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?>
 
-<?php list($date, $time) = explode(" ", $data['post_date']); ?>
-<?php list($year, $month, $day) = explode("-", $date); ?>
-<?php list($hour, $min, $sec) = explode(":", $time); ?>
+        <?php list($date, $time) = explode(" ", $data['post_date']);?>
+        <?php list($year, $month, $day) = explode("-", $date);?>
+        <?php list($hour, $min, $sec) = explode(":", $time);?>
 
 
         <img src="../images/date.png" alt="date"> : <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
 
         <?php $description = ($data['contenu']);
 
-    if (strlen($description) >= 40) {
-        $description = substr($description, 0, 40);
-        $espace = strrpos($description, ' ');
-        $description = substr($description, 0, $espace) . " (...)";
+    $lg_max = 95;
+    $article = $description;
+    $description = strip_tags($description);
+    if (strlen($description) > $lg_max) {
+        $description = substr($description, 0, $lg_max);
+        $last_space = strrpos($description, " ");
+        $description = substr($description, 0, $last_space) . "...";
         echo $description;
     } else {
-        echo $description;
+        echo $article;
     }
     ?>
-
         <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire l'article</a></p>
         <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a></p>
         <p><a href="index.php?action=viewWriteCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>

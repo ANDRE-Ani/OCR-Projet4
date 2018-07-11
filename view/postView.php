@@ -13,18 +13,21 @@
                 <?=$post['contenu']?>
             </p>
 
-        <h2>Commentaires</h2>
-
         <?php
+        
             while ($comment = $comments->fetch()) {
+                
         ?>
-            <hr>
+        <hr>
+
+        <h3>Commentaires</h3>
 
         <p><img src="../images/author.png" alt="author"> : <?=htmlspecialchars($comment['author'])?>
         <img src="../images/date.png" alt="date"> : <?=$comment['comment_date']?></p>
         <p>Commentaire : <?=($comment['comment'])?></p>
         <p><a href="index.php?action=signalCom&amp;id=<?php echo $comment['id']; ?>"><button type="button">Signaler</button></a></p>
         <?php
+                
 }
 ?>
 

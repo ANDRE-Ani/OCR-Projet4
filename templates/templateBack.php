@@ -53,10 +53,11 @@
      <h2>Utilisateur</h2>
      <p><?php
 if (isset($_SESSION['user'])) {
-    echo 'Connecté : ' . $_SESSION['user'];
-}?></p>
+  echo 'Connecté : ' . $_SESSION['user'];
+}?></p></p>
         <p><a href="index.php?action=logout">Se déconnecter</a></p>
-      <p><a href="index.php?action=usersA">Gérer les utilisateurs</a></p>
+        <p><a href="index.php?action=creationUserB">Ajouter un utilisateur</a></p>
+        <p><a href="index.php?action=usersA">Gérer les utilisateurs</a></p>
       
     <hr>
 

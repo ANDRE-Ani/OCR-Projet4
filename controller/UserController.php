@@ -25,11 +25,11 @@ class UserController extends Controller
                 session_start();
                 $_SESSION['user'] = $_POST['user'];
                 $cookie_name = "admin";
-                $addr = $_SERVER['REMOTE_ADDR'];
-                $nav = $_SERVER['HTTP_USER_AGENT'];
-                $cookie_value = 'Utilisateur ' . $_SESSION['user'] . ' I.P. ' . $addr . ' Navigateur ' . $nav;
-                setcookie($cookie_name, $cookie_value, time()+3600, "/", null, false, true);
-
+                $admin = session_id().microtime().rand(0,9999999999);
+                $admin = hash('sha512', $admin);
+                setcookie($cookie_name, $admin, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
+                $_SESSION['admin'] = $admin;
+                
                 header('Location: index.php?action=administration');
             } else {
                 echo 'Login ou mot de passe incorrect';
@@ -63,12 +63,33 @@ class UserController extends Controller
         }
     }
 
-    // page de création de compte
+    // création de compte
+    public function creationUserB($user, $mail, $pass)
+    {
+        $UserManager = new UserManager();
+        $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $affectedLines = $UserManager->createUser($user, $mail, $pass_hash);
+        if ($affectedLines === false) {
+            throw new Exception('Impossible de créer le compte');
+        } else {
+            header('Location: index.php?action=administration');
+        }
+    }
+
+    // page de création de compte depuis front
     public function createUserView()
     {
         $PostManager = new PostManager();
         $ComManager = new ComManager();
         require('view/createUserView.php');
+    }
+
+    // page de création de compte depuis back
+    public function createUserViewB()
+    {
+        $PostManager = new PostManager();
+        $ComManager = new ComManager();
+        require('view/createUserViewB.php');
     }
 
     // affiche les utilisateurs
