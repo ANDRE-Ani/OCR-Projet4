@@ -30,7 +30,7 @@ try {
         if ($_GET['action'] == 'listPosts') {
             $infos = new PostController();
             $infos->listPosts();
-            $infos->post();
+            //$infos->post();
             
 
             // affiche un article et ses commentaires

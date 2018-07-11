@@ -27,6 +27,7 @@
         <p>Commentaire : <?=($comment['comment'])?></p>
         <p><a href="index.php?action=signalCom&amp;id=<?php echo $comment['id']; ?>"><button type="button">Signaler</button></a></p>
         <?php
+                
 }
 ?>
 

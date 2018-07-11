@@ -66,6 +66,16 @@ h3 {
     width: 100%;
 }
 
+.error {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: #fe9b4d;
+}
+
 .aside button:hover {
     background-color: #bad8ff;
 }

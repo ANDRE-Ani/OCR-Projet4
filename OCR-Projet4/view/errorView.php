@@ -32,12 +32,14 @@
 <a href="index.php?action=listPosts" title="Accueil du blog"><h1>Le blog de l'écrivain Jean Forteroche</h1></a>
 </div>
 
+<div class="error">
 <p><h1>Oups...</h1></p>
 <br>
 <p><h2>La page demandée n'a pas été trouvée, il semble y avoir une erreur...</h2></p>
 
 <p>Retour sur l'<a href="index.php?action=listPosts">accueil</a></p>
 <br>
+</div>
 
 <div class="footer">
 <p>Le site de l'écrivain - Copyright 2018 - Jean Forteroche - Ecrivain <img src="../images/machine.png" alt = "machine a ecrire"></p>
