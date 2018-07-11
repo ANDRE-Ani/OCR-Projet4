@@ -1,0 +1,218 @@
+/* Feuille de style du blog */
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.body {
+    width: 100%;
+    background: #f1f1f1;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    width: 5%;
+    text-align: center;
+}
+
+th {
+    background-color: #869aea;
+}
+
+tr:hover {
+    background-color: #bfdfff;
+}
+
+.header {
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    background-image: url("../images/nuage.png");
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+.header-admin {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    background-color: #ff8b73;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+#contenu {
+    display: flex;
+    width: 100%;
+}
+
+.aside button:hover {
+    background-color: #bad8ff;
+}
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+}
+
+.aside {
+    background-color: #bcffba;
+    padding: 5px;
+    border: 1px solid #005094;
+}
+
+.aside h2 {
+    color: blue;
+}
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+}
+
+.rightcolumn2 {
+    float: right;
+    width: 75%;
+    margin: 5px;
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.leftcolumn2 {
+    float: left;
+    width: 25%;
+    border: dashed #ff8b73;
+    background-image: url("../images/hexagon-background.png");
+    padding: 5px;
+}
+
+.about {
+    border: thick double #005297;
+    background-image: url("../images/hexagon-background.png");
+    padding: 5px;
+    margin: 5px;
+}
+
+.reseaux {
+    border: thick double #005297;
+    background-image: url("../images/hexagon-background.png");
+    padding: 5px;
+    margin: 5px;
+}
+
+.admin {
+    border: thick double #005297;
+    background-image: url("../images/hexagon-background.png");
+    padding: 5px;
+    margin: 5px;
+}
+
+.list {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 5px;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+    background-color: #005399;
+    background-image: url("../images/herbe.png");
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
+.envoie {
+    width: 80%;
+    margin: auto;
+}
+
+.posts {
+    width: 80%;
+    margin: auto;
+}
+
+.com {
+    width: 80%;
+    margin: auto;
+    background-color: #dddddd;
+}
+
+.connecter {
+    width: 100%;
+}
+
+.formulaireAdmin {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #bad8ff;
+}
+
+.formulaireLogin {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #ff8b73;
+}
+
+.formulaireCreation {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #ff8b73;
+}
+
+
+/* Responsive layout */
+
+@media screen and (max-width: 500px) {
+    #contenu {
+        flex-direction: column;
+        margin: 0;
+    }
+    .aside {
+        width: 100%;
+        margin: 0;
+    }
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .leftcolumn2,
+    .rightcolumn2 {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
