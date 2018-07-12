@@ -7,8 +7,9 @@
 <?php ob_start();?>
 <p>Retour sur le <a href="index.php?action=listPosts">blog</a></p>
        <h3><?=htmlspecialchars($post['titre'])?></h3>
+       <div class="author">
        <img src="../images/date.png" alt="date"> : <?=$post['post_date']?>
-
+        </div>
             <p>
                 <?=$post['contenu']?>
             </p>
@@ -22,8 +23,10 @@
 
         <h3>Commentaires</h3>
 
+        <div class="author">
         <p><img src="../images/author.png" alt="author"> : <?=htmlspecialchars($comment['author'])?>
         <img src="../images/date.png" alt="date"> : <?=$comment['comment_date']?></p>
+        </div>
         <p>Commentaire : <?=($comment['comment'])?></p>
         <p><a href="index.php?action=signalCom&amp;id=<?php echo $comment['id']; ?>"><button type="button">Signaler</button></a></p>
         <?php

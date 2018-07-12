@@ -45,6 +45,8 @@ tr:hover {
 
 h3 {
     text-decoration: underline;
+    background-color: #b8d4ff;
+    border-radius: 10px;
 }
 
 .header-admin {
@@ -64,6 +66,15 @@ h3 {
 #contenu {
     display: flex;
     width: 100%;
+}
+
+.author {
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #88ff61;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .error {
@@ -88,7 +99,6 @@ h3 {
 .aside {
     background-color: #bcffba;
     padding: 5px;
-    border: 1px solid #005094;
 }
 
 .aside h2 {
@@ -98,6 +108,7 @@ h3 {
 .rightcolumn {
     float: left;
     width: 25%;
+    background-color: #87b6ff;
 }
 
 .rightcolumn2 {
@@ -117,22 +128,16 @@ h3 {
 }
 
 .about {
-    border: thick double #005297;
-    background-image: url("../images/hexagon-background.png");
     padding: 5px;
     margin: 5px;
 }
 
 .reseaux {
-    border: thick double #005297;
-    background-image: url("../images/hexagon-background.png");
     padding: 5px;
     margin: 5px;
 }
 
 .admin {
-    border: thick double #005297;
-    background-image: url("../images/hexagon-background.png");
     padding: 5px;
     margin: 5px;
 }
@@ -151,7 +156,6 @@ h3 {
     background-image: url("../images/herbe.png");
     padding-top: 10px;
     padding-bottom: 20px;
-    margin-top: 10px;
 }
 
 .envoie {

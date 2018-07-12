@@ -21,6 +21,7 @@ while ($data = $posts->fetch()) {
       <!-- Récupération des articles -->
 
       <p><h2><?php echo htmlspecialchars($data['titre']); ?></h2></p>
+      <div class="author">
         <p><img src="../images/author.png" alt="author"> : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?>
 
         <?php list($date, $time) = explode(" ", $data['post_date']);?>
@@ -29,6 +30,7 @@ while ($data = $posts->fetch()) {
 
 
         <img src="../images/date.png" alt="date"> : <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
+    </div>
 
         <?php $description = ($data['contenu']);
 
@@ -44,9 +46,9 @@ while ($data = $posts->fetch()) {
         echo $article;
     }
     ?>
-        <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire l'article</a></p>
-        <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a></p>
-        <p><a href="index.php?action=viewWriteCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>
+        <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire l'article</a> -
+        <a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a> -
+        <a href="index.php?action=viewWriteCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>
 
         <hr>
 
