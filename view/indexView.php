@@ -15,11 +15,12 @@
 <?php ob_start();?>
 
        <?php
-while ($data = $posts->fetch()) {
+        while ($data = $posts->fetch()) {
     ?>
 
       <!-- Récupération des articles -->
 
+    <div id="post">
       <p><h2><?php echo htmlspecialchars($data['titre']); ?></h2></p>
       <div class="author">
         <p><img src="../images/author.png" alt="author"> : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?>
@@ -46,10 +47,11 @@ while ($data = $posts->fetch()) {
         echo $article;
     }
     ?>
-        <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire l'article</a> -
-        <a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Voir les commentaires</a> -
+    
+        <p><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Lire l'article et ses commentaires</a> -
         <a href="index.php?action=viewWriteCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>
 
+    </div>
         <hr>
 
     <?php

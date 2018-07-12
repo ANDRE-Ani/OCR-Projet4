@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<title>Le site de l'écrivain - Erreur</title>
+<title>Le blog de l'écrivain - Erreur</title>
   <meta name="description" content="Le blog de Jean Forteroche" />
   <meta name="author" content="Patrice ANDREANI">
   <meta name="keywords" content="écrivain, jean forteroche">

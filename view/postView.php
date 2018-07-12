@@ -6,7 +6,9 @@
 
 <?php ob_start();?>
 <p>Retour sur le <a href="index.php?action=listPosts">blog</a></p>
-       <h3><?=htmlspecialchars($post['titre'])?></h3>
+       
+<div class="postCom">
+<h3><?=htmlspecialchars($post['titre'])?></h3>
        <div class="author">
        <img src="../images/date.png" alt="date"> : <?=$post['post_date']?>
         </div>
@@ -19,8 +21,10 @@
             while ($comment = $comments->fetch()) {
                 
         ?>
+        </div>
         <hr>
 
+<div class="postCom">
         <h3>Commentaires</h3>
 
         <div class="author">
@@ -33,7 +37,7 @@
                 
 }
 ?>
-
+</div>
      <?php $contenu = ob_get_clean();?>
 
 <?php require 'templates/templateFront.php';?>
