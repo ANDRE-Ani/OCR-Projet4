@@ -23,14 +23,14 @@
     <div id="post">
       <p><h2><?php echo htmlspecialchars($data['titre']); ?></h2></p>
       <div class="author">
-        <p><img src="../images/author.png" alt="author"> : <?php echo nl2br(htmlspecialchars($data['auteur'])); ?>
+        <p><img src="../images/author.png" alt="author"> <?php echo nl2br(htmlspecialchars($data['auteur'])); ?>
 
         <?php list($date, $time) = explode(" ", $data['post_date']);?>
         <?php list($year, $month, $day) = explode("-", $date);?>
         <?php list($hour, $min, $sec) = explode(":", $time);?>
 
 
-        <img src="../images/date.png" alt="date"> : <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
+        <img src="../images/date.png" alt="date"> <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
     </div>
 
         <?php $description = ($data['contenu']);

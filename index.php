@@ -95,6 +95,8 @@ try {
 
         // écrire un commentaire
         elseif ($_GET['action'] == 'writeComA') {
+            $author =htmlspecialchars($_POST['author']);
+            $comment =htmlspecialchars($_POST['comment']);  
             if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                 $infos = new ComController();
                 $infos->writeComFront($_POST['author'], $_POST['comment'], $_GET['post_id']);
@@ -288,6 +290,12 @@ try {
         elseif ($_GET['action'] == 'about') {
             $infos = new Controller();
             $infos->aboutAuthor();
+        }
+
+        // envoie vers la page mentios légales
+        elseif ($_GET['action'] == 'legal') {
+            $infos = new Controller();
+            $infos->legalView();
         }
 
         // signalement d'un commentaire

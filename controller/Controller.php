@@ -17,6 +17,12 @@ class Controller
         require 'view/aboutView.php';
     }
 
+// page mentions legales
+public function legalView()
+{
+    require 'view/legalView.php';
+}
+
     // page d'erreur
     public function error404()
     {

@@ -35,18 +35,20 @@ tr:hover {
 }
 
 .header {
+    color: #e8e8e8;
     width: 100%;
     font-size: 25px;
     text-align: center;
-    background-image: url("../images/nuage.png");
     padding-top: 20px;
     padding-bottom: 20px;
-    border-radius: 10px;
+    background-color: #005399;
+}
+
+h1 {
+    color: #e8e8e8;
 }
 
 h3 {
-    text-decoration: underline;
-    background-color: #b8d4ff;
     border-radius: 10px;
 }
 
@@ -75,7 +77,6 @@ h3 {
     width: 50%;
     height: 30px;
     border-radius: 10px;
-    background-color: #88ff61;
     margin-bottom: 10px;
     margin-left: 10px;
 }
@@ -104,10 +105,6 @@ h3 {
 
 .aside {
     padding: 5px;
-}
-
-.aside h2 {
-    text-decoration: underline;
 }
 
 .rightcolumn {
@@ -184,15 +181,24 @@ h3 {
     margin: 5px;
 }
 
+.mentions {
+    background-color: #aeff98;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 .footer {
+    color: #e8e8e8;
     width: 100%;
     text-align: center;
     font-weight: bolder;
     background-color: #005399;
-    background-image: url("../images/herbe.png");
     padding-top: 10px;
     padding-bottom: 20px;
-    border-radius: 10px;
+}
+
+.footer a {
+    color: #e8e8e8;
 }
 
 .envoie {
