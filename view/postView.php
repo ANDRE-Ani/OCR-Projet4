@@ -8,7 +8,7 @@
 <p>Retour sur le <a href="index.php?action=listPosts">blog</a></p>
 
 <div class="postCom">
-<h3><?=htmlspecialchars($post['titre'])?></h3>
+<h2><?=htmlspecialchars($post['titre'])?></h2>
        <div class="author">
        <img src="../images/date.png" alt="date"> <?=$post['post_date']?>
         </div>
@@ -23,9 +23,7 @@ while ($comment = $comments->fetch()) {
     ?>
         </div>
 
-
 <div class="postCom2">
-
 
         <div class="author">
         <p><img src="../images/author.png" alt="author"> <?=htmlspecialchars($comment['author'])?>

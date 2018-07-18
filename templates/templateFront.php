@@ -72,11 +72,9 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Le blog de Jean Forteroche
-            
-          </h1>
-          <?=$contenu?>
+          <h1 class="my-4">Le blog de Jean Forteroche</h1>
 
+          <?=$contenu?>
 
         </div>
 
