@@ -247,11 +247,24 @@ try {
 
         // deconnection
         elseif ($_GET['action'] == 'logout') {
-            $infos = new UserController();
-            $infos->connectionAdmin();
+            // $infos = new UserController();
+            
             $cookie_name = "admin";
-            setcookie($cookie_name, '', time() - 3600, "/", "p4ocr.andre-ani.fr", true, true);
-            header('Location: index.php');
+            // setcookie($cookie_name, '', time() - 3600, "/", "p4ocr.andre-ani.fr", true, true);
+            // setcookie($cookie_name, '', time()-1, "/", "p4ocr.andre-ani.fr", true, true);
+
+            $_SESSION = array();
+            session_start();
+            session_unset();
+            session_destroy();
+            setcookie('admin');
+            unset($_SESSION['admin']);
+            // unset($_COOKIE["admin"]);
+
+            $infos = new PostController();
+            $infos->listPosts();
+            
+            // header('Location: index.php');
         }
 
         // envoie vers la page de rédaction d'un article

@@ -24,7 +24,7 @@ class UserController extends Controller
             if ($correctPassword != false) {
                 session_start();
                 $_SESSION['user'] = $_POST['user'];
-                $cookie_name = "admin";
+                $cookie_name = 'admin';
                 $admin = session_id().microtime().rand(0,9999999999);
                 $admin = hash('sha512', $admin);
                 setcookie($cookie_name, $admin, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
