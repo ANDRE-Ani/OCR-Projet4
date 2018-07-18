@@ -3,7 +3,6 @@
 <?php $titre = SITE_NAME . ' - A propos';?>
 
 <?php ob_start();?>
-
 Retour sur le <a href="index.php?action=listPosts">blog</a>
 
 <div id="aboutAuthor">

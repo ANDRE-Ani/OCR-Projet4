@@ -16,7 +16,6 @@ else
 ?>
 
 <?php $titre = SITE_NAME . ' - Administration - Gérer les utilisateurs'; ?>
-
 <?php ob_start(); ?>
 
 <div id="list">

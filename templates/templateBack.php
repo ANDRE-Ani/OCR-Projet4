@@ -132,7 +132,7 @@ if (isset($_SESSION['user'])) {
 
 <div class="card my-6">
 <h5 class="card-header">Bienvenue dans l'administration du site</h5>
-          <?=$contenu?>
+<?=$contenu?>
 </div>
 </div>
 

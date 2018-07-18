@@ -1,9 +1,6 @@
-<!-- Page de creation de compte -->
-
 <?php $titre = SITE_NAME . ' - Création de compte'; ?>
 
 <?php ob_start(); ?>
-
 <div class="connecter">
 <div class="formulaireCreation">
 

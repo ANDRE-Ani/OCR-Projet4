@@ -18,7 +18,6 @@ else
 <?php $titre = SITE_NAME . ' - Administration - Gérer les commentaires'; ?>
 
 <?php ob_start(); ?>
-
 <div id="list">
         <h2>Liste des commentaires</h2>
 

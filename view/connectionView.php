@@ -1,9 +1,5 @@
-<!-- Page de connexion à l'admin -->
-
 <?php $titre = SITE_NAME . ' - Connexion à l\'administration'; ?>
-
 <?php ob_start(); ?>
-
 <div class="connecter">
 <div class="formulaireLogin">
 
@@ -19,5 +15,4 @@
 </div>
 
 <?php $contenu = ob_get_clean(); ?>
-
 <?php require 'templates/templateUser.php'; ?>

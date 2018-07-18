@@ -14,6 +14,7 @@ else
     header('Location: index.php?action=listPosts');
 }
 ?>
+<?php ob_start();?>
 
 <?php $titre = SITE_NAME . ' - Administration'; ?>
 
