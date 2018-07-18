@@ -85,7 +85,7 @@ Retour sur le <a href="index.php?action=listPosts">blog</a>
 <div class="error">
 <p><h1>Oups...</h1></p>
 <br>
-<p><h2>La page demandée n'a pas étét trouvée...</h2></p>
+<p><h2>La page demandée n'a pas été trouvée...</h2></p>
 
 <p>Retour sur l'<a href="index.php?action=listPosts">accueil</a></p>
 <br>
