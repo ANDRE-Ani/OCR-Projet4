@@ -1,4 +1,4 @@
-<!-- Page admin d'édition d'un commentaire -->
+<!-- Page admin d'édition d'un utilisateur -->
 
 <?php session_start();
 
@@ -18,25 +18,18 @@ else
 }
 ?>
 
-<?php $titre = SITE_NAME . ' - Administration - Editer un commentaire'; ?>
+<?php $titre = SITE_NAME . ' - Administration - Editer un utilisateur'; ?>
 
 <?php ob_start(); ?> 
    <div id="admin">
      
    <div class="envoie">
-     <h2>Editer un commentaire</h2>
-     <form action="index.php?action=editComBack&id=<?php echo $com['id'] ?>" method="post">
+     <h2>Editer un utilisateur</h2>
+     <form action="index.php?action=editUserL&id=<?php echo $userE['id'] ?>" method="post">
 
-        <textarea name="contenu" rows="4" cols="50"/> <?php echo $com['comment']; ?></textarea>
+        Identifiant : <input type="text" name="user" value="<?php echo $userE['user']; ?>" /> <br/>
+        Mail : <input type="text" name="mail" value="<?php echo $userE['mail']; ?>" /> <br/> 
         
-        <p>Statut :
-        <SELECT name="statut">
-        <option value="en attente">En attente</option>
-        <option value="valide">Validé</option>
-        <option value="signale">Signalé</option>
-        </SELECT>
-        </p>
-
         <p>Soumettre : <input type="submit" name="valider" value="OK"/></p>
      </form>
    </div>

@@ -17,8 +17,6 @@ function listPosts() {
     $PostManager = new PostManager();
     $ComManager = new ComManager();
     $posts = $PostManager->getPosts();
-    $total = $PostManager->number($nbligne);
-    $totalC = $ComManager->numberC($nbligneC);
     require('view/indexView.php');
 }
 
@@ -28,8 +26,6 @@ function post() {
     $ComManager = new ComManager();
     $post = $PostManager->getPost($_GET['id']);
     $comments = $ComManager->getComments($_GET['id']);
-    $total = $PostManager->number($nbligne);
-    $totalC = $ComManager->numberC($nbligneC);
     require('view/postView.php');
 }
 

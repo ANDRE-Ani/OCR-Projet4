@@ -1,6 +1,22 @@
 <!-- Page admin d'édition d'un article -->
 
-<?php session_start(); ?>
+<?php session_start();
+
+if (isset($_COOKIE['admin']) && !empty($_COOKIE['admin']) && 
+    (isset($_SESSION['admin']) && !empty($_SESSION['admin']))) 
+{
+    $admin = session_id().microtime().rand(0,9999999999);
+    $admin = hash('sha512', $ticket);
+    $_COOKIE['admin'] = $admin;
+    $_SESSION['admin'] = $admin;
+}
+else
+{
+    $_SESSION = array();
+    session_destroy();
+    header('Location: index.php?action=listPosts');
+}
+?>
 
 <?php $titre = SITE_NAME . ' - Administration - Editer un article'; ?>
 

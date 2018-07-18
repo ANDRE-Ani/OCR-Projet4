@@ -13,7 +13,8 @@ class UserController extends Controller
 {
 
 // connection à l'admin
-    public function logAdmin() {
+    public function logAdmin()
+    {
         if (isset($_POST["user"]) && isset($_POST["pass"])) {
             $UserManager = new UserManager();
             $result = $UserManager->admin($_POST['user'], $_POST['pass']);
@@ -24,11 +25,11 @@ class UserController extends Controller
                 session_start();
                 $_SESSION['user'] = $_POST['user'];
                 $cookie_name = "admin";
-                $addr = $_SERVER['REMOTE_ADDR'];
-                $nav = $_SERVER['HTTP_USER_AGENT'];
-                $cookie_value = 'Utilisateur ' . $_SESSION['user'] . ' I.P. ' . $addr . ' Navigateur ' . $nav;
-                setcookie($cookie_name, $cookie_value, time()+3600, "/", null, false, true);
-
+                $admin = session_id().microtime().rand(0,9999999999);
+                $admin = hash('sha512', $admin);
+                setcookie($cookie_name, $admin, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
+                $_SESSION['admin'] = $admin;
+                
                 header('Location: index.php?action=administration');
             } else {
                 echo 'Login ou mot de passe incorrect';
@@ -40,39 +41,94 @@ class UserController extends Controller
         }
     }
 
-// envoie vers la page de connection pour l'admin
-function connectionAdmin() {
-    $PostManager = new PostManager();
-    $ComManager = new ComManager();
-    $UserManager = new UserManager();
-    require('view/connectionView.php');
-}
-
-// création de compte
-function creationUserA($user, $mail, $pass) {
-    $UserManager = new UserManager();
-    $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-    $affectedLines = $UserManager->createUser($user, $mail, $pass_hash);
-    if ($affectedLines === false) {
-        throw new Exception('Impossible de créer le compte');
+    // envoie vers la page de connection pour l'admin
+    public function connectionAdmin()
+    {
+        $PostManager = new PostManager();
+        $ComManager = new ComManager();
+        $UserManager = new UserManager();
+        require('view/connectionView.php');
     }
-    else {
-        header('Location: index.php?action=connection');
+
+    // création de compte
+    public function creationUserA($user, $mail, $pass)
+    {
+        $UserManager = new UserManager();
+        $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $affectedLines = $UserManager->createUser($user, $mail, $pass_hash);
+        if ($affectedLines === false) {
+            throw new Exception('Impossible de créer le compte');
+        } else {
+            header('Location: index.php?action=connection');
+        }
     }
-}
 
-// page de création de compte
-function createUserView() {
-    $PostManager = new PostManager();
-    $ComManager = new ComManager();
-    require('view/createUserView.php');
-}
+    // création de compte
+    public function creationUserB($user, $mail, $pass)
+    {
+        $UserManager = new UserManager();
+        $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $affectedLines = $UserManager->createUser($user, $mail, $pass_hash);
+        if ($affectedLines === false) {
+            throw new Exception('Impossible de créer le compte');
+        } else {
+            header('Location: index.php?action=administration');
+        }
+    }
 
-// affiche les utilisateurs
-function allUsers() {
-    $UserManager = new UserManager();
-    $users = $UserManager->getUsers();
-    require('view/allPostView.php');
-}
+    // page de création de compte depuis front
+    public function createUserView()
+    {
+        $PostManager = new PostManager();
+        $ComManager = new ComManager();
+        require('view/createUserView.php');
+    }
 
+    // page de création de compte depuis back
+    public function createUserViewB()
+    {
+        $PostManager = new PostManager();
+        $ComManager = new ComManager();
+        require('view/createUserViewB.php');
+    }
+
+    // affiche les utilisateurs
+    public function allUsers()
+    {
+        $UserManager = new UserManager();
+        $users = $UserManager->getUsers();
+        require('view/allUserView.php');
+    }
+
+    // supprime un utilisateur
+    public function suprUser()
+    {
+        $UserManager = new UserManager();
+        $affectedLines = $UserManager->deleteUser();
+        if ($affectedLines === false) {
+            throw new Exception('Impossible de supprimer l\'utilisateur');
+        } else {
+            header('Location: index.php?action=administration');
+        }
+    }
+
+    // envoie vers la page d'édition d'un utilisateur
+    public function viewEditUserB($userId)
+    {
+        $UserManager = new UserManager();
+        $userE = $UserManager->getUser($userId);
+        require('view/editUserView.php');
+    }
+
+    // édition d'un utilisateur
+    public function editUserBack($user, $mail, $id)
+    {
+        $UserManager = new UserManager();
+        $affectedLines = $UserManager->editUserL($user, $mail, $id);
+        if ($affectedLines === false) {
+            throw new Exception('Impossible d\'éditer l\'utilisateur');
+        } else {
+            header('Location: index.php?action=administration');
+        }
+    }
 }

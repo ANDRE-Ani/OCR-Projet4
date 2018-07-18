@@ -1,5 +1,7 @@
 <?php
 
+// manager pour les requêtes BDD gérant les commentaires
+
 namespace model;
 
 use PDO;
@@ -11,7 +13,7 @@ class ComManager extends Manager
 // Récupère les commentaires
 public function getComs() {
     $db = $this->dbConnect();
-    $comments = $db->prepare('SELECT id, post_id, author, comment, statut, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin") AS comment_date FROM comments ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT id, post_id, author, comment, statut, comment_date FROM comments ORDER BY comment_date DESC');
     $comments->execute(array());
     return $comments;
 }
@@ -45,10 +47,11 @@ public function writeComF($author, $comment, $idPost) {
 // Récupère les commentaires d'un article
 public function getComments($postId) {
     $db = $this->dbConnect();
-    $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? AND statut = "valide" ORDER BY comment_date DESC');
     $comments->execute(array($postId));
     return $comments;
 }
+
 
 // Supprime un commentaire
 public function deleteCom($postId) {
@@ -69,7 +72,7 @@ public function editComF($id, $comment, $statut) {
 // signal un commentaire
 public function tagComF($postId) {
     $bdd = $this->dbConnect();
-    $comment = $bdd->prepare("UPDATE comments SET statut='signalé' WHERE id=".$_GET['id']);
+    $comment = $bdd->prepare("UPDATE comments SET statut='signale' WHERE id=".$_GET['id']);
     $affectedLines = $comment->execute(array($postId));
     return $affectedLines;
 }
