@@ -112,7 +112,7 @@ Retour sur le <a href="index.php?action=listPosts">blog</a>
     <div class="card-body">
 
 <?php
-  if (isset($_SESSION['user'])) {
+  if (isset($_SESSION['admin'])) {
     echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a></p>';
     echo '<p><a href="index.php?action=logout">Se déconnecter</a></p>';
     } else {

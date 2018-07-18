@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Le blog de Jean Forteroche" />
@@ -72,14 +70,9 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Le blog de Jean Forteroche
-            
-          </h1>
-          
-          <?=$contenu?>
-
-
-        </div>
+<h1 class="my-4">Le blog de Jean Forteroche</h1>
+<?=$contenu?>
+</div>
 
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">

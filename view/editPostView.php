@@ -1,5 +1,3 @@
-<!-- Page admin d'édition d'un article -->
-
 <?php session_start();
 
 if (isset($_COOKIE['admin']) && !empty($_COOKIE['admin']) && 

@@ -79,7 +79,7 @@
 
 <?php ob_start();?>
 
-Retour sur le <a href="index.php?action=listPosts">blog</a>
+Retour sur le <a href="https://p4ocr.andre-ani.fr">blog</a>
 
 
 <div class="error">
@@ -87,7 +87,7 @@ Retour sur le <a href="index.php?action=listPosts">blog</a>
 <br>
 <p><h2>Cette page est interdite aux visiteurs</h2></p>
 
-<p>Retour sur l'<a href="index.php?action=listPosts">accueil</a></p>
+<p>Retour sur l'<a href="https://p4ocr.andre-ani.fr">accueil</a></p>
 <br>
 </div>
 
@@ -100,8 +100,8 @@ Retour sur le <a href="index.php?action=listPosts">blog</a>
   <div class="card my-4">
     <h5 class="card-header">Suivez-moi</h5>
     <div class="card-body">
-<p><a href="https://mamot.fr/auth/sign_in" target="_blank"><img src="images/mastodon.png" width="32" height="34" alt="Mastodon"></a>
-<a href="https://framasphere.org/users/sign_in" target="_blank"><img src="images/diaspora.png" width="32" height="32" alt="Diaspora"></a></p>
+<p><a href="https://mamot.fr/auth/sign_in" target="_blank"><img src="../images/mastodon.png" width="32" height="34" alt="Mastodon"></a>
+<a href="https://framasphere.org/users/sign_in" target="_blank"><img src="../images/diaspora.png" width="32" height="32" alt="Diaspora"></a></p>
     </div>
   </div>
 
@@ -112,7 +112,7 @@ Retour sur le <a href="index.php?action=listPosts">blog</a>
     <div class="card-body">
 
 <?php
-  if (isset($_SESSION['user'])) {
+  if (isset($_SESSION['admin'])) {
     echo '<p>Connecté : ' . '<a href="index.php?action=administration">' . $_SESSION['user'] . '</a></p>';
     echo '<p><a href="index.php?action=logout">Se déconnecter</a></p>';
     } else {

@@ -207,7 +207,7 @@ try {
 
         // envoie vers la page d'administration
         elseif ($_GET['action'] == 'administration') {
-            if (isset($_COOKIE["admin"])) {
+            if (isset($_COOKIE['admin'])) {
                 $infos = new Controller();
                 $infos->administration();
             } else {

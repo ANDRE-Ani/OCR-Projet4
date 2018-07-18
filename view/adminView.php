@@ -1,5 +1,3 @@
-<!-- Page principal de l'administration -->
-
 <?php session_start();
 
 if (isset($_COOKIE['admin']) && !empty($_COOKIE['admin']) && 

@@ -1,13 +1,11 @@
-<!-- Page d'accueil du blog -->
-
 <?php session_start();?>
 
 <?php
-$cookie_name = "visitor";
-$visitor = session_id() . microtime() . rand(0, 9999999999);
-$visitor = hash('sha512', $visitor);
-setcookie($cookie_name, $visitor, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
-$_SESSION['visitor'] = $visitor;
+$cookie_name = "admin";
+$admin = session_id() . microtime() . rand(0, 9999999999);
+$admin = hash('sha512', $admin);
+setcookie($cookie_name, $admin, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
+$_SESSION['admin'] = $admin;
 ?>
 
 <?php $titre = 'Le blog de l\'écrivain';?>

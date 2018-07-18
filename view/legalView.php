@@ -1,5 +1,3 @@
-<!-- Page mentions légales -->
-
 <?php session_start();?>
 
 <?php $titre = SITE_NAME . ' - Mentions légales';?>

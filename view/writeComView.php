@@ -1,5 +1,3 @@
-<!-- Page de rédaction d'un commentaire -->
-
 <?php session_start(); ?>
 
 <?php $titre = SITE_NAME . ' - Administration - Publier un commentaire'; ?>
