@@ -250,9 +250,11 @@ try {
             $infos = new UserController();
             $infos->connectionAdmin();
             session_start();
-            session_unset();
-            session_destroy();
-            setcookie('admin', '', time());
+            //session_unset();
+            //session_destroy();
+            $cookie_name = "admin";
+            // setcookie('admin', '', time() - 3600, "/", "p4ocr.andre-ani.fr", true, true);
+            setcookie($cookie_name, '', time() - 3600, "/", "p4ocr.andre-ani.fr", true, true);
             header('Location: index.php');
         }
 

@@ -1,10 +1,9 @@
 <?php session_start();
-
 if (isset($_COOKIE['admin']) && !empty($_COOKIE['admin']) && 
     (isset($_SESSION['admin']) && !empty($_SESSION['admin']))) 
 {
     $admin = session_id().microtime().rand(0,9999999999);
-    $admin = hash('sha512', $ticket);
+    $admin = hash('sha512', $admin);
     $_COOKIE['admin'] = $admin;
     $_SESSION['admin'] = $admin;
 }

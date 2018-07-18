@@ -1,6 +1,4 @@
-<?php session_start();?>
-
-<?php
+<?php session_start();
 $cookie_name = "admin";
 $admin = session_id() . microtime() . rand(0, 9999999999);
 $admin = hash('sha512', $admin);
