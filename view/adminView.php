@@ -20,27 +20,29 @@ else
 
 <?php $titre = SITE_NAME . ' - Administration'; ?>
 
-<h2>Bienvenue dans l'administration du site</h2>
-<p>Vous pouvez gérer, à l'aide des menus à gauche, les articles et commentaires publiés sur le site.</p>
+<p>Vous pouvez gérer, à l'aide des menus à gauche, les utilisateurs, articles et commentaires du blog.</p>
 
 <br><hr><br>
 
 <p><h3>Informations sur le blog :</h3></p>
-<p>Nombre d'articles : <?php echo $total[0]; ?></p>
-<p>Nombre de commentaires : <?php echo $totalC[0]; ?></p>
-<p>Nombre d'utilisateurs : <?php echo $loginUser[0]; ?></p>
+<ul>
+<li>Nombre d'articles : <?php echo $total[0]; ?></li>
+<li>Nombre de commentaires : <?php echo $totalC[0]; ?></li>
+<li>Nombre d'utilisateurs : <?php echo $loginUser[0]; ?></li>
+</ul>
 
-<br><hr><br>
+<br><br>
 
 <p><h3>Informations sur le serveur</h3></p>
-<p>Système d'exploitation : <?php echo php_uname(s); ?></p>
-<p>Nom d'hôte : <?php echo php_uname(n); ?></p>
-<p>Architecture : <?php echo php_uname(m); ?></p>
-<p>Version de PHP : <?php echo phpversion(); ?></p>
-<p>Mail de l'administrateur : <?php echo $_SERVER['SERVER_ADMIN'] ?></p>
-<p>I.P. du serveur : <?php echo $_SERVER['SERVER_ADDR'] ?></p>
-<p>Domaine : <?php echo $_SERVER['HTTP_HOST'] ?></p>
-
+<ul>
+<li>Système d'exploitation : <?php echo php_uname(s); ?></li>
+<li>Nom d'hôte : <?php echo php_uname(n); ?></li>
+<li>Architecture : <?php echo php_uname(m); ?></li>
+<li>Version de PHP : <?php echo phpversion(); ?></li>
+<li>Mail de l'administrateur : <?php echo $_SERVER['SERVER_ADMIN'] ?></li>
+<li>I.P. du serveur : <?php echo $_SERVER['SERVER_ADDR'] ?></li>
+<li>Domaine : <?php echo $_SERVER['HTTP_HOST'] ?></li>
+</ul>
 
 
 <?php $contenu = ob_get_clean(); ?>

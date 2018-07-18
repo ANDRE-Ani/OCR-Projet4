@@ -29,10 +29,11 @@
         <?php list($year, $month, $day) = explode("-", $date);?>
         <?php list($hour, $min, $sec) = explode(":", $time);?>
 
-
+        
         <img src="../images/date.png" alt="date"> <?php echo $data['post_date'] = " Le " . "$day/$month/$year" . " - " . "$time"; ?></p>
+            
     </div>
-
+    
         <?php $description = ($data['contenu']);
 
     $lg_max = 95;
@@ -52,7 +53,7 @@
         <a href="index.php?action=viewWriteCom&amp;id=<?php echo $data['id']; ?>">Publier un commentaire</a></p>
 
     </div>
-        <hr>
+        
 
     <?php
 }
