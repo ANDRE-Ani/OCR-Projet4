@@ -207,7 +207,7 @@ try {
 
         // envoie vers la page d'administration
         elseif ($_GET['action'] == 'administration') {
-            if (isset($_COOKIE['admin'])) {
+            if (isset($_COOKIE["admin"])) {
                 $infos = new Controller();
                 $infos->administration();
             } else {
@@ -247,19 +247,23 @@ try {
 
         // deconnection
         elseif ($_GET['action'] == 'logout') {
-            // $infos = new UserController();
+            $infos = new UserController();
             
-            $cookie_name = "admin";
-            // setcookie($cookie_name, '', time() - 3600, "/", "p4ocr.andre-ani.fr", true, true);
-            // setcookie($cookie_name, '', time()-1, "/", "p4ocr.andre-ani.fr", true, true);
-
-            $_SESSION = array();
             session_start();
-            session_unset();
+            $_SESSION = array();
+            setcookie("admin", "", time()-1, "/", "p4ocr.andre-ani.fr", true, true);
+            unset($_COOKIE["admin"]);
             session_destroy();
-            setcookie('admin');
-            unset($_SESSION['admin']);
-            // unset($_COOKIE["admin"]);
+
+
+            $txt1 = 'test : ';
+            $cookie1 = $_COOKIE["admin"];
+            $txt2 = 'test 1 : ';
+            $ses1 = $_SESSION["admin"];
+            $txt3 = 'test 2 : ';
+            $ses2 = $_SESSION["user"];
+            echo $txt1 . $cookie1 . $txt2 .$ses1 . $txt3 . $ses2;
+
 
             $infos = new PostController();
             $infos->listPosts();
