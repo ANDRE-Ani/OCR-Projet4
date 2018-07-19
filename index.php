@@ -207,12 +207,9 @@ try {
 
         // envoie vers la page d'administration
         elseif ($_GET['action'] == 'administration') {
-            if (isset($_COOKIE["admin"])) {
                 $infos = new Controller();
                 $infos->administration();
-            } else {
                 header('Location: index.php?action=connection');
-            }
         }
 
         // envoie vers la page d'erreur
@@ -255,20 +252,8 @@ try {
             unset($_COOKIE["admin"]);
             session_destroy();
 
-
-            $txt1 = 'test : ';
-            $cookie1 = $_COOKIE["admin"];
-            $txt2 = 'test 1 : ';
-            $ses1 = $_SESSION["admin"];
-            $txt3 = 'test 2 : ';
-            $ses2 = $_SESSION["user"];
-            echo $txt1 . $cookie1 . $txt2 .$ses1 . $txt3 . $ses2;
-
-
             $infos = new PostController();
             $infos->listPosts();
-            
-            // header('Location: index.php');
         }
 
         // envoie vers la page de rédaction d'un article

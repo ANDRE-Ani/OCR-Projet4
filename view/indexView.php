@@ -1,11 +1,3 @@
-<?php session_start();
-$cookie_name = "admin";
-$admin = session_id() . microtime() . rand(0, 9999999999);
-$admin = hash('sha512', $admin);
-setcookie($cookie_name, $admin, time() + (60 * 20), "/", "p4ocr.andre-ani.fr", true, true);
-$_SESSION['admin'] = $admin;
-?>
-
 <?php $titre = 'Le blog de l\'écrivain';?>
 
 <?php ob_start();?>
